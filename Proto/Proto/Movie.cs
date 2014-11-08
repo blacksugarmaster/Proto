@@ -10,7 +10,7 @@ namespace Proto
     {
         // class vars, with getter setter
         string title {get; set;}
-        List<string> cast {get;}
+        List<string> cast { get; set; }
 
         public Movie()
         {
