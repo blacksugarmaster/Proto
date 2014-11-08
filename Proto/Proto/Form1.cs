@@ -19,6 +19,7 @@ namespace Proto
 
         private void something()
         {
+            Movie dummy = new Movie();
 
         }
     }
