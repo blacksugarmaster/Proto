@@ -22,5 +22,10 @@ namespace Proto
             Movie dummy = new Movie();
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
