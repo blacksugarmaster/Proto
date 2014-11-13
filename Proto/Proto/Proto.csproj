@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\AddMovieList.cs" />
+    <Compile Include="BusinessObject\EGenre.cs" />
+    <Compile Include="BusinessObject\IBObject.cs" />
+    <Compile Include="BusinessObject\Lists.cs" />
+    <Compile Include="BusinessObject\MovieList.cs" />
+    <Compile Include="DB\DBP.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,7 +117,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogic\" />
+    <Folder Include="resource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

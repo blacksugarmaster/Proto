@@ -12,6 +12,8 @@ namespace Proto
         string title {get; set;}
         List<string> cast { get; set; }
         int year;
+        int age;
+        int genre;
         
 
         public Movie()
