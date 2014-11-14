@@ -32,5 +32,11 @@ namespace Proto.BusinessObject
         {
             return false;
         }
+
+
+        public IBObject parse()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

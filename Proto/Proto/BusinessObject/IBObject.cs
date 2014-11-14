@@ -11,5 +11,7 @@ namespace Proto.BusinessObject
         Boolean save();
 
         Boolean remove(IBObject obj);
+
+        IBObject parse();
     }
 }

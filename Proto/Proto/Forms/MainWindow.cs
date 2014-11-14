@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Proto.DB;
+using Proto.BusinessObject;
+
 namespace Proto
 {
     public partial class MainWindow : Form
