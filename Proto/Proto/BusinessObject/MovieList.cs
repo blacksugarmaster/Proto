@@ -16,6 +16,11 @@ namespace Proto.BusinessObject
             this.listName = listName;
         }
 
+        public MovieList()
+        {
+
+        }
+
 
         public bool save()
         {
