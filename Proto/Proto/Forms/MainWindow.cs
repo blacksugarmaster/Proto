@@ -18,6 +18,21 @@ namespace Proto
         public MainWindow()
         {
             InitializeComponent();
+
+
+        }
+
+        private void connectDB()
+        {
+            try
+            {
+                DBImplement db = new DBImplement();
+                db.getConnection();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         private void something()
