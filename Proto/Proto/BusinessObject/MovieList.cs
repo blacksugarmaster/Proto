@@ -18,7 +18,7 @@ namespace Proto.BusinessObject
 
         public MovieList()
         {
-
+            // TODO: Complete member initialization
         }
 
 

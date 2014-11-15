@@ -17,13 +17,6 @@ namespace Proto
     {
         public MainWindow()
         {
-
-            
-            DBImplement db = new DBImplement();
-            db.getConnection();
-            db.saveMovie();
-            db.reset();
-            
             InitializeComponent();
         }
 
@@ -36,11 +29,6 @@ namespace Proto
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

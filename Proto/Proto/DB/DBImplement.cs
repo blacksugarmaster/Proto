@@ -4,96 +4,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-using Proto.BusinessObject;
 
 namespace Proto.DB
 {
-    class DBImplement // : IDB
+    class DBImplement : IDB
     {
-        private void ExecuteQuery(string query)
+        private static string connectionString = "Data Source=MODB.db";
+
+        private static SQLiteConnection con = new SQLiteConnection(connectionString);
+
+        public DBImplement()
         {
-            try
+            using(System.Data.SQLite.SQLiteConnection con = new System.Data.SQLite.SQLiteConnection(connectionString))
             {
-                con.Open();
-                SQLiteCommand cmd = con.CreateCommand();
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
-                con.Close();
+                using(System.Data.SQLite.SQLiteCommand com = new System.Data.SQLite.SQLiteCommand(con))
+                {
+                    con.Open();
+
+
+                    // do stuff here
+
+
+                }
             }
-            catch(Exception e)
-            {
-                System.Console.Write(e.StackTrace);
-            }
-            
         }
 
-        static string s = AppDomain.CurrentDomain.BaseDirectory + "/resource/sqlite/MODB.db";
-        private static string connectionString = s;//"Data Source=MODB.db";
 
-        private static SQLiteConnection con;
-
-        public void getConnection()
-        {
-            try
-            {
-                con = new SQLiteConnection(connectionString);
-            }
-            catch(Exception e)
-            {
-                System.Console.Out.Write(e.StackTrace);
-            }
-            
-        }
 
         public bool reset()
         {
-           
-            string drop = "TRUNCATE TABLE Movie";
-
-            ExecuteQuery(drop);
-
-            return false;
-            
+            throw new NotImplementedException();
         }
 
-        public bool saveMovie()//BusinessObject.Movie movie)
+        public bool saveMovie(BusinessObject.Movie movie)
         {
-            string s = "INSERT INTO Movie (id,title) VALUES ('1', 'EFEF');";
-            ExecuteQuery(s);
-            return false;
+            throw new NotImplementedException();
         }
 
         public bool saveMovieList(BusinessObject.MovieList movieList)
         {
-            return false;
-
+            throw new NotImplementedException();
         }
 
         public bool saveLists(BusinessObject.Lists lists)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public BusinessObject.Movie getMovieById(string id)
         {
-            return new Movie();
+            throw new NotImplementedException();
         }
 
         public BusinessObject.MovieList getMovieListById(string id)
         {
-            return new MovieList() ;
+            throw new NotImplementedException();
         }
 
         public BusinessObject.Lists getListsById(string id)
         {
-            return new Lists();
+            throw new NotImplementedException();
         }
-
-        /*
 
         public List<BusinessObject.Lists> getAllLists()
         {
-
+            throw new NotImplementedException();
         }
 
         public BusinessObject.MovieList getAllMovie()
@@ -120,6 +95,5 @@ namespace Proto.DB
         {
             throw new NotImplementedException();
         }
-        */
     }
 }

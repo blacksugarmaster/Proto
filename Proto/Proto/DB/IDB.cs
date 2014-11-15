@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Data.SQLite;
 using Proto.BusinessObject;
 
@@ -33,7 +32,6 @@ namespace Proto.DB
         bool updateMovie(Movie movie);
         bool updateMovieList(MovieList movieList);
         bool updateLists(Lists list);
-
 
     }
 }

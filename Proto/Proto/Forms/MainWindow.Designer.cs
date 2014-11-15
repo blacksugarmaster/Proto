@@ -43,8 +43,6 @@
             this.MovieList = new System.Windows.Forms.TabPage();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.Search = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -53,6 +51,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -201,22 +201,6 @@
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(47, 174);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(287, 31);
-            this.textBox3.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 26);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Director";
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -285,6 +269,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Title";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(42, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 26);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Director";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(47, 174);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(287, 31);
+            this.textBox3.TabIndex = 17;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -295,7 +295,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "MovieOrganizer";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
