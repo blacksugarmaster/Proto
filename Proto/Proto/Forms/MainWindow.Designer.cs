@@ -43,16 +43,17 @@
             this.MovieList = new System.Windows.Forms.TabPage();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.Search = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDirector = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listGenre = new System.Windows.Forms.ListBox();
+            this.txtCast = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -183,11 +184,12 @@
             // 
             // Search
             // 
-            this.Search.Controls.Add(this.textBox3);
+            this.Search.Controls.Add(this.btnSearch);
+            this.Search.Controls.Add(this.txtDirector);
             this.Search.Controls.Add(this.label6);
-            this.Search.Controls.Add(this.listBox1);
-            this.Search.Controls.Add(this.textBox2);
-            this.Search.Controls.Add(this.textBox1);
+            this.Search.Controls.Add(this.listGenre);
+            this.Search.Controls.Add(this.txtCast);
+            this.Search.Controls.Add(this.txtTitle);
             this.Search.Controls.Add(this.label5);
             this.Search.Controls.Add(this.label4);
             this.Search.Controls.Add(this.label3);
@@ -201,28 +203,44 @@
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // txtDirector
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(47, 378);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(287, 254);
-            this.listBox1.TabIndex = 15;
+            this.txtDirector.Location = new System.Drawing.Point(47, 174);
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(287, 31);
+            this.txtDirector.TabIndex = 17;
             // 
-            // textBox2
+            // label6
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 262);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(287, 31);
-            this.textBox2.TabIndex = 14;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(42, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 26);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Director";
             // 
-            // textBox1
+            // listGenre
             // 
-            this.textBox1.Location = new System.Drawing.Point(47, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 31);
-            this.textBox1.TabIndex = 13;
+            this.listGenre.FormattingEnabled = true;
+            this.listGenre.ItemHeight = 25;
+            this.listGenre.Location = new System.Drawing.Point(47, 378);
+            this.listGenre.Name = "listGenre";
+            this.listGenre.Size = new System.Drawing.Size(287, 254);
+            this.listGenre.TabIndex = 15;
+            // 
+            // txtCast
+            // 
+            this.txtCast.Location = new System.Drawing.Point(47, 262);
+            this.txtCast.Name = "txtCast";
+            this.txtCast.Size = new System.Drawing.Size(287, 31);
+            this.txtCast.TabIndex = 14;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(47, 72);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(287, 31);
+            this.txtTitle.TabIndex = 13;
             // 
             // label5
             // 
@@ -269,21 +287,15 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Title";
             // 
-            // label6
+            // btnSearch
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 26);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Director";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(47, 174);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(287, 31);
-            this.textBox3.TabIndex = 17;
+            this.btnSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSearch.Location = new System.Drawing.Point(251, 920);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(173, 50);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -320,9 +332,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage MovieList;
         private System.Windows.Forms.TabPage Search;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listGenre;
+        private System.Windows.Forms.TextBox txtCast;
+        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -334,8 +346,9 @@
         private System.Windows.Forms.ToolStripMenuItem movieListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listAddToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDirector;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

@@ -10,6 +10,13 @@ namespace Proto.DB
 {
     class DBImplement : IDB
     {
+        // this is meant to be used under Relaese mode, since relative path problem with debug mode
+        private static string s = AppDomain.CurrentDomain.BaseDirectory + "/resource/sqlite/MODB.db";
+        private static string connectionString = s;//"Data Source=MODB.db";
+
+        private static SQLiteConnection con;
+
+
         private void ExecuteQuery(string query)
         {
             try
@@ -22,15 +29,16 @@ namespace Proto.DB
             }
             catch (Exception e)
             {
-                System.Console.Write(e.StackTrace);
+                reportError(e);
             }
 
         }
 
-        static string s = AppDomain.CurrentDomain.BaseDirectory + "/resource/sqlite/MODB.db";
-        private static string connectionString = s;//"Data Source=MODB.db";
+        private void reportError(Exception e)
+        {
+            System.Console.WriteLine(e.StackTrace);
+        }
 
-        private static SQLiteConnection con;
 
         public void getConnection()
         {
@@ -40,7 +48,7 @@ namespace Proto.DB
             }
             catch (Exception e)
             {
-                System.Console.Out.Write(e.StackTrace);
+                reportError(e);
             }
 
         }
@@ -56,65 +64,65 @@ namespace Proto.DB
 
         }
 
-        public bool saveMovie(BusinessObject.Movie movie)
+        public bool saveMovie(Movie movie)
         {
             string s = "";
             ExecuteQuery(s);
             return false;
         }
 
-        public bool saveMovieList(BusinessObject.MovieList movieList)
+        public bool saveMovieList(MovieList movieList)
         {
             return false;
 
         }
 
-        public bool saveLists(BusinessObject.Lists lists)
+        public bool saveLists(Lists lists)
         {
             return false;
         }
 
-        public BusinessObject.Movie getMovieById(string id)
+        public Movie getMovieById(string id)
         {
             return new Movie();
         }
 
-        public BusinessObject.MovieList getMovieListById(string id)
+        public MovieList getMovieListById(string id)
         {
             return new MovieList();
         }
 
-        public BusinessObject.Lists getListsById(string id)
+        public Lists getListsById(string id)
         {
             return new Lists();
         }
 
-        public List<BusinessObject.Lists> getAllLists()
+        public List<Lists> getAllLists()
         {
             return new List<Lists>();
         }
 
-        public BusinessObject.MovieList getAllMovie()
+        public MovieList getAllMovie()
         {
             throw new NotImplementedException();
         }
 
-        public BusinessObject.MovieList getMovieByCast()
+        public MovieList getMovieByCast()
         {
             throw new NotImplementedException();
         }
 
-        public bool updateMovie(BusinessObject.Movie movie)
+        public bool updateMovie(Movie movie)
         {
             throw new NotImplementedException();
         }
 
-        public bool updateMovieList(BusinessObject.MovieList movieList)
+        public bool updateMovieList(MovieList movieList)
         {
             throw new NotImplementedException();
         }
 
-        public bool updateLists(BusinessObject.Lists list)
+        public bool updateLists(Lists list)
         {
             throw new NotImplementedException();
         }

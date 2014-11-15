@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Proto.BusinessObject
 {
@@ -10,12 +11,15 @@ namespace Proto.BusinessObject
     {
         String id;
         // class vars, with getter setter
-        string title {get; set;}
-        List<string> cast { get; set; }
+        string title;
+        List<string> cast;
         int year;
         int age;
         int genre;
-        
+        Image poster;
+
+        // image path = imageBasepath + imageFileName.ext
+        private string imageBasePath = AppDomain.CurrentDomain.BaseDirectory+"resource/image/";
 
         public Movie()
         {
