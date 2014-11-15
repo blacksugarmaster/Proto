@@ -22,6 +22,7 @@ namespace Proto
             DBImplement db = new DBImplement();
             db.getConnection();
             db.saveMovie();
+            db.reset();
             
             InitializeComponent();
         }

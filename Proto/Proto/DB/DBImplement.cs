@@ -27,8 +27,8 @@ namespace Proto.DB
             
         }
 
-
-        private static string connectionString = "Data Source=/resource/sqlite/MODB.db";
+        static string s = AppDomain.CurrentDomain.BaseDirectory + "/resource/sqlite/MODB.db";
+        private static string connectionString = s;//"Data Source=MODB.db";
 
         private static SQLiteConnection con;
 
@@ -58,8 +58,7 @@ namespace Proto.DB
 
         public bool saveMovie()//BusinessObject.Movie movie)
         {
-            string s = "INSERT INTO Movie (id,title)" +
-                        "VALUE (1, 'EFEF');";
+            string s = "INSERT INTO Movie (id,title) VALUES ('1', 'EFEF');";
             ExecuteQuery(s);
             return false;
         }
