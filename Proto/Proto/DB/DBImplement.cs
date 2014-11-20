@@ -16,7 +16,6 @@ namespace Proto.DB
 
         private static SQLiteConnection con;
 
-
         private void ExecuteQuery(string query)
         {
             try
@@ -50,7 +49,6 @@ namespace Proto.DB
             {
                 reportError(e);
             }
-
         }
 
         public bool reset()
