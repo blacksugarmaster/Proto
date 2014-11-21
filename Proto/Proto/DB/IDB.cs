@@ -14,23 +14,16 @@ namespace Proto.DB
         // ------- insert--------
         bool saveMovie(Movie movie);
         bool saveMovieList(MovieList movieList);
-        bool saveLists(Lists lists);
 
         // ------- getter ------------
         Movie getMovieById(String id);
         MovieList getMovieListById(String id);
-        Lists getListsById(String id); // getting all movie list in the Lists
-
-        List<Lists> getAllLists(); // getting all Lists
         MovieList getAllMovie(); // just return a MovieList that contains all movie in DB
-
-        MovieList getMovieByCast();
-
+        MovieList getMovieByCast(String cast);
 
         // -------- update -----------
         bool updateMovie(Movie movie);
         bool updateMovieList(MovieList movieList);
-        bool updateLists(Lists list);
 
     }
 }

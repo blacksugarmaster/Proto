@@ -69,7 +69,6 @@
     <Compile Include="BusinessLogic\AddMovieList.cs" />
     <Compile Include="BusinessObject\EGenre.cs" />
     <Compile Include="BusinessObject\IBObject.cs" />
-    <Compile Include="BusinessObject\Lists.cs" />
     <Compile Include="BusinessObject\MovieList.cs" />
     <Compile Include="DB\DBImplement.cs" />
     <Compile Include="DB\IDB.cs" />

@@ -11,16 +11,12 @@ namespace Proto.DB
 {
     class DBImplement : IDB
     {
-        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),year int,age int,genre int,imagename NCHAR(100),list NCHAR(100), FOREIGN KEY(list) REFERENCES MovieList(id));";
-        string movieList = "CREATE TABLE MovieList(id NCHAR(100) PRIMARY KEY NOT NULL,name NCHAR(100), list NCHAR(100), FOREIGN KEY(list) REFERENCES Lists(id));";
-        
-        string lists = "CREATE TABLE Lists(id NCHAR(100) PRIMARY KEY NOT NULL);";
-        
+        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),year int,age int,genre int,imagename NCHAR(100));";
+        string movieList = "CREATE TABLE MovieList(id NCHAR(100) PRIMARY KEY NOT NULL,name NCHAR(100), mid NCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
         string movieCast = "CREATE TABLE MovieCast(id NCHAR(100),actor NCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
 
         string dropMovie = "DROP TABLE [Movie];";
         string dropMovieList = "DROP TABLE [MovieList];";
-        string dropLists = "DROP TABLE [Lists];";
         string dropMovieCast = "DROP TABLE [movieCast];";
 
         // set when application is loaded
@@ -68,13 +64,13 @@ namespace Proto.DB
             try
             {
                 ExecuteQuery(dropMovieCast);
-                ExecuteQuery(dropMovie);
                 ExecuteQuery(dropMovieList);
-                ExecuteQuery(dropLists);
+                ExecuteQuery(dropMovie);
+                //ExecuteQuery(dropLists);
                 
-                ExecuteQuery(lists);
-                ExecuteQuery(movieList);
+                //ExecuteQuery(lists);
                 ExecuteQuery(movie);
+                ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
             }
             catch(Exception e)
@@ -88,7 +84,7 @@ namespace Proto.DB
         public bool saveMovie(Movie movie)
         {
             string q = "INSERT INTO Movie(id,title,year,age,genre,imagename)" +
-                        "VALUES(@id,@title,@year,@age,@genre,@imagename)";
+                            "VALUES(@id,@title,@year,@age,@genre,@imagename)";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.Parameters.AddWithValue("@title", movie.title);
@@ -104,15 +100,22 @@ namespace Proto.DB
 
         public bool saveMovieList(MovieList movieList)
         {
-            
+            string q = "INSERT INTO MovieList(id,name,mid)" +
+                                "VALUES(@id,@name,@mid)";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@id", movieList.id);
+            cmd.Parameters.AddWithValue("@name", movieList.name);
+
+            con.Open();
+            foreach(Movie movie in movieList)
+            {
+                cmd.Parameters.AddWithValue("@mid", movie.id);
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
 
             return false;
 
-        }
-
-        public bool saveLists(Lists lists)
-        {
-            return false;
         }
 
         public Movie getMovieById(string id)
@@ -125,25 +128,13 @@ namespace Proto.DB
             return new MovieList();
         }
 
-        public Lists getListsById(string id)
-        {
-            return new Lists();
-        }
 
-        public List<Lists> getAllLists()
-        {
-            return new List<Lists>();
-        }
 
         public MovieList getAllMovie()
         {
             throw new NotImplementedException();
         }
 
-        public MovieList getMovieByCast()
-        {
-            throw new NotImplementedException();
-        }
 
         public bool updateMovie(Movie movie)
         {
@@ -155,10 +146,9 @@ namespace Proto.DB
             throw new NotImplementedException();
         }
 
-        public bool updateLists(Lists list)
+        public MovieList getMovieByCast(string cast)
         {
             throw new NotImplementedException();
         }
-
     }
 }

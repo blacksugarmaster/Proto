@@ -8,12 +8,12 @@ namespace Proto.BusinessObject
 {
     class MovieList : List<Movie>, IBObject
     {
-        String id;
-        String listName;
-        public MovieList(String listName)
+        public String id {get;set;}
+        public String name { get; set; }
+        public MovieList(String name)
         {
             id = Guid.NewGuid().ToString();
-            this.listName = listName;
+            this.name = name;
         }
 
         public MovieList()
@@ -24,7 +24,15 @@ namespace Proto.BusinessObject
 
         public bool save()
         {
-            return false;
+            try
+            {
+                DB.DBImplement.proxy.saveMovieList(this);
+            }
+            catch(Exception e)
+            {
+
+            }
+            return true ;
         }
 
         public bool remove(IBObject obj)
