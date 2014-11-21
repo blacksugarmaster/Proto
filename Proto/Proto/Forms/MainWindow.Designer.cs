@@ -43,6 +43,7 @@
             this.MovieList = new System.Windows.Forms.TabPage();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.Search = new System.Windows.Forms.TabPage();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtDirector = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.listGenre = new System.Windows.Forms.ListBox();
@@ -53,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -203,6 +203,16 @@
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSearch.Location = new System.Drawing.Point(251, 920);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(173, 50);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // txtDirector
             // 
             this.txtDirector.Location = new System.Drawing.Point(47, 174);
@@ -287,16 +297,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Title";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSearch.Location = new System.Drawing.Point(251, 920);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(173, 50);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -307,6 +307,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "MovieOrganizer";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

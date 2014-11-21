@@ -18,8 +18,9 @@ namespace Proto
         public MainWindow()
         {
             InitializeComponent();
-
-
+            connectDB();
+            //DBImplement.proxy.reset();
+            something();
         }
 
         private void connectDB()
@@ -28,6 +29,9 @@ namespace Proto
             {
                 DBImplement db = new DBImplement();
                 db.getConnection();
+                DBImplement.proxy = db;
+
+                DBImplement.proxy.reset();
             }
             catch (Exception e)
             {
@@ -37,13 +41,19 @@ namespace Proto
 
         private void something()
         {
-            Movie dummy = new Movie();
+            Movie dummy = new Movie("new movie!",2014,12,(int)EGenre.Action,"someImage.jpg");
+            dummy.save();
 
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

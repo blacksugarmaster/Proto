@@ -20,3 +20,10 @@ CREATE TABLE IF NOT EXISTS Lists
 	mlid NCHAR,
 	FOREIGN KEY(mlid) REFERENCES MovieList(id)
 );
+CREATE TABLE IF NOT EXISTS MovieCast
+(
+	id NCHAR,
+	actor NCHAR,
+	PRIMARY KEY (id,actor),
+	FOREIGN KEY(id) REFERENCES Movie(id)
+);
