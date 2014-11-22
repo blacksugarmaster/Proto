@@ -72,6 +72,7 @@
     <Compile Include="BusinessObject\IBObject.cs" />
     <Compile Include="BusinessObject\MovieList.cs" />
     <Compile Include="DB\DBImplement.cs" />
+    <Compile Include="DB\DBtest.cs" />
     <Compile Include="DB\IDB.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
