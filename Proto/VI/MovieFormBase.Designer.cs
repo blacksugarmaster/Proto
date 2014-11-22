@@ -52,6 +52,9 @@
             this.txtCast = new System.Windows.Forms.TextBox();
             this.btnAddCast = new System.Windows.Forms.Button();
             this.btnDeleteCast = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.txtImage = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +62,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.916231F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(140, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 26);
+            this.label1.Size = new System.Drawing.Size(57, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
             // 
@@ -98,6 +102,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -107,6 +112,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
@@ -114,7 +120,7 @@
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(60, 582);
+            this.groupBox1.Location = new System.Drawing.Point(60, 649);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(517, 174);
             this.groupBox1.TabIndex = 7;
@@ -164,7 +170,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 445);
+            this.label4.Location = new System.Drawing.Point(62, 596);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(253, 26);
             this.label4.TabIndex = 8;
@@ -172,7 +178,7 @@
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(356, 440);
+            this.txtYear.Location = new System.Drawing.Point(356, 591);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 31);
             this.txtYear.TabIndex = 9;
@@ -184,7 +190,7 @@
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(60, 772);
+            this.groupBox2.Location = new System.Drawing.Point(60, 829);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(517, 100);
             this.groupBox2.TabIndex = 10;
@@ -264,7 +270,7 @@
             this.lbCast.ItemHeight = 25;
             this.lbCast.Location = new System.Drawing.Point(208, 186);
             this.lbCast.Name = "lbCast";
-            this.lbCast.Size = new System.Drawing.Size(248, 179);
+            this.lbCast.Size = new System.Drawing.Size(248, 129);
             this.lbCast.TabIndex = 12;
             // 
             // txtCast
@@ -282,22 +288,55 @@
             this.btnAddCast.TabIndex = 14;
             this.btnAddCast.Text = "Add";
             this.btnAddCast.UseVisualStyleBackColor = true;
+            this.btnAddCast.Click += new System.EventHandler(this.btnAddCast_Click);
             // 
             // btnDeleteCast
             // 
-            this.btnDeleteCast.Location = new System.Drawing.Point(477, 326);
+            this.btnDeleteCast.Location = new System.Drawing.Point(477, 276);
             this.btnDeleteCast.Name = "btnDeleteCast";
             this.btnDeleteCast.Size = new System.Drawing.Size(100, 39);
             this.btnDeleteCast.TabIndex = 15;
             this.btnDeleteCast.Text = "Delete";
             this.btnDeleteCast.UseVisualStyleBackColor = true;
+            this.btnDeleteCast.Click += new System.EventHandler(this.btnDeleteCast_Click);
             // 
-            // MovieManipulate
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(55, 394);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 26);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Poster Image";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(477, 391);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(100, 39);
+            this.btnBrowse.TabIndex = 18;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // txtImage
+            // 
+            this.txtImage.Location = new System.Drawing.Point(208, 391);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.ReadOnly = true;
+            this.txtImage.Size = new System.Drawing.Size(248, 123);
+            this.txtImage.TabIndex = 19;
+            this.txtImage.Text = "";
+            // 
+            // MovieBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnDeleteCast);
             this.Controls.Add(this.btnAddCast);
             this.Controls.Add(this.txtCast);
@@ -313,7 +352,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "MovieManipulate";
+            this.Name = "MovieBase";
             this.Text = "MovieManipulate";
             this.Load += new System.EventHandler(this.MovieManipulate_Load);
             this.groupBox1.ResumeLayout(false);
@@ -351,5 +390,8 @@
         private System.Windows.Forms.TextBox txtCast;
         private System.Windows.Forms.Button btnAddCast;
         private System.Windows.Forms.Button btnDeleteCast;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.RichTextBox txtImage;
     }
 }

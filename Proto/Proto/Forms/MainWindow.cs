@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proto.DB;
 using Proto.BusinessObject;
+using Proto.Forms;
 
 namespace Proto
 {
@@ -20,11 +21,15 @@ namespace Proto
             connectDB();
             //DBImplement.proxy.reset();
             testDB();
+
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
             displayAllMovie();
+
+
         }
 
         private void connectDB()
@@ -52,15 +57,7 @@ namespace Proto
             // http://www.c-sharpcorner.com/UploadFile/9f4ff8/listview-in-C-Sharp/
         }
 
-        private void testDB()
-        {
-            List<string> cast = new List<string>();
-            cast.Add("cast1");
-            cast.Add("cast2");
 
-            Movie dummy = new Movie("new movie!",2014,12,(int)EGenre.Action,"someImage.jpg",cast);
-            dummy.save();
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -73,6 +70,22 @@ namespace Proto
         }
 
 
+        private void testDB()
+        {
+            List<string> cast = new List<string>();
+            cast.Add("cast1");
+            cast.Add("cast2");
 
+            Movie dummy = new Movie("new movie!", 2014, 12, (int)EGenre.Action, "someImage.jpg", cast);
+            dummy.save();
+        }
+
+        public MovieAdd add { get; set; }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            add = new MovieAdd();
+            add.Show();
+        }
     }
 }
