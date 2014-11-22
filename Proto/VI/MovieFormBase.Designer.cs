@@ -35,18 +35,18 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbThriller = new System.Windows.Forms.CheckBox();
+            this.cbAction = new System.Windows.Forms.CheckBox();
+            this.cbSciFi = new System.Windows.Forms.CheckBox();
+            this.cbDrama = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbNC17 = new System.Windows.Forms.RadioButton();
+            this.rbR = new System.Windows.Forms.RadioButton();
+            this.rbPG13 = new System.Windows.Forms.RadioButton();
+            this.rbPG = new System.Windows.Forms.RadioButton();
+            this.rbG = new System.Windows.Forms.RadioButton();
             this.txtDirector = new System.Windows.Forms.TextBox();
             this.lbCast = new System.Windows.Forms.ListBox();
             this.txtCast = new System.Windows.Forms.TextBox();
@@ -116,10 +116,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.cbThriller);
+            this.groupBox1.Controls.Add(this.cbAction);
+            this.groupBox1.Controls.Add(this.cbSciFi);
+            this.groupBox1.Controls.Add(this.cbDrama);
             this.groupBox1.Location = new System.Drawing.Point(60, 649);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(517, 174);
@@ -127,45 +127,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
             // 
-            // checkBox4
+            // cbThriller
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(148, 30);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(103, 30);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Thriller";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbThriller.AutoSize = true;
+            this.cbThriller.Location = new System.Drawing.Point(148, 30);
+            this.cbThriller.Name = "cbThriller";
+            this.cbThriller.Size = new System.Drawing.Size(103, 30);
+            this.cbThriller.TabIndex = 3;
+            this.cbThriller.Text = "Thriller";
+            this.cbThriller.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cbAction
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(16, 125);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(99, 30);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Action";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbAction.AutoSize = true;
+            this.cbAction.Location = new System.Drawing.Point(16, 125);
+            this.cbAction.Name = "cbAction";
+            this.cbAction.Size = new System.Drawing.Size(99, 30);
+            this.cbAction.TabIndex = 2;
+            this.cbAction.Text = "Action";
+            this.cbAction.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbSciFi
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 79);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(94, 30);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Sci-Fi";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbSciFi.AutoSize = true;
+            this.cbSciFi.Location = new System.Drawing.Point(16, 79);
+            this.cbSciFi.Name = "cbSciFi";
+            this.cbSciFi.Size = new System.Drawing.Size(94, 30);
+            this.cbSciFi.TabIndex = 1;
+            this.cbSciFi.Text = "Sci-Fi";
+            this.cbSciFi.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // cbDrama
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(16, 31);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(104, 30);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Drama";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDrama.AutoSize = true;
+            this.cbDrama.Location = new System.Drawing.Point(16, 31);
+            this.cbDrama.Name = "cbDrama";
+            this.cbDrama.Size = new System.Drawing.Size(104, 30);
+            this.cbDrama.TabIndex = 0;
+            this.cbDrama.Text = "Drama";
+            this.cbDrama.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -185,11 +185,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbNC17);
+            this.groupBox2.Controls.Add(this.rbR);
+            this.groupBox2.Controls.Add(this.rbPG13);
+            this.groupBox2.Controls.Add(this.rbPG);
+            this.groupBox2.Controls.Add(this.rbG);
             this.groupBox2.Location = new System.Drawing.Point(60, 829);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(517, 100);
@@ -197,65 +197,65 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rating";
             // 
-            // radioButton5
+            // rbNC17
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton5.Location = new System.Drawing.Point(398, 49);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(100, 30);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "NC-17";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbNC17.AutoSize = true;
+            this.rbNC17.ForeColor = System.Drawing.Color.Blue;
+            this.rbNC17.Location = new System.Drawing.Point(398, 49);
+            this.rbNC17.Name = "rbNC17";
+            this.rbNC17.Size = new System.Drawing.Size(100, 30);
+            this.rbNC17.TabIndex = 4;
+            this.rbNC17.TabStop = true;
+            this.rbNC17.Text = "NC-17";
+            this.rbNC17.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbR
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.ForeColor = System.Drawing.Color.Red;
-            this.radioButton4.Location = new System.Drawing.Point(322, 49);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(53, 30);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "R";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbR.AutoSize = true;
+            this.rbR.ForeColor = System.Drawing.Color.Red;
+            this.rbR.Location = new System.Drawing.Point(322, 49);
+            this.rbR.Name = "rbR";
+            this.rbR.Size = new System.Drawing.Size(53, 30);
+            this.rbR.TabIndex = 3;
+            this.rbR.TabStop = true;
+            this.rbR.Text = "R";
+            this.rbR.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbPG13
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.radioButton3.Location = new System.Drawing.Point(194, 48);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(100, 30);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "PG-13";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbPG13.AutoSize = true;
+            this.rbPG13.ForeColor = System.Drawing.Color.DarkViolet;
+            this.rbPG13.Location = new System.Drawing.Point(194, 48);
+            this.rbPG13.Name = "rbPG13";
+            this.rbPG13.Size = new System.Drawing.Size(100, 30);
+            this.rbPG13.TabIndex = 2;
+            this.rbPG13.TabStop = true;
+            this.rbPG13.Text = "PG-13";
+            this.rbPG13.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbPG
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.radioButton2.Location = new System.Drawing.Point(103, 48);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(69, 30);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "PG";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbPG.AutoSize = true;
+            this.rbPG.ForeColor = System.Drawing.Color.DarkOrange;
+            this.rbPG.Location = new System.Drawing.Point(103, 48);
+            this.rbPG.Name = "rbPG";
+            this.rbPG.Size = new System.Drawing.Size(69, 30);
+            this.rbPG.TabIndex = 1;
+            this.rbPG.TabStop = true;
+            this.rbPG.Text = "PG";
+            this.rbPG.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbG
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.radioButton1.Location = new System.Drawing.Point(27, 49);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(54, 30);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "G";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbG.AutoSize = true;
+            this.rbG.ForeColor = System.Drawing.Color.DarkCyan;
+            this.rbG.Location = new System.Drawing.Point(27, 49);
+            this.rbG.Name = "rbG";
+            this.rbG.Size = new System.Drawing.Size(54, 30);
+            this.rbG.TabIndex = 0;
+            this.rbG.TabStop = true;
+            this.rbG.Text = "G";
+            this.rbG.UseVisualStyleBackColor = true;
             // 
             // txtDirector
             // 
@@ -369,29 +369,29 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox txtDirector;
-        private System.Windows.Forms.ListBox lbCast;
-        private System.Windows.Forms.TextBox txtCast;
         private System.Windows.Forms.Button btnAddCast;
         private System.Windows.Forms.Button btnDeleteCast;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.RichTextBox txtImage;
+        protected System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.TextBox txtTitle;
+        protected System.Windows.Forms.CheckBox cbThriller;
+        protected System.Windows.Forms.CheckBox cbAction;
+        protected System.Windows.Forms.CheckBox cbSciFi;
+        protected System.Windows.Forms.CheckBox cbDrama;
+        protected System.Windows.Forms.TextBox txtYear;
+        protected System.Windows.Forms.RadioButton rbNC17;
+        protected System.Windows.Forms.RadioButton rbR;
+        protected System.Windows.Forms.RadioButton rbPG13;
+        protected System.Windows.Forms.RadioButton rbPG;
+        protected System.Windows.Forms.RadioButton rbG;
+        protected System.Windows.Forms.TextBox txtDirector;
+        protected System.Windows.Forms.ListBox lbCast;
+        protected System.Windows.Forms.TextBox txtCast;
+        protected System.Windows.Forms.RichTextBox txtImage;
     }
 }

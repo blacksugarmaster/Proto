@@ -1,6 +1,6 @@
 ﻿namespace Proto.Forms
 {
-    partial class MovieAdd
+    partial class MovieEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -34,13 +34,12 @@
             // 
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // MovieAdd
+            // MovieEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.ClientSize = new System.Drawing.Size(638, 1067);
-            this.Name = "MovieAdd";
-            this.Text = "Add Movie";
-            this.Load += new System.EventHandler(this.MovieAdd_Load);
+            this.Name = "MovieEdit";
+            this.Text = "Edit Movie";
             this.ResumeLayout(false);
             this.PerformLayout();
 

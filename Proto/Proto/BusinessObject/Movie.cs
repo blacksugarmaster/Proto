@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Proto.BusinessObject
 {
-    class Movie : IBObject
+    public class Movie : IBObject
     {
         public String id { get; set; }
         public string title { get; set; }

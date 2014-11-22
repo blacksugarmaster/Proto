@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proto.BusinessObject
 {
-    interface IBObject
+    public interface IBObject
     {
         Boolean save();
 

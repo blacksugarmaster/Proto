@@ -18,11 +18,11 @@ namespace Proto.BusinessObject
     {
         public static string getString(int type)
         {
-            string res = "Unknown";
+            string res = "";
             switch( type )
             {
                 case 0:
-                    res = "Sci-Fi";
+                    res = "SciFi";
                     break;
                 case 1:
                     res = "Drama";

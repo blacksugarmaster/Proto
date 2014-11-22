@@ -78,5 +78,24 @@ namespace Proto
             MovieAdd add = new MovieAdd();
             add.Show();
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // it is just for testing !!!!!!
+            List<string> cast = new List<string>();
+            cast.Add("cast1");
+            cast.Add("cast2");
+
+            List<string> genre = new List<string>();
+            genre.Add(Genre.getString(0));
+            genre.Add(Genre.getString(3));
+
+            Movie dummy = new Movie("new movie!", "GOOD", 2014, 12, genre, "someImage.jpg", cast);
+
+
+
+            MovieEdit edit = new MovieEdit(dummy);
+            edit.Show();
+        }
     }
 }
