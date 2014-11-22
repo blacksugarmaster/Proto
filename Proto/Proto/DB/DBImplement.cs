@@ -12,7 +12,7 @@ namespace Proto.DB
 {
     class DBImplement : IDB
     {
-        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),year int,age int,genre int,imagename NCHAR(100));";
+        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),director NCHAR(100),year int,age int,genre int,imagename NCHAR(100));";
         string movieList = "CREATE TABLE MovieList(id NCHAR(100) PRIMARY KEY NOT NULL,name NCHAR(100), mid NCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
         string movieCast = "CREATE TABLE MovieCast(id NCHAR(100),actor NCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
 
@@ -82,11 +82,12 @@ namespace Proto.DB
 
         public bool saveMovie(Movie movie)
         {
-            string q = "INSERT INTO Movie(id,title,year,age,genre,imagename)" +
-                            "VALUES(@id,@title,@year,@age,@genre,@imagename)";
+            string q = "INSERT INTO Movie(id,title,director,year,age,genre,imagename)" +
+                            "VALUES(@id,@title,@director,@year,@age,@genre,@imagename)";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.Parameters.AddWithValue("@title", movie.title);
+            cmd.Parameters.AddWithValue("@director", movie.director);
             cmd.Parameters.AddWithValue("@year", movie.year);
             cmd.Parameters.AddWithValue("@age", movie.age);
             cmd.Parameters.AddWithValue("@genre", (int)movie.genre);
@@ -144,10 +145,11 @@ namespace Proto.DB
 
             string mid = table.Rows[0][0].ToString();
             string title = table.Rows[0][1].ToString();
-            int year = System.Int32.Parse( table.Rows[0][2].ToString() );
-            int age = System.Int32.Parse(table.Rows[0][3].ToString() );
-            int genre = System.Int32.Parse(table.Rows[0][4].ToString() );
-            string imagename = table.Rows[0][5].ToString();
+            string director = table.Rows[0][2].ToString();
+            int year = System.Int32.Parse( table.Rows[0][3].ToString() );
+            int age = System.Int32.Parse(table.Rows[0][4].ToString() );
+            int genre = System.Int32.Parse(table.Rows[0][5].ToString() );
+            string imagename = table.Rows[0][6].ToString();
 
 
             List<string> cast = new List<string>();
@@ -168,7 +170,7 @@ namespace Proto.DB
                 cast.Add(actor);
             }
 
-            Movie res = new Movie(title,year,age,genre,imagename,cast);
+            Movie res = new Movie(title,director,year,age,genre,imagename,cast);
 
 
             con.Close();
@@ -223,10 +225,11 @@ namespace Proto.DB
             {
                 string mid = r[0].ToString();
                 string title = r[1].ToString();
-                int year = System.Int32.Parse(r[2].ToString());
-                int age = System.Int32.Parse(r[3].ToString());
-                int genre = System.Int32.Parse(r[4].ToString());
-                string imagename = r[5].ToString();
+                string director = r[2].ToString();
+                int year = System.Int32.Parse(r[3].ToString());
+                int age = System.Int32.Parse(r[4].ToString());
+                int genre = System.Int32.Parse(r[5].ToString());
+                string imagename = r[6].ToString();
 
 
                 List<string> cast = new List<string>();
@@ -246,7 +249,7 @@ namespace Proto.DB
                 {
                     cast.Add(actor);
                 }
-                Movie res = new Movie(title, year, age, genre, imagename, cast);
+                Movie res = new Movie(title,director, year, age, genre, imagename, cast);
                 list.Add(res);
             }
             con.Close();

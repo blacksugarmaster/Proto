@@ -11,6 +11,7 @@ namespace Proto.BusinessObject
     {
         public String id { get; set; }
         public string title { get; set; }
+        public string director { get; set; }
         public int year { get; set; }
         public int age { get; set; }
         public int genre { get; set; }
@@ -23,11 +24,12 @@ namespace Proto.BusinessObject
         // image path = imageBasepath + imageFileName.ext
         private string imageBasePath = AppDomain.CurrentDomain.BaseDirectory+"resource/image/";
 
-        public Movie(string title, int year, int age, int genre, string imageName, List<string> cast)
+        public Movie(string title, string director, int year, int age, int genre, string imageName, List<string> cast)
         {
             id = Guid.NewGuid().ToString();
             // constructor
             this.title = title;
+            this.director = director;
             this.year = year;
             this.age = age;
             this.genre = genre;
@@ -35,6 +37,10 @@ namespace Proto.BusinessObject
             this.cast = cast;
         }
 
+        public Movie()
+        {
+            id = Guid.NewGuid().ToString();
+        }
 
         public bool save()
         {

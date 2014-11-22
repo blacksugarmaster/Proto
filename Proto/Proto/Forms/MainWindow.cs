@@ -19,7 +19,7 @@ namespace Proto
         {
             InitializeComponent();
             connectDB();
-            //DBImplement.proxy.reset();
+            DBImplement.proxy.reset();
             testDB();
 
 
@@ -28,8 +28,6 @@ namespace Proto
         private void MainWindow_Load(object sender, EventArgs e)
         {
             displayAllMovie();
-
-
         }
 
         private void connectDB()
@@ -76,7 +74,7 @@ namespace Proto
             cast.Add("cast1");
             cast.Add("cast2");
 
-            Movie dummy = new Movie("new movie!", 2014, 12, (int)EGenre.Action, "someImage.jpg", cast);
+            Movie dummy = new Movie("new movie!","GOOD", 2014, 12, (int)EGenre.Action, "someImage.jpg", cast);
             dummy.save();
         }
 
