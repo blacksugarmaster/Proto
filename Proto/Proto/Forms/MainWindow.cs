@@ -20,7 +20,7 @@ namespace Proto
             InitializeComponent();
             connectDB();
             //DBImplement.proxy.reset();
-            something();
+            testDB();
         }
 
         private void connectDB()
@@ -39,7 +39,7 @@ namespace Proto
             }
         }
 
-        private void something()
+        private void testDB()
         {
             List<string> cast = new List<string>();
             cast.Add("cast1");

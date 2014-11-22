@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Proto.BusinessObject;
+using System.Data;
 
 namespace Proto.DB
 {
@@ -19,7 +20,7 @@ namespace Proto.DB
         Movie getMovieById(String id);
         MovieList getMovieListById(String id);
         MovieList getAllMovie(); // just return a MovieList that contains all movie in DB
-        MovieList getMovieByCast(String cast);
+        DataTable getAllMovieDT();
 
         // -------- update -----------
         bool updateMovie(Movie movie);
