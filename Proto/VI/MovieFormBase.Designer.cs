@@ -1,6 +1,6 @@
 ﻿namespace Proto.Forms
 {
-    partial class MovieManipulate
+    partial class MovieBase
     {
         /// <summary>
         /// Required designer variable.
@@ -315,6 +315,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieManipulate";
             this.Text = "MovieManipulate";
+            this.Load += new System.EventHandler(this.MovieManipulate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace Proto.Forms
 {
-    public partial class MovieAdd : Proto.Forms.MovieManipulate
+    public partial class MovieAdd : Proto.Forms.MovieBase
     {
         public MovieAdd()
         {
             InitializeComponent();
+        }
+
+        private void MovieAdd_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

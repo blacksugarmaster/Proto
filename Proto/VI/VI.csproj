@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MovieManipulate.cs">
+    <Compile Include="MovieFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MovieManipulate.Designer.cs">
-      <DependentUpon>MovieManipulate.cs</DependentUpon>
+    <Compile Include="MovieFormBase.Designer.cs">
+      <DependentUpon>MovieFormBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MovieManipulate.resx">
-      <DependentUpon>MovieManipulate.cs</DependentUpon>
+    <EmbeddedResource Include="MovieFormBase.resx">
+      <DependentUpon>MovieFormBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Proto.Forms
 {
-    public partial class MovieManipulate : Form
+    public partial class MovieBase : Form
     {
-        public MovieManipulate()
+        public MovieBase()
         {
             InitializeComponent();
+        }
+
+        private void MovieManipulate_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
