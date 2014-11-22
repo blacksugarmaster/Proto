@@ -41,7 +41,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MovieList = new System.Windows.Forms.TabPage();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lbList = new System.Windows.Forms.ListBox();
             this.Search = new System.Windows.Forms.TabPage();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtDirector = new System.Windows.Forms.TextBox();
@@ -54,9 +54,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lvMovie = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MovieList.SuspendLayout();
@@ -87,13 +89,13 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(158, 40);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(158, 40);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -110,19 +112,19 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // movieListToolStripMenuItem
@@ -136,7 +138,7 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(136, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.listAddToolStripMenuItem.Text = "Add";
             // 
             // splitContainer1
@@ -148,6 +150,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lvMovie);
             this.splitContainer1.Size = new System.Drawing.Size(1650, 1065);
             this.splitContainer1.SplitterDistance = 550;
             this.splitContainer1.TabIndex = 1;
@@ -164,7 +170,7 @@
             // 
             // MovieList
             // 
-            this.MovieList.Controls.Add(this.listBox2);
+            this.MovieList.Controls.Add(this.lbList);
             this.MovieList.Location = new System.Drawing.Point(4, 34);
             this.MovieList.Name = "MovieList";
             this.MovieList.Padding = new System.Windows.Forms.Padding(3);
@@ -173,14 +179,17 @@
             this.MovieList.Text = "Movie List";
             this.MovieList.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // lbList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 25;
-            this.listBox2.Location = new System.Drawing.Point(19, 16);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(475, 804);
-            this.listBox2.TabIndex = 0;
+            this.lbList.FormattingEnabled = true;
+            this.lbList.ItemHeight = 25;
+            this.lbList.Items.AddRange(new object[] {
+            "list1",
+            "list2"});
+            this.lbList.Location = new System.Drawing.Point(19, 16);
+            this.lbList.Name = "lbList";
+            this.lbList.Size = new System.Drawing.Size(475, 804);
+            this.lbList.TabIndex = 0;
             // 
             // Search
             // 
@@ -212,6 +221,7 @@
             this.btnSearch.TabIndex = 18;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtDirector
             // 
@@ -297,6 +307,14 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Title";
             // 
+            // lvMovie
+            // 
+            this.lvMovie.Location = new System.Drawing.Point(3, 0);
+            this.lvMovie.Name = "lvMovie";
+            this.lvMovie.Size = new System.Drawing.Size(1090, 1062);
+            this.lvMovie.TabIndex = 0;
+            this.lvMovie.UseCompatibleStateImageBehavior = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -311,6 +329,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -341,7 +360,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lbList;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem movieListToolStripMenuItem;
@@ -350,6 +369,7 @@
         private System.Windows.Forms.TextBox txtDirector;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ListView lvMovie;
     }
 }
 
