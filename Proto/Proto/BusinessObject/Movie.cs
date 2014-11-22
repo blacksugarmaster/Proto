@@ -16,13 +16,14 @@ namespace Proto.BusinessObject
         public int genre { get; set; }
         public string imageName { get; set; }
 
-        List<string> cast;
+        public List<string> cast {get;set;}
+
         Image poster;
 
         // image path = imageBasepath + imageFileName.ext
         private string imageBasePath = AppDomain.CurrentDomain.BaseDirectory+"resource/image/";
 
-        public Movie(string title, int year, int age, int genre, string imageName)
+        public Movie(string title, int year, int age, int genre, string imageName, List<string> cast)
         {
             id = Guid.NewGuid().ToString();
             // constructor
@@ -31,6 +32,7 @@ namespace Proto.BusinessObject
             this.age = age;
             this.genre = genre;
             this.imageName = imageName;
+            this.cast = cast;
         }
 
 

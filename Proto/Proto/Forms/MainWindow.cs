@@ -41,7 +41,11 @@ namespace Proto
 
         private void something()
         {
-            Movie dummy = new Movie("new movie!",2014,12,(int)EGenre.Action,"someImage.jpg");
+            List<string> cast = new List<string>();
+            cast.Add("cast1");
+            cast.Add("cast2");
+
+            Movie dummy = new Movie("new movie!",2014,12,(int)EGenre.Action,"someImage.jpg",cast);
             dummy.save();
 
         }

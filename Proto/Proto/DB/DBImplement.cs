@@ -66,9 +66,7 @@ namespace Proto.DB
                 ExecuteQuery(dropMovieCast);
                 ExecuteQuery(dropMovieList);
                 ExecuteQuery(dropMovie);
-                //ExecuteQuery(dropLists);
-                
-                //ExecuteQuery(lists);
+
                 ExecuteQuery(movie);
                 ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
@@ -95,6 +93,19 @@ namespace Proto.DB
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
+
+            string q2 = "INSERT INTO MovieCast(id,actor)" +
+                            "VALUES(@id,@actor)";
+            cmd = new SqlCeCommand(q2, con);
+            cmd.Parameters.AddWithValue("@id", movie.id);
+            con.Open();
+            foreach(string cast in movie.cast)
+            {
+                cmd.Parameters.AddWithValue("@actor", cast);
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
+
             return true;
         }
 
@@ -120,7 +131,11 @@ namespace Proto.DB
 
         public Movie getMovieById(string id)
         {
-            return new Movie("new movie!", 2014, 12, (int)EGenre.Action, "someImage.jpg");
+            List<string> cast = new List<string>();
+            cast.Add("cast1");
+            cast.Add("cast2");
+
+            return new Movie("new movie!", 2014, 12, (int)EGenre.Action, "someImage.jpg",cast);
         }
 
         public MovieList getMovieListById(string id)
