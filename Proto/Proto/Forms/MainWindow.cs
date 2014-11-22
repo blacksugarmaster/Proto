@@ -19,7 +19,7 @@ namespace Proto
         {
             InitializeComponent();
             connectDB();
-            DBImplement.proxy.reset();
+            //DBImplement.proxy.reset();
             testDB();
 
 
@@ -74,8 +74,17 @@ namespace Proto
             cast.Add("cast1");
             cast.Add("cast2");
 
-            Movie dummy = new Movie("new movie!","GOOD", 2014, 12, (int)EGenre.Action, "someImage.jpg", cast);
+            List<string> genre = new List<string>();
+            genre.Add(Genre.getString(0));
+            genre.Add(Genre.getString(3));
+
+
+            Movie dummy = new Movie("new movie!","GOOD", 2014, 12, genre, "someImage.jpg", cast);
             dummy.save();
+
+            Movie dummy2 = new Movie();
+            dummy2.title = "WhatIS";
+            dummy2.save();
         }
 
         public MovieAdd add { get; set; }

@@ -13,4 +13,30 @@ namespace Proto.BusinessObject
         Action,
         Thriller
     }
+
+    public class Genre
+    {
+        public static string getString(int type)
+        {
+            string res = "Unknown";
+            switch( type )
+            {
+                case 0:
+                    res = "Sci-Fi";
+                    break;
+                case 1:
+                    res = "Drama";
+                    break;
+                case 2:
+                    res = "Action";
+                    break;
+                case 3:
+                    res = "Thriller";
+                    break;
+
+            }
+
+            return res;
+        }
+    }
 }

@@ -12,13 +12,16 @@ namespace Proto.DB
 {
     class DBImplement : IDB
     {
-        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),director NCHAR(100),year int,age int,genre int,imagename NCHAR(100));";
+        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),director NCHAR(100),year int,age int,imagename NCHAR(100));";
         string movieList = "CREATE TABLE MovieList(id NCHAR(100) PRIMARY KEY NOT NULL,name NCHAR(100), mid NCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
         string movieCast = "CREATE TABLE MovieCast(id NCHAR(100),actor NCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
+        string movieGenre = "CREATE TABLE MovieGenre(id NCHAR(100),genre NCHAR(100),PRIMARY KEY (id,genre),FOREIGN KEY(id) REFERENCES Movie(id));";
+
 
         string dropMovie = "DROP TABLE [Movie];";
         string dropMovieList = "DROP TABLE [MovieList];";
         string dropMovieCast = "DROP TABLE [movieCast];";
+        string dropMovieGenre = "DROP TABLE [movieGenre];";
 
         // set when application is loaded
         public static DBImplement proxy;
@@ -64,6 +67,8 @@ namespace Proto.DB
         {
             try
             {
+
+                ExecuteQuery(dropMovieGenre);
                 ExecuteQuery(dropMovieCast);
                 ExecuteQuery(dropMovieList);
                 ExecuteQuery(dropMovie);
@@ -71,6 +76,8 @@ namespace Proto.DB
                 ExecuteQuery(movie);
                 ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
+                ExecuteQuery(movieGenre);
+                
             }
             catch(Exception e)
             {
@@ -82,15 +89,14 @@ namespace Proto.DB
 
         public bool saveMovie(Movie movie)
         {
-            string q = "INSERT INTO Movie(id,title,director,year,age,genre,imagename)" +
-                            "VALUES(@id,@title,@director,@year,@age,@genre,@imagename)";
+            string q = "INSERT INTO Movie(id,title,director,year,age,imagename)" +
+                            "VALUES(@id,@title,@director,@year,@age,@imagename)";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.Parameters.AddWithValue("@title", movie.title);
             cmd.Parameters.AddWithValue("@director", movie.director);
             cmd.Parameters.AddWithValue("@year", movie.year);
             cmd.Parameters.AddWithValue("@age", movie.age);
-            cmd.Parameters.AddWithValue("@genre", (int)movie.genre);
             cmd.Parameters.AddWithValue("@imagename", movie.imageName);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -98,12 +104,24 @@ namespace Proto.DB
             foreach(string cast in movie.cast)
             {
                 string q2 = "INSERT INTO MovieCast(id,actor)" +
-                "VALUES(@id,@actor)";
+                            "VALUES(@id,@actor)";
                 cmd = new SqlCeCommand(q2, con);
                 cmd.Parameters.AddWithValue("@id", movie.id);
                 cmd.Parameters.AddWithValue("@actor", cast);
                 cmd.ExecuteNonQuery();
             }
+
+
+            foreach (string g in movie.genre)
+            {
+                string q3 = "INSERT INTO MovieGenre(id,genre)" +
+                            "VALUES(@id,@genre)";
+                cmd = new SqlCeCommand(q3, con);
+                cmd.Parameters.AddWithValue("@id", movie.id);
+                cmd.Parameters.AddWithValue("@genre", g);
+                cmd.ExecuteNonQuery();
+            }
+
             con.Close();
 
             return true;
@@ -131,6 +149,8 @@ namespace Proto.DB
         public Movie getMovieById(string id)
         {
             con.Open();
+
+
             string q = "SELECT *" +
                         "FROM Movie" +
                         "WHERE id = @id";
@@ -148,10 +168,10 @@ namespace Proto.DB
             string director = table.Rows[0][2].ToString();
             int year = System.Int32.Parse( table.Rows[0][3].ToString() );
             int age = System.Int32.Parse(table.Rows[0][4].ToString() );
-            int genre = System.Int32.Parse(table.Rows[0][5].ToString() );
-            string imagename = table.Rows[0][6].ToString();
+            string imagename = table.Rows[0][5].ToString();
 
 
+            // -------- cast -----------
             List<string> cast = new List<string>();
             string q2 = "SELECT actor" +
                         "FROM MovieCast" +
@@ -168,6 +188,25 @@ namespace Proto.DB
             foreach(string actor in table2.Rows)
             {
                 cast.Add(actor);
+            }
+
+            // ---------- genre ------------
+            List<string> genre = new List<string>();
+            string q3 = "SELECT genre" +
+                        "FROM MovieGenre" +
+                        "WHERE id = @id";
+            cmd = new SqlCeCommand(q3, con);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlCeDataAdapter sqldata3 = new SqlCeDataAdapter(cmd);
+            DataSet data3 = new DataSet();
+            sqldata.Fill(data3, "movieGenre");
+
+            DataTable table3 = new DataTable();
+            table3 = data.Tables["movieGenre"];
+
+            foreach (string g in table3.Rows)
+            {
+                cast.Add(g);
             }
 
             Movie res = new Movie(title,director,year,age,genre,imagename,cast);
@@ -228,8 +267,7 @@ namespace Proto.DB
                 string director = r[2].ToString();
                 int year = System.Int32.Parse(r[3].ToString());
                 int age = System.Int32.Parse(r[4].ToString());
-                int genre = System.Int32.Parse(r[5].ToString());
-                string imagename = r[6].ToString();
+                string imagename = r[5].ToString();
 
 
                 List<string> cast = new List<string>();
@@ -249,6 +287,27 @@ namespace Proto.DB
                 {
                     cast.Add(actor);
                 }
+
+
+
+                List<string> genre = new List<string>();
+                string q3 = "SELECT genre" +
+                            "FROM MovieGenre" +
+                            "WHERE id = @id";
+                cmd = new SqlCeCommand(q3, con);
+                cmd.Parameters.AddWithValue("@id", mid);
+                SqlCeDataAdapter sqldata3 = new SqlCeDataAdapter(cmd);
+                DataSet data3 = new DataSet();
+                sqldata.Fill(data3, "movieGenre");
+
+                DataTable table3 = new DataTable();
+                table3 = data.Tables["movieGenre"];
+
+                foreach (string g in table3.Rows)
+                {
+                    cast.Add(g);
+                }
+
                 Movie res = new Movie(title,director, year, age, genre, imagename, cast);
                 list.Add(res);
             }
