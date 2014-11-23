@@ -35,10 +35,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbThriller = new System.Windows.Forms.CheckBox();
-            this.cbAction = new System.Windows.Forms.CheckBox();
-            this.cbSciFi = new System.Windows.Forms.CheckBox();
-            this.cbDrama = new System.Windows.Forms.CheckBox();
+            this.cbThriller3 = new System.Windows.Forms.CheckBox();
+            this.cbAction2 = new System.Windows.Forms.CheckBox();
+            this.cbSciFi0 = new System.Windows.Forms.CheckBox();
+            this.cbDrama1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -116,10 +116,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbThriller);
-            this.groupBox1.Controls.Add(this.cbAction);
-            this.groupBox1.Controls.Add(this.cbSciFi);
-            this.groupBox1.Controls.Add(this.cbDrama);
+            this.groupBox1.Controls.Add(this.cbThriller3);
+            this.groupBox1.Controls.Add(this.cbAction2);
+            this.groupBox1.Controls.Add(this.cbSciFi0);
+            this.groupBox1.Controls.Add(this.cbDrama1);
             this.groupBox1.Location = new System.Drawing.Point(60, 649);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(517, 174);
@@ -127,45 +127,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
             // 
-            // cbThriller
+            // cbThriller3
             // 
-            this.cbThriller.AutoSize = true;
-            this.cbThriller.Location = new System.Drawing.Point(148, 30);
-            this.cbThriller.Name = "cbThriller";
-            this.cbThriller.Size = new System.Drawing.Size(103, 30);
-            this.cbThriller.TabIndex = 3;
-            this.cbThriller.Text = "Thriller";
-            this.cbThriller.UseVisualStyleBackColor = true;
+            this.cbThriller3.AutoSize = true;
+            this.cbThriller3.Location = new System.Drawing.Point(148, 30);
+            this.cbThriller3.Name = "cbThriller3";
+            this.cbThriller3.Size = new System.Drawing.Size(103, 30);
+            this.cbThriller3.TabIndex = 3;
+            this.cbThriller3.Text = "Thriller";
+            this.cbThriller3.UseVisualStyleBackColor = true;
             // 
-            // cbAction
+            // cbAction2
             // 
-            this.cbAction.AutoSize = true;
-            this.cbAction.Location = new System.Drawing.Point(16, 125);
-            this.cbAction.Name = "cbAction";
-            this.cbAction.Size = new System.Drawing.Size(99, 30);
-            this.cbAction.TabIndex = 2;
-            this.cbAction.Text = "Action";
-            this.cbAction.UseVisualStyleBackColor = true;
+            this.cbAction2.AutoSize = true;
+            this.cbAction2.Location = new System.Drawing.Point(16, 125);
+            this.cbAction2.Name = "cbAction2";
+            this.cbAction2.Size = new System.Drawing.Size(99, 30);
+            this.cbAction2.TabIndex = 2;
+            this.cbAction2.Text = "Action";
+            this.cbAction2.UseVisualStyleBackColor = true;
             // 
-            // cbSciFi
+            // cbSciFi0
             // 
-            this.cbSciFi.AutoSize = true;
-            this.cbSciFi.Location = new System.Drawing.Point(16, 79);
-            this.cbSciFi.Name = "cbSciFi";
-            this.cbSciFi.Size = new System.Drawing.Size(94, 30);
-            this.cbSciFi.TabIndex = 1;
-            this.cbSciFi.Text = "Sci-Fi";
-            this.cbSciFi.UseVisualStyleBackColor = true;
+            this.cbSciFi0.AutoSize = true;
+            this.cbSciFi0.Location = new System.Drawing.Point(16, 30);
+            this.cbSciFi0.Name = "cbSciFi0";
+            this.cbSciFi0.Size = new System.Drawing.Size(94, 30);
+            this.cbSciFi0.TabIndex = 1;
+            this.cbSciFi0.Text = "Sci-Fi";
+            this.cbSciFi0.UseVisualStyleBackColor = true;
             // 
-            // cbDrama
+            // cbDrama1
             // 
-            this.cbDrama.AutoSize = true;
-            this.cbDrama.Location = new System.Drawing.Point(16, 31);
-            this.cbDrama.Name = "cbDrama";
-            this.cbDrama.Size = new System.Drawing.Size(104, 30);
-            this.cbDrama.TabIndex = 0;
-            this.cbDrama.Text = "Drama";
-            this.cbDrama.UseVisualStyleBackColor = true;
+            this.cbDrama1.AutoSize = true;
+            this.cbDrama1.Location = new System.Drawing.Point(16, 75);
+            this.cbDrama1.Name = "cbDrama1";
+            this.cbDrama1.Size = new System.Drawing.Size(104, 30);
+            this.cbDrama1.TabIndex = 0;
+            this.cbDrama1.Text = "Drama";
+            this.cbDrama1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -379,10 +379,10 @@
         private System.Windows.Forms.Button btnBrowse;
         protected System.Windows.Forms.Button btnSave;
         protected System.Windows.Forms.TextBox txtTitle;
-        protected System.Windows.Forms.CheckBox cbThriller;
-        protected System.Windows.Forms.CheckBox cbAction;
-        protected System.Windows.Forms.CheckBox cbSciFi;
-        protected System.Windows.Forms.CheckBox cbDrama;
+        protected System.Windows.Forms.CheckBox cbThriller3;
+        protected System.Windows.Forms.CheckBox cbAction2;
+        protected System.Windows.Forms.CheckBox cbSciFi0;
+        protected System.Windows.Forms.CheckBox cbDrama1;
         protected System.Windows.Forms.TextBox txtYear;
         protected System.Windows.Forms.RadioButton rbNC17;
         protected System.Windows.Forms.RadioButton rbR;

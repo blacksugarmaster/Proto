@@ -11,34 +11,35 @@ namespace Proto.Forms
 {
     public partial class MovieEdit : Proto.Forms.MovieBase
     {
-        public MovieEdit(Movie movie)
+        Movie movie;
+        public MovieEdit(Movie m)
         {
             InitializeComponent();
-
+            movie = m;
             txtTitle.Text = movie.title;
             txtDirector.Text = movie.director;
             txtYear.Text = movie.year.ToString();
             txtImage.Text = movie.imageName;
             lbCast.DataSource = movie.cast;
-            // parse genre
 
+            // parse genre
             foreach(string g in movie.genre)
             {
                 if(g.Equals("SciFi"))
                 {
-                    cbSciFi.Checked = true;
+                    cbSciFi0.Checked = true;
                 }
                 if(g.Equals("Drama"))
                 {
-                    cbDrama.Checked = true;
+                    cbDrama1.Checked = true;
                 }
                 if(g.Equals("Action"))
                 {
-                    cbAction.Checked = true;
+                    cbAction2.Checked = true;
                 }
                 if(g.Equals("Thriller"))
                 {
-                    cbThriller.Checked = true;
+                    cbThriller3.Checked = true;
                 }
             }
         }
