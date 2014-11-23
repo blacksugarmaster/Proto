@@ -16,7 +16,7 @@ namespace Proto
 {
     public partial class MainWindow : Form
     {
-        bool testDB = true;
+        private bool testDB = false;
 
         public MainWindow()
         {
@@ -43,8 +43,6 @@ namespace Proto
                 DBImplement db = new DBImplement();
                 db.getConnection();
                 DBImplement.proxy = db;
-
-                DBImplement.proxy.reset();
             }
             catch (Exception e)
             {
@@ -90,7 +88,7 @@ namespace Proto
             genre.Add(Genre.getString(0));
             genre.Add(Genre.getString(3));
 
-            Movie dummy = new Movie("new movie!", "GOOD", 2014, 12, genre, "someImage.jpg", cast);
+            Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast);
 
 
 

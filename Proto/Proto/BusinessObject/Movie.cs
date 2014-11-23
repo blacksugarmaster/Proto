@@ -9,11 +9,11 @@ namespace Proto.BusinessObject
 {
     public class Movie : IBObject
     {
-        public String id { get; set; }
+        public string id { get; set; }
         public string title { get; set; }
         public string director { get; set; }
         public int year { get; set; }
-        public int age { get; set; }
+        public string age { get; set; }
         public List<string> genre { get; set; }
         public string imageName { get; set; }
 
@@ -24,7 +24,7 @@ namespace Proto.BusinessObject
         // image path = imageBasepath + imageFileName.ext
         private string imageBasePath = AppDomain.CurrentDomain.BaseDirectory+"resource/image/";
 
-        public Movie(string title, string director, int year, int age, List<string> genre, string imageName, List<string> cast)
+        public Movie(string title, string director, int year, string age, List<string> genre, string imageName, List<string> cast)
         {
             id = Guid.NewGuid().ToString();
             // constructor
@@ -47,7 +47,7 @@ namespace Proto.BusinessObject
             this.title = "";
             this.director = "";
             this.year = -1;
-            this.age = -1;
+            this.age = "";
             this.genre = dum;
             this.imageName = "";
             this.cast = dum;

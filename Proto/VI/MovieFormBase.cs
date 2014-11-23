@@ -33,13 +33,14 @@ namespace Proto.Forms
                 if(open.CheckFileExists)
                 {
                     string filename = open.FileName;
-
                     txtImage.Text = filename;
+                    cbImage.Checked = true;
                 }
                 
             }
 
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

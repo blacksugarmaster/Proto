@@ -46,11 +46,42 @@ namespace Proto.Forms
                 genre.Add(Genre.getString(3));
             }
 
-
+            string age="";
             // parse rating(age)
+            if(rbG.Checked)
+            {
+                age = "G";
+            }
+            else if(rbPG.Checked)
+            {
+                age = "PG";
+            }
+            else if(rbPG13.Checked)
+            {
+                age = "PG13";
+            }
+            else if(rbR.Checked)
+            {
+                age = "R";
+            }
+            else if(rbNC17.Checked)
+            {
+                age = "NC17";
+            }
+
+            string image = "";
+            // check image include
+            if(cbImage.Checked)
+            {
+                image = txtImage.Text;
+            }
+
+            AddMovie.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast);
 
 
-            //AddMovie.addMovie(txtTitle, txtDirector, txtYear);
+            MessageBox.Show("Movie added");
+            // form close ( or add more later )
+            this.Close();
         }
     }
 }

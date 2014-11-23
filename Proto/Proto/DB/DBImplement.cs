@@ -12,7 +12,7 @@ namespace Proto.DB
 {
     class DBImplement : IDB
     {
-        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),director NCHAR(100),year int,age int,imagename NCHAR(100));";
+        string movie = "CREATE TABLE Movie(id NCHAR(100) PRIMARY KEY NOT NULL,title NCHAR(100),director NCHAR(100),year int,age NCHAR(100),imagename NCHAR(300));";
         string movieList = "CREATE TABLE MovieList(id NCHAR(100) PRIMARY KEY NOT NULL,name NCHAR(100), mid NCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
         string movieCast = "CREATE TABLE MovieCast(id NCHAR(100),actor NCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
         string movieGenre = "CREATE TABLE MovieGenre(id NCHAR(100),genre NCHAR(100),PRIMARY KEY (id,genre),FOREIGN KEY(id) REFERENCES Movie(id));";
@@ -167,7 +167,7 @@ namespace Proto.DB
             string title = table.Rows[0][1].ToString();
             string director = table.Rows[0][2].ToString();
             int year = System.Int32.Parse( table.Rows[0][3].ToString() );
-            int age = System.Int32.Parse(table.Rows[0][4].ToString() );
+            string age = table.Rows[0][4].ToString();
             string imagename = table.Rows[0][5].ToString();
 
 
@@ -266,7 +266,7 @@ namespace Proto.DB
                 string title = r[1].ToString();
                 string director = r[2].ToString();
                 int year = System.Int32.Parse(r[3].ToString());
-                int age = System.Int32.Parse(r[4].ToString());
+                string age = r[4].ToString();
                 string imagename = r[5].ToString();
 
 

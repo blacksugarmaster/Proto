@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtImage = new System.Windows.Forms.RichTextBox();
+            this.cbImage = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -328,12 +329,23 @@
             this.txtImage.TabIndex = 19;
             this.txtImage.Text = "";
             // 
+            // cbImage
+            // 
+            this.cbImage.AutoSize = true;
+            this.cbImage.Location = new System.Drawing.Point(477, 483);
+            this.cbImage.Name = "cbImage";
+            this.cbImage.Size = new System.Drawing.Size(108, 30);
+            this.cbImage.TabIndex = 20;
+            this.cbImage.Text = "Include";
+            this.cbImage.UseVisualStyleBackColor = true;
+            // 
             // MovieBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.Controls.Add(this.cbImage);
             this.Controls.Add(this.txtImage);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label5);
@@ -393,5 +405,6 @@
         protected System.Windows.Forms.ListBox lbCast;
         protected System.Windows.Forms.TextBox txtCast;
         protected System.Windows.Forms.RichTextBox txtImage;
+        protected System.Windows.Forms.CheckBox cbImage;
     }
 }

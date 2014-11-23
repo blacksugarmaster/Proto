@@ -31,7 +31,7 @@ namespace Proto.BusinessLogic
             }
             if (age.Trim().Length > 0)
             {
-                movie.age = Int32.Parse(age);
+                movie.age = age;
             }
 
             movie.genre = genre;
