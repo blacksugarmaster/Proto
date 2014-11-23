@@ -45,5 +45,12 @@ namespace Proto.BusinessObject
         {
             throw new NotImplementedException();
         }
+
+
+
+        public IBObject clone()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

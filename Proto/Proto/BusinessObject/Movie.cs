@@ -23,6 +23,17 @@ namespace Proto.BusinessObject
 
         // image path = imageBasepath + imageFileName.ext
         private string imageBasePath = AppDomain.CurrentDomain.BaseDirectory+"resource/image/";
+        public Movie(string id, string title, string director, int year, string age, List<string> genre, string imageName, List<string> cast)
+        {
+            this.id = id;
+            this.title = title;
+            this.director = director;
+            this.year = year;
+            this.age = age;
+            this.genre = genre;
+            this.imageName = imageName;
+            this.cast = cast;
+        }
 
         public Movie(string title, string director, int year, string age, List<string> genre, string imageName, List<string> cast)
         {
@@ -85,6 +96,12 @@ namespace Proto.BusinessObject
             }
 
             return true;
+        }
+
+
+        public Movie clone()
+        {
+            return new Movie(id, title, director, year, age, genre, imageName, cast);
         }
     }
 

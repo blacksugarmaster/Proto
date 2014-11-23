@@ -60,6 +60,7 @@
             this.btnDeleteList = new System.Windows.Forms.Button();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pMovieView = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.pMovieView);
             this.splitContainer1.Panel2.Controls.Add(this.lvMovie);
             this.splitContainer1.Size = new System.Drawing.Size(1650, 1065);
             this.splitContainer1.SplitterDistance = 550;
@@ -326,6 +328,7 @@
             this.lvMovie.Size = new System.Drawing.Size(1090, 1062);
             this.lvMovie.TabIndex = 0;
             this.lvMovie.UseCompatibleStateImageBehavior = false;
+            this.lvMovie.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDoubleClick);
             // 
             // btnAddList
             // 
@@ -365,6 +368,15 @@
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
             this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
+            // 
+            // pMovieView
+            // 
+            this.pMovieView.BackColor = System.Drawing.Color.White;
+            this.pMovieView.Location = new System.Drawing.Point(3, 340);
+            this.pMovieView.Name = "pMovieView";
+            this.pMovieView.Size = new System.Drawing.Size(1090, 722);
+            this.pMovieView.TabIndex = 1;
+            this.pMovieView.Visible = false;
             // 
             // MainWindow
             // 
@@ -426,6 +438,7 @@
         private System.Windows.Forms.Button btnDeleteList;
         private System.Windows.Forms.Button btnEditList;
         private System.Windows.Forms.Button btnAddList;
+        private System.Windows.Forms.Panel pMovieView;
     }
 }
 

@@ -402,9 +402,9 @@
         protected System.Windows.Forms.RadioButton rbPG;
         protected System.Windows.Forms.RadioButton rbG;
         protected System.Windows.Forms.TextBox txtDirector;
-        protected System.Windows.Forms.ListBox lbCast;
         protected System.Windows.Forms.TextBox txtCast;
         protected System.Windows.Forms.RichTextBox txtImage;
         protected System.Windows.Forms.CheckBox cbImage;
+        protected System.Windows.Forms.ListBox lbCast;
     }
 }

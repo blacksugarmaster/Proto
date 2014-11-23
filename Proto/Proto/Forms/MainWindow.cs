@@ -33,7 +33,7 @@ namespace Proto
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            displayAllMovie();
+            displayMovie(DBImplement.proxy.getAllMovie());
         }
 
         private void connectDB()
@@ -50,34 +50,36 @@ namespace Proto
             }
         }
 
-        private void displayAllMovie()
+        private void displayMovie(MovieList list)
         {
-            //DataTable table = DBImplement.proxy.getAllMovieDT();
-            MovieList list = DBImplement.proxy.getAllMovie();
-
             // get image name for each row, check if valid
             // add to ImageList ( ImageList . ImageSize parameter )
             // http://www.c-sharpcorner.com/UploadFile/9f4ff8/listview-in-C-Sharp/
 
             ImageList ilall = new ImageList();
-            ilall.ImageSize = new Size(195, 256);
+            ilall.ImageSize = new Size(185, 256);
 
             // add all image to the 'all' imagelist if file exists
-            foreach(Movie mov in list)
+            foreach (Movie mov in list)
             {
                 string path = mov.imageName;
-                if(System.IO.File.Exists(path))
+                if (System.IO.File.Exists(path))
                 {
                     System.Console.WriteLine(path);
-                    ilall.Images.Add(Image.FromFile(path));
+                    ilall.Images.Add(mov.id,Image.FromFile(path));
                 }
             }
 
             lvMovie.LargeImageList = ilall;
             int i = 0;
-            foreach(Movie mov in list)
+            foreach (Movie mov in list)
             {
-                lvMovie.Items.Add(mov.title, i++);
+                ListViewItem movie = new ListViewItem();
+                movie.Text = mov.title;
+                movie.Tag = mov.id;
+                movie.ImageKey = mov.id;
+                lvMovie.Items.Add(movie);
+
             }
             lvMovie.View = View.LargeIcon;
 
@@ -115,6 +117,14 @@ namespace Proto
             Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast);
 
             MovieEdit edit = new MovieEdit(dummy);
+            edit.Show();
+        }
+
+        private void lvMovie_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewItem selected = lvMovie.SelectedItems[0];
+            Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
+            MovieEdit edit = new MovieEdit(movie);
             edit.Show();
         }
     }

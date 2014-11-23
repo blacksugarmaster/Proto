@@ -10,7 +10,6 @@ namespace Proto.BusinessObject
     {
         bool save();
         bool update();
-
         bool remove(IBObject obj);
     }
 }
