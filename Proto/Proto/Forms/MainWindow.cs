@@ -52,11 +52,35 @@ namespace Proto
 
         private void displayAllMovie()
         {
-            DataTable table = DBImplement.proxy.getAllMovieDT();
-            
+            //DataTable table = DBImplement.proxy.getAllMovieDT();
+            MovieList list = DBImplement.proxy.getAllMovie();
+
             // get image name for each row, check if valid
             // add to ImageList ( ImageList . ImageSize parameter )
             // http://www.c-sharpcorner.com/UploadFile/9f4ff8/listview-in-C-Sharp/
+
+            ImageList ilall = new ImageList();
+            ilall.ImageSize = new Size(195, 256);
+
+            // add all image to the 'all' imagelist if file exists
+            foreach(Movie mov in list)
+            {
+                string path = mov.imageName;
+                if(System.IO.File.Exists(path))
+                {
+                    System.Console.WriteLine(path);
+                    ilall.Images.Add(Image.FromFile(path));
+                }
+            }
+
+            lvMovie.LargeImageList = ilall;
+            int i = 0;
+            foreach(Movie mov in list)
+            {
+                lvMovie.Items.Add(mov.title, i++);
+            }
+            lvMovie.View = View.LargeIcon;
+
         }
 
 
@@ -89,8 +113,6 @@ namespace Proto
             genre.Add(Genre.getString(3));
 
             Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast);
-
-
 
             MovieEdit edit = new MovieEdit(dummy);
             edit.Show();

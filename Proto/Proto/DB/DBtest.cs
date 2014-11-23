@@ -31,7 +31,7 @@ namespace Proto.DB
             dummy2.save();
 
             // logic test
-            AddMovie.addMovie("BusinessLogic", "GOOD", "2015", "12", genre, "someImage.jpg", cast);
+            MovieLogic.addMovie("BusinessLogic", "GOOD", "2015", "12", genre, "someImage.jpg", cast);
         }
     }
 

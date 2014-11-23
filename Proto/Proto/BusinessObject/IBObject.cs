@@ -8,10 +8,9 @@ namespace Proto.BusinessObject
 {
     public interface IBObject
     {
-        Boolean save();
+        bool save();
+        bool update();
 
-        Boolean remove(IBObject obj);
-
-        IBObject parse();
+        bool remove(IBObject obj);
     }
 }

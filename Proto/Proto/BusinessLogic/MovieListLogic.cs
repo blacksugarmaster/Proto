@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proto.BusinessLogic
 {
-    class AddMovieList
+    class MovieListLogic
     {
 
     }

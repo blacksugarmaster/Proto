@@ -41,7 +41,7 @@ namespace Proto.BusinessObject
         }
 
 
-        public IBObject parse()
+        public bool update()
         {
             throw new NotImplementedException();
         }

@@ -93,14 +93,14 @@
             this.txtTitle.Location = new System.Drawing.Point(208, 26);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
-            this.txtTitle.TabIndex = 4;
+            this.txtTitle.TabIndex = 0;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(109, 954);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(192, 69);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -110,7 +110,7 @@
             this.btnCancel.Location = new System.Drawing.Point(340, 954);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(192, 69);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -131,20 +131,20 @@
             // cbThriller3
             // 
             this.cbThriller3.AutoSize = true;
-            this.cbThriller3.Location = new System.Drawing.Point(148, 30);
+            this.cbThriller3.Location = new System.Drawing.Point(369, 30);
             this.cbThriller3.Name = "cbThriller3";
             this.cbThriller3.Size = new System.Drawing.Size(103, 30);
-            this.cbThriller3.TabIndex = 3;
+            this.cbThriller3.TabIndex = 9;
             this.cbThriller3.Text = "Thriller";
             this.cbThriller3.UseVisualStyleBackColor = true;
             // 
             // cbAction2
             // 
             this.cbAction2.AutoSize = true;
-            this.cbAction2.Location = new System.Drawing.Point(16, 125);
+            this.cbAction2.Location = new System.Drawing.Point(246, 30);
             this.cbAction2.Name = "cbAction2";
             this.cbAction2.Size = new System.Drawing.Size(99, 30);
-            this.cbAction2.TabIndex = 2;
+            this.cbAction2.TabIndex = 8;
             this.cbAction2.Text = "Action";
             this.cbAction2.UseVisualStyleBackColor = true;
             // 
@@ -154,17 +154,17 @@
             this.cbSciFi0.Location = new System.Drawing.Point(16, 30);
             this.cbSciFi0.Name = "cbSciFi0";
             this.cbSciFi0.Size = new System.Drawing.Size(94, 30);
-            this.cbSciFi0.TabIndex = 1;
+            this.cbSciFi0.TabIndex = 6;
             this.cbSciFi0.Text = "Sci-Fi";
             this.cbSciFi0.UseVisualStyleBackColor = true;
             // 
             // cbDrama1
             // 
             this.cbDrama1.AutoSize = true;
-            this.cbDrama1.Location = new System.Drawing.Point(16, 75);
+            this.cbDrama1.Location = new System.Drawing.Point(127, 30);
             this.cbDrama1.Name = "cbDrama1";
             this.cbDrama1.Size = new System.Drawing.Size(104, 30);
-            this.cbDrama1.TabIndex = 0;
+            this.cbDrama1.TabIndex = 7;
             this.cbDrama1.Text = "Drama";
             this.cbDrama1.UseVisualStyleBackColor = true;
             // 
@@ -182,7 +182,7 @@
             this.txtYear.Location = new System.Drawing.Point(356, 591);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 31);
-            this.txtYear.TabIndex = 9;
+            this.txtYear.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -205,7 +205,7 @@
             this.rbNC17.Location = new System.Drawing.Point(398, 49);
             this.rbNC17.Name = "rbNC17";
             this.rbNC17.Size = new System.Drawing.Size(100, 30);
-            this.rbNC17.TabIndex = 4;
+            this.rbNC17.TabIndex = 14;
             this.rbNC17.TabStop = true;
             this.rbNC17.Text = "NC-17";
             this.rbNC17.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@
             this.rbR.Location = new System.Drawing.Point(322, 49);
             this.rbR.Name = "rbR";
             this.rbR.Size = new System.Drawing.Size(53, 30);
-            this.rbR.TabIndex = 3;
+            this.rbR.TabIndex = 13;
             this.rbR.TabStop = true;
             this.rbR.Text = "R";
             this.rbR.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@
             this.rbPG13.Location = new System.Drawing.Point(194, 48);
             this.rbPG13.Name = "rbPG13";
             this.rbPG13.Size = new System.Drawing.Size(100, 30);
-            this.rbPG13.TabIndex = 2;
+            this.rbPG13.TabIndex = 12;
             this.rbPG13.TabStop = true;
             this.rbPG13.Text = "PG-13";
             this.rbPG13.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             this.rbPG.Location = new System.Drawing.Point(103, 48);
             this.rbPG.Name = "rbPG";
             this.rbPG.Size = new System.Drawing.Size(69, 30);
-            this.rbPG.TabIndex = 1;
+            this.rbPG.TabIndex = 11;
             this.rbPG.TabStop = true;
             this.rbPG.Text = "PG";
             this.rbPG.UseVisualStyleBackColor = true;
@@ -253,7 +253,7 @@
             this.rbG.Location = new System.Drawing.Point(27, 49);
             this.rbG.Name = "rbG";
             this.rbG.Size = new System.Drawing.Size(54, 30);
-            this.rbG.TabIndex = 0;
+            this.rbG.TabIndex = 10;
             this.rbG.TabStop = true;
             this.rbG.Text = "G";
             this.rbG.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.txtDirector.Location = new System.Drawing.Point(208, 80);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(248, 31);
-            this.txtDirector.TabIndex = 11;
+            this.txtDirector.TabIndex = 1;
             // 
             // lbCast
             // 
@@ -279,14 +279,14 @@
             this.txtCast.Location = new System.Drawing.Point(208, 135);
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(248, 31);
-            this.txtCast.TabIndex = 13;
+            this.txtCast.TabIndex = 2;
             // 
             // btnAddCast
             // 
             this.btnAddCast.Location = new System.Drawing.Point(477, 131);
             this.btnAddCast.Name = "btnAddCast";
             this.btnAddCast.Size = new System.Drawing.Size(100, 39);
-            this.btnAddCast.TabIndex = 14;
+            this.btnAddCast.TabIndex = 3;
             this.btnAddCast.Text = "Add";
             this.btnAddCast.UseVisualStyleBackColor = true;
             this.btnAddCast.Click += new System.EventHandler(this.btnAddCast_Click);
@@ -315,7 +315,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(477, 391);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(100, 39);
-            this.btnBrowse.TabIndex = 18;
+            this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);

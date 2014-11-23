@@ -76,7 +76,7 @@ namespace Proto.Forms
                 image = txtImage.Text;
             }
 
-            AddMovie.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast);
+            MovieLogic.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast);
 
 
             MessageBox.Show("Movie added");

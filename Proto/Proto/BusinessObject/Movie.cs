@@ -73,9 +73,18 @@ namespace Proto.BusinessObject
         }
 
 
-        public IBObject parse()
+        public bool update()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DB.DBImplement.proxy.updateMovie(this);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return true;
         }
     }
 

@@ -66,8 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\AddMovie.cs" />
-    <Compile Include="BusinessLogic\AddMovieList.cs" />
+    <Compile Include="BusinessLogic\MovieLogic.cs" />
+    <Compile Include="BusinessLogic\MovieListLogic.cs" />
     <Compile Include="BusinessObject\EGenre.cs" />
     <Compile Include="BusinessObject\IBObject.cs" />
     <Compile Include="BusinessObject\MovieList.cs" />

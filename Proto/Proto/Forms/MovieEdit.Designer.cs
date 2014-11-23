@@ -34,6 +34,18 @@
             // 
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtTitle
+            // 
+            this.txtTitle.TabIndex = 0;
+            // 
+            // txtDirector
+            // 
+            this.txtDirector.TabIndex = 1;
+            // 
+            // txtCast
+            // 
+            this.txtCast.TabIndex = 2;
+            // 
             // MovieEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);

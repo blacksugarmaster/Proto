@@ -26,5 +26,9 @@ namespace Proto.DB
         bool updateMovie(Movie movie);
         bool updateMovieList(MovieList movieList);
 
+        // --------- delete -----------
+        bool deleteMovie(Movie movie);
+        bool deleteMovieList(MovieList movieList);
+
     }
 }
