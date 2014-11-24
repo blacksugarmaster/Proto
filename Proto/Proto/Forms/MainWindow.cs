@@ -33,7 +33,7 @@ namespace Proto
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            displayMovie(DBImplement.proxy.getAllMovie());
+            //displayMovie(DBImplement.proxy.getAllMovie());
         }
 
         private void connectDB()
