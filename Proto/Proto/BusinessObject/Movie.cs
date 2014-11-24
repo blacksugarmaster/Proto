@@ -47,6 +47,21 @@ namespace Proto.BusinessObject
             this.imageName = imageName;
             this.cast = cast;
         }
+        public Movie(string id)
+        {
+            List<string> dum = new List<string>();
+            dum.Add("");
+
+            // base constructor, set any value as needed
+            this.id = id;
+            this.title = "";
+            this.director = "";
+            this.year = -1;
+            this.age = "";
+            this.genre = dum;
+            this.imageName = "";
+            this.cast = dum;
+        }
 
         public Movie()
         {

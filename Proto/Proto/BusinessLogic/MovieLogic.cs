@@ -40,9 +40,9 @@ namespace Proto.BusinessLogic
             return movie.save();
         }
 
-        public static bool updateMovie(string title, string director, string year, string age, List<string> genre, string imagename, List<string> cast)
+        public static bool updateMovie(string id,string title, string director, string year, string age, List<string> genre, string imagename, List<string> cast)
         {
-            Movie movie = new Movie();
+            Movie movie = new Movie(id);
 
             if (title.Trim().Length > 0)
             {

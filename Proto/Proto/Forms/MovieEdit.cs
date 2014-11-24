@@ -20,9 +20,19 @@ namespace Proto.Forms
             movie = m;
             txtTitle.Text = movie.title;
             txtDirector.Text = movie.director;
-            txtYear.Text = movie.year.ToString();
-            txtImage.Text = movie.imageName;
 
+            if(movie.year != -1)
+            {
+                txtYear.Text = movie.year.ToString();
+            }
+            
+
+
+            txtImage.Text = movie.imageName;
+            if(movie.imageName.Trim().Length > 0)
+            {
+                cbImage.Checked = true;
+            }
 
             foreach(string c in movie.cast)
             {
@@ -104,10 +114,10 @@ namespace Proto.Forms
                 image = txtImage.Text;
             }
 
-            MovieLogic.updateMovie(txtTitle.Text, txtDirector.Text, txtYear.Text, age, genre, image, cast);
+            MovieLogic.updateMovie(movie.id,txtTitle.Text, txtDirector.Text, txtYear.Text, age, genre, image, cast);
 
 
-            MessageBox.Show("Movie added");
+            MessageBox.Show("Movie Edited");
             // form close ( or add more later )
             this.Close();
         }
