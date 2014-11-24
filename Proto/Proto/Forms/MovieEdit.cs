@@ -25,8 +25,6 @@ namespace Proto.Forms
             {
                 txtYear.Text = movie.year.ToString();
             }
-            
-
 
             txtImage.Text = movie.imageName;
             if(movie.imageName.Trim().Length > 0)
