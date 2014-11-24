@@ -254,8 +254,12 @@ namespace Proto.DB
 
         public MovieList getAllMovie()
         {
-            con.Open();
+            if(con.State != ConnectionState.Open)
+            {
 
+                con.Open();
+
+            }
             string q = "SELECT id " +
                         "FROM Movie";
             cmd = new SqlCeCommand(q, con);
