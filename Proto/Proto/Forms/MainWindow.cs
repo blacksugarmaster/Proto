@@ -57,7 +57,7 @@ namespace Proto
             // http://www.c-sharpcorner.com/UploadFile/9f4ff8/listview-in-C-Sharp/
 
             ImageList ilall = new ImageList();
-            ilall.ImageSize = new Size(185, 256);
+            ilall.ImageSize = new Size(175, 256);
 
             // add all image to the 'all' imagelist if file exists
             foreach (Movie mov in list)
@@ -200,6 +200,11 @@ namespace Proto
         {
             lvMovie.Clear();
             displayMovie(DBImplement.proxy.getAllMovie());
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new About().Show();
         }
 
 
