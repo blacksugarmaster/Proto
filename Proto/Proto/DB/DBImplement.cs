@@ -26,7 +26,7 @@ namespace Proto.DB
         // set when application is loaded
         public static DBImplement proxy;
 
-        static SqlCeConnection con=null;
+        static SqlCeConnection con;
         SqlCeCommand cmd;
 
         private void ExecuteQuery(string query)
@@ -55,11 +55,19 @@ namespace Proto.DB
             {
                 string fileName = "MODB.sdf";
                 con = new SqlCeConnection(@"Data Source=|DataDirectory|\" + fileName);
-
+                
             }
             catch (Exception e)
             {
                 reportError(e);
+            }
+        }
+
+        public void closeDB()
+        {
+            if(con.State != ConnectionState.Closed)
+            {
+                con.Close();
             }
         }
 
@@ -254,12 +262,8 @@ namespace Proto.DB
 
         public MovieList getAllMovie()
         {
-            if(con.State != ConnectionState.Open)
-            {
 
-                con.Open();
-
-            }
+            con.Open();
             string q = "SELECT id " +
                         "FROM Movie";
             cmd = new SqlCeCommand(q, con);
