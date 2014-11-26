@@ -85,7 +85,7 @@ namespace Proto.DB
                 ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
                 ExecuteQuery(movieGenre);
-                
+
             }
             catch(Exception e)
             {

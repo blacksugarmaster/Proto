@@ -33,7 +33,7 @@ namespace Proto
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            //displayMovie(DBImplement.proxy.getAllMovie());
+            displayMovie(DBImplement.proxy.getAllMovie());
         }
 
         private void connectDB()
@@ -85,8 +85,6 @@ namespace Proto
 
         }
 
-
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -105,27 +103,105 @@ namespace Proto
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // it is just for testing !!!!!!
-            List<string> cast = new List<string>();
-            cast.Add("cast1");
-            cast.Add("cast2");
-
-            List<string> genre = new List<string>();
-            genre.Add(Genre.getString(0));
-            genre.Add(Genre.getString(3));
-
-            Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast);
-
-            MovieEdit edit = new MovieEdit(dummy);
-            edit.Show();
+            if(lvMovie.SelectedItems.Count > 0)
+            {
+                ListViewItem selected = lvMovie.SelectedItems[0];
+                Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
+                MovieEdit edit = new MovieEdit(movie);
+                edit.Show();
+            }
+            else
+            {
+                MessageBox.Show("Need to select Movie to Edit !");
+            }
+            
         }
 
         private void lvMovie_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ListViewItem selected = lvMovie.SelectedItems[0];
-            Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
-            MovieEdit edit = new MovieEdit(movie);
-            edit.Show();
+            if (lvMovie.SelectedItems.Count > 0)
+            {
+                ListViewItem selected = lvMovie.SelectedItems[0];
+                Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
+
+                lbTitle.Text = movie.title;
+                ptxtDirector.Text = movie.director;
+
+                // need to make a string
+                string c = "";
+                foreach(string cast in movie.cast)
+                {
+                    c += cast + "  ";
+                }
+                ptxtCast.Text = c;
+
+                string g = "";
+                foreach(string genre in movie.genre)
+                {
+                    g += genre + "  ";
+                }
+                ptxtGenre.Text = g;
+
+
+
+                ptxtRating.Text = movie.age;
+                if (movie.year != -1)
+                {
+                    ptxtYear.Text = movie.year.ToString();
+                }
+                
+
+                pbPoster.Image = Image.FromFile(movie.imageName);
+                pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                pMovieView.Visible = true;
+
+                pOverlay.BackColor = Color.FromArgb(40, 88,44,55);
+                pOverlay.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Need to select Movie to Edit !");
+            }
+            
+
         }
+
+        private Size ScaleSize(Size from, int? maxWidth, int? maxHeight)
+        {
+            if (!maxWidth.HasValue && !maxHeight.HasValue) throw new ArgumentException("At least one scale factor (toWidth or toHeight) must not be null.");
+            if (from.Height == 0 || from.Width == 0) throw new ArgumentException("Cannot scale size from zero.");
+
+            double? widthScale = null;
+            double? heightScale = null;
+
+            if (maxWidth.HasValue)
+            {
+                widthScale = maxWidth.Value / (double)from.Width;
+            }
+            if (maxHeight.HasValue)
+            {
+                heightScale = maxHeight.Value / (double)from.Height;
+            }
+
+            double scale = Math.Min((double)(widthScale ?? heightScale),
+                                     (double)(heightScale ?? widthScale));
+
+            return new Size((int)Math.Floor(from.Width * scale), (int)Math.Ceiling(from.Height * scale));
+        }
+
+        private void btnPanelClose_Click(object sender, EventArgs e)
+        {
+            pMovieView.Visible = false;
+            pOverlay.Visible = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            lvMovie.Clear();
+            displayMovie(DBImplement.proxy.getAllMovie());
+        }
+
+
     }
 }

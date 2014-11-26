@@ -10,6 +10,7 @@ namespace Proto.BusinessObject
     {
         public String id {get;set;}
         public String name { get; set; }
+        
         public MovieList(String name)
         {
             id = Guid.NewGuid().ToString();
