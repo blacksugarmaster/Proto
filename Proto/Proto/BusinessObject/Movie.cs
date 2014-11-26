@@ -47,6 +47,7 @@ namespace Proto.BusinessObject
             this.imageName = imageName;
             this.cast = cast;
         }
+
         public Movie(string id)
         {
             List<string> dum = new List<string>();
