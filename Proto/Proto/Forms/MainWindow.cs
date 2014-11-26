@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.Windows.Controls;
 using Proto.DB;
 using Proto.BusinessObject;
 using Proto.BusinessLogic;
 using Proto.Forms;
+
 
 namespace Proto
 {
@@ -34,6 +36,7 @@ namespace Proto
         private void MainWindow_Load(object sender, EventArgs e)
         {
             displayMovie(DBImplement.proxy.getAllMovie());
+            displayMovieList();
         }
 
         private void connectDB()
@@ -48,6 +51,17 @@ namespace Proto
             {
 
             }
+        }
+
+        private void displayMovieList()
+        {
+            List<MovieList> lists = DBImplement.proxy.getAllMovieList();
+
+            foreach(MovieList list in lists)
+            {
+                lbList.Items.Add(list.name);
+            }
+            
         }
 
         private void displayMovie(MovieList list)
@@ -207,6 +221,17 @@ namespace Proto
             new About().Show();
         }
 
+        private void listAddToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MovieListAdd().Show();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string name = lbList.GetItemText(lbList.SelectedItem);
+        }
+
+        
 
     }
 }

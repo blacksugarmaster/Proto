@@ -114,7 +114,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(158, 40);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -168,19 +168,21 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.listAddToolStripMenuItem.Text = "Add";
+            this.listAddToolStripMenuItem.Click += new System.EventHandler(this.listAddToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.editToolStripMenuItem1.Text = "Edit";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
             // 
             // splitContainer1
@@ -257,8 +259,6 @@
             // 
             this.lbList.FormattingEnabled = true;
             this.lbList.ItemHeight = 25;
-            this.lbList.Items.AddRange(new object[] {
-            "list1"});
             this.lbList.Location = new System.Drawing.Point(19, 16);
             this.lbList.Name = "lbList";
             this.lbList.Size = new System.Drawing.Size(475, 829);
@@ -383,7 +383,7 @@
             // pOverlay
             // 
             this.pOverlay.BackColor = System.Drawing.Color.Transparent;
-            this.pOverlay.Location = new System.Drawing.Point(6, 13);
+            this.pOverlay.Location = new System.Drawing.Point(6, 6);
             this.pOverlay.Name = "pOverlay";
             this.pOverlay.Size = new System.Drawing.Size(1093, 344);
             this.pOverlay.TabIndex = 2;

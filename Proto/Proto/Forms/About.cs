@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Proto.Forms
 {
@@ -17,14 +18,16 @@ namespace Proto.Forms
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo uofmLink = new ProcessStartInfo("http://www.umanitoba.ca");
+            Process.Start(uofmLink);
         }
     }
 }

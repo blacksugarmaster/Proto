@@ -16,7 +16,11 @@ namespace Proto.BusinessObject
             id = Guid.NewGuid().ToString();
             this.name = name;
         }
-
+        public MovieList(string id, String name)
+        {
+            this.id = id;
+            this.name = name;
+        }
         public MovieList()
         {
             // TODO: Complete member initialization

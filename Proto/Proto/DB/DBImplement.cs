@@ -141,6 +141,15 @@ namespace Proto.DB
         public bool saveMovieList(MovieList movieList)
         {
             con.Open();
+
+            string q = "INSERT INTO MovieList(id,name)" +
+            "VALUES(@id,@name)";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@id", movieList.id);
+            cmd.Parameters.AddWithValue("@name", movieList.name);
+            cmd.ExecuteNonQuery();
+
+            /*
             foreach(Movie movie in movieList)
             {
                 string q = "INSERT INTO MovieList(id,name,mid)" +
@@ -151,6 +160,7 @@ namespace Proto.DB
                 cmd.Parameters.AddWithValue("@mid", movie.id);
                 cmd.ExecuteNonQuery();
             }
+             */
             con.Close();
 
             return false;
@@ -236,7 +246,7 @@ namespace Proto.DB
         {
             con.Open();
 
-            string q = "SELECT mid " +
+            string q = "SELECT * " +
                         "FROM MovieList " +
                         "WHERE id = @id";
             cmd = new SqlCeCommand(q, con);
@@ -248,11 +258,18 @@ namespace Proto.DB
             DataTable table = new DataTable();
             table = data.Tables["list"];
 
-            MovieList list = new MovieList();
-            foreach(string r in table.Rows)
+            MovieList list = new MovieList(id,table.Rows[0][1].ToString());
+
+
+            // if there exists movie inside of the list
+            if(table.Rows.Count > 1)
             {
-                list.Add(getMovieById(r[0].ToString()));
+                foreach (DataRow r in table.Rows)
+                {
+                    list.Add(getMovieById(r[2].ToString()));
+                }
             }
+
 
             con.Close();
             return list;
@@ -307,7 +324,7 @@ namespace Proto.DB
             sqldata.Fill(data, "movies");
 
             DataTable table = new DataTable();
-            table = data.Tables["movie"];
+            table = data.Tables["movies"];
 
             con.Close();
             return table;
@@ -407,6 +424,37 @@ namespace Proto.DB
         public bool deleteMovieList(MovieList movieList)
         {
             throw new NotImplementedException();
+        }
+
+
+        public List<MovieList> getAllMovieList()
+        {
+            if(con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string q = "SELECT * " +
+                        "FROM MovieList";
+
+            cmd = new SqlCeCommand(q, con);
+            SqlCeDataAdapter sqldata = new SqlCeDataAdapter(cmd);
+            DataSet data = new DataSet();
+            sqldata.Fill(data, "movieList");
+
+            DataTable table = new DataTable();
+            table = data.Tables["movieList"];
+
+            con.Close();
+
+            List<MovieList> lists = new List<MovieList>();
+
+            foreach(DataRow r in table.Rows)
+            {
+                lists.Add(getMovieListById(r[0].ToString()));
+            }
+
+            return lists;
         }
     }
 }
