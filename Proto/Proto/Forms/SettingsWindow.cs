@@ -13,6 +13,7 @@ namespace Proto.Forms
 {
     public partial class SettingsWindow : Form
     {
+        private bool reseted;
         public SettingsWindow()
         {
             InitializeComponent();
@@ -26,11 +27,17 @@ namespace Proto.Forms
             if(reset == DialogResult.OK)
             {
                 DBImplement.proxy.reset();
+                reseted = true;
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if(reseted)
+            {
+                this.DialogResult = DialogResult.Yes;
+            }
+            
             Close();
         }
 

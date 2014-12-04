@@ -449,7 +449,7 @@ namespace Proto.DB
 
 
             string delcast = "DELETE FROM MovieCast " +
-                            "WHERE id = @id";
+                                "WHERE id = @id";
             cmd = new SqlCeCommand(delcast, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.ExecuteNonQuery();
@@ -461,7 +461,7 @@ namespace Proto.DB
             cmd.ExecuteNonQuery();
 
             string delMovie = "DELETE FROM Movie " +
-                    "WHERE id = @id;";
+                                "WHERE id = @id;";
             cmd = new SqlCeCommand(delMovie, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.ExecuteNonQuery();
@@ -608,8 +608,8 @@ namespace Proto.DB
             string newName = movieList.name;
 
             string q = "UPDATE MovieList " +
-            "SET name = @newname " +
-                "WHERE id = @id;";
+                        "SET name = @newname " +
+                        "WHERE id = @id;";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@newname", newName);
             cmd.Parameters.AddWithValue("@id", id);

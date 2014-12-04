@@ -60,7 +60,7 @@ namespace Proto.BusinessLogic
             string castWhere = string.Empty;
             if (!string.IsNullOrWhiteSpace(cast))
             {
-                castWhere += " cast LIKE '%" + cast + "%'";
+                castWhere += " actor LIKE '%" + cast + "%'";
             }
 
 

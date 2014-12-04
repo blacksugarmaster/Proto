@@ -205,22 +205,23 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.listAddToolStripMenuItem.Text = "Add";
-            this.listAddToolStripMenuItem.Click += new System.EventHandler(this.listAddToolStripMenuItem_Click);
+            this.listAddToolStripMenuItem.Click += new System.EventHandler(this.btnAddList_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
-            this.editToolStripMenuItem1.Text = "Edit";
-            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
+            this.editToolStripMenuItem1.Text = "Rename";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.btnRenameList_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
             // splitContainer1
             // 
@@ -571,9 +572,9 @@
             this.pMovieView.Controls.Add(this.lbDirector);
             this.pMovieView.Controls.Add(this.pTrailer);
             this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 88);
+            this.pMovieView.Location = new System.Drawing.Point(3, 3);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 974);
+            this.pMovieView.Size = new System.Drawing.Size(1090, 1059);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
@@ -730,7 +731,7 @@
             this.addToAListToolStripMenuItem,
             this.removeFromThisListToolStripMenuItem});
             this.cmsMovieAdd.Name = "cmsMovieAddDelete";
-            this.cmsMovieAdd.Size = new System.Drawing.Size(336, 128);
+            this.cmsMovieAdd.Size = new System.Drawing.Size(336, 84);
             this.cmsMovieAdd.Opened += new System.EventHandler(this.dynamicAddItems);
             // 
             // addToAListToolStripMenuItem

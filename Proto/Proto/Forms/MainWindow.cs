@@ -273,32 +273,13 @@ namespace Proto
             pMovieView.Visible = false;
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            lvMovie.Clear();
-            displayMovies(DBImplement.proxy.getAllMovie());
-        }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new About().Show();
         }
 
-        private void listAddToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using(MovieListAdd add = new MovieListAdd())
-            {
-                if(add.ShowDialog() == DialogResult.OK)
-                {
-                    displayMovieList(add.NewMovieList);
-                }
-            }
-        }
 
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            string name = lbList.GetItemText(lbList.SelectedItem);
-        }
 
         private void btnAddList_Click(object sender, EventArgs e)
         {
@@ -314,15 +295,33 @@ namespace Proto
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new SettingsWindow().ShowDialog();
+            using(SettingsWindow set = new SettingsWindow())
+            {
+                if (set.ShowDialog() == DialogResult.Yes)
+                {
+                    lvMovie.Clear();
+                    for(int i = 1 ; i < lbList.Items.Count ; i ++)
+                    {
+                        lbList.Items.RemoveAt(i);
+                    }
+                }
+            }
         }
 
         private void btnDeleteList_Click(object sender, EventArgs e)
         {
             string name = lbList.GetItemText(lbList.SelectedItem);
-            MovieListLogic.deleteMovieList(name);
-            lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
-            MessageBox.Show("List Deleted");
+
+            if(!name.Equals("All"))
+            {
+                MovieListLogic.deleteMovieList(name);
+                lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                MessageBox.Show("List Deleted");
+            }
+            else
+            {
+                MessageBox.Show("Cannot delete Default list","Default List",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRenameList_Click(object sender, EventArgs e)
@@ -330,14 +329,20 @@ namespace Proto
             if(lbList.SelectedItems.Count > 0)
             {
                 string name = lbList.GetItemText(lbList.SelectedItem);
-
-                using (MovieListRename rename = new MovieListRename(name))
+                if(!name.Equals("All"))
                 {
-                    if (rename.ShowDialog() == DialogResult.OK)
+                    using (MovieListRename rename = new MovieListRename(name))
                     {
-                        lbList.Items.Insert(lbList.Items.IndexOf(name), rename.NewName);
-                        lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                        if (rename.ShowDialog() == DialogResult.OK)
+                        {
+                            lbList.Items.Insert(lbList.Items.IndexOf(name), rename.NewName);
+                            lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Cannot renames Default list", "Default List", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -349,7 +354,12 @@ namespace Proto
                 string name = lbList.GetItemText(lbList.SelectedItem);
                 MovieList list = DBImplement.proxy.getMovieListByName(name);
                 displayMovies(list);
-                dpAll = false;
+
+                if(!name.Equals("All"))
+                {
+                    dpAll = false;
+                }
+                
             }
         }
 
@@ -388,7 +398,6 @@ namespace Proto
             {
                 MovieListLogic.deleteMovie(lbList.SelectedItems[0].ToString(), lvMovie.SelectedItems[0].Tag.ToString());
             }
-
         }
 
     }

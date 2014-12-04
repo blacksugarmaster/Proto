@@ -97,6 +97,7 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(208, 26);
+            this.txtTitle.MaxLength = 99;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
             this.txtTitle.TabIndex = 0;
@@ -166,6 +167,7 @@
             // txtYear
             // 
             this.txtYear.Location = new System.Drawing.Point(356, 690);
+            this.txtYear.MaxLength = 4;
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 31);
             this.txtYear.TabIndex = 5;
@@ -247,6 +249,7 @@
             // txtDirector
             // 
             this.txtDirector.Location = new System.Drawing.Point(208, 80);
+            this.txtDirector.MaxLength = 99;
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(248, 31);
             this.txtDirector.TabIndex = 1;
@@ -263,6 +266,7 @@
             // txtCast
             // 
             this.txtCast.Location = new System.Drawing.Point(208, 135);
+            this.txtCast.MaxLength = 99;
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(248, 31);
             this.txtCast.TabIndex = 2;
@@ -338,6 +342,7 @@
             // txtLength
             // 
             this.txtLength.Location = new System.Drawing.Point(208, 334);
+            this.txtLength.MaxLength = 4;
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(248, 31);
             this.txtLength.TabIndex = 22;
