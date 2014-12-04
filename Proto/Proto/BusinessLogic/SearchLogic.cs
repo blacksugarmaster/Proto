@@ -33,7 +33,7 @@ namespace Proto.BusinessLogic
             {
                 if(!string.IsNullOrWhiteSpace(gen))
                 {
-                    gen += "OR";
+                    gen += " OR ";
                 }
                 gen += "genre = '" + g + "'";
             }
