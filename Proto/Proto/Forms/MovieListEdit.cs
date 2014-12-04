@@ -5,19 +5,25 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Proto.BusinessLogic;
 
 namespace Proto.Forms
 {
     public partial class MovieListEdit : Proto.Forms.MovieListBase
     {
-        public MovieListEdit()
+        string name;
+        public MovieListEdit(string name)
         {
             InitializeComponent();
+            this.name = name;
+            txtName.Text = name;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            // save
+
+            MovieListLogic.editMovieList(txtName.Text);
+
             MessageBox.Show("Renamed");
             Close();
         }

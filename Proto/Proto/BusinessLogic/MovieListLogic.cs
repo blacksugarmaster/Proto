@@ -22,8 +22,10 @@ namespace Proto.BusinessLogic
             return false;
         }
 
-        public static bool editMovieList(MovieList list)
+        public static bool editMovieList(string name)
         {
+            MovieList ml = DB.DBImplement.proxy.getMovieListByName(name);
+
             return false;
         }
 

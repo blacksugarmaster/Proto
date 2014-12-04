@@ -546,27 +546,31 @@
             // 
             // ptxtRating
             // 
+            this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ptxtRating.Location = new System.Drawing.Point(539, 442);
             this.ptxtRating.Name = "ptxtRating";
-            this.ptxtRating.Size = new System.Drawing.Size(100, 31);
+            this.ptxtRating.Size = new System.Drawing.Size(100, 24);
             this.ptxtRating.TabIndex = 13;
             // 
             // ptxtYear
             // 
+            this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ptxtYear.Location = new System.Drawing.Point(539, 391);
             this.ptxtYear.Name = "ptxtYear";
-            this.ptxtYear.Size = new System.Drawing.Size(100, 31);
+            this.ptxtYear.Size = new System.Drawing.Size(100, 24);
             this.ptxtYear.TabIndex = 12;
             // 
             // ptxtGenre
             // 
+            this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ptxtGenre.Location = new System.Drawing.Point(539, 345);
             this.ptxtGenre.Name = "ptxtGenre";
-            this.ptxtGenre.Size = new System.Drawing.Size(520, 31);
+            this.ptxtGenre.Size = new System.Drawing.Size(520, 24);
             this.ptxtGenre.TabIndex = 11;
             // 
             // ptxtCast
             // 
+            this.ptxtCast.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ptxtCast.Location = new System.Drawing.Point(539, 196);
             this.ptxtCast.Multiline = true;
             this.ptxtCast.Name = "ptxtCast";
@@ -575,9 +579,10 @@
             // 
             // ptxtDirector
             // 
+            this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ptxtDirector.Location = new System.Drawing.Point(539, 126);
             this.ptxtDirector.Name = "ptxtDirector";
-            this.ptxtDirector.Size = new System.Drawing.Size(520, 31);
+            this.ptxtDirector.Size = new System.Drawing.Size(520, 24);
             this.ptxtDirector.TabIndex = 9;
             // 
             // lbRating

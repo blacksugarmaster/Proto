@@ -87,7 +87,7 @@ namespace Proto.BusinessLogic
             }
             if(!string.IsNullOrWhiteSpace(gen))
             {
-                gen = "AND" +gen;
+                gen = " AND " +gen;
             }
 
             

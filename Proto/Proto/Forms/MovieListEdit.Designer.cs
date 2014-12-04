@@ -30,12 +30,9 @@
         {
             this.SuspendLayout();
             // 
-            // btnClose
-            // 
-            // 
             // btnSave
             // 
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MovieListEdit
             // 

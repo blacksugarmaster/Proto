@@ -330,6 +330,7 @@ namespace Proto
         private void btnEditList_Click(object sender, EventArgs e)
         {
             string name = lbList.GetItemText(lbList.SelectedItem);
+            new MovieListEdit(name).Show();
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
