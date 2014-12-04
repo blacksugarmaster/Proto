@@ -22,6 +22,8 @@ namespace Proto
         private MovieList allMovie = null;
         private string defPath;
 
+        private bool dpAll = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,8 +44,8 @@ namespace Proto
         private void MainWindow_Load(object sender, EventArgs e)
         {
             allMovie = MovieLogic.getAll();
-            displayMovie(allMovie);
-            displayMovieList();
+            displayMovies(allMovie);
+            displayMovieLists();
         }
 
         private void connectDB()
@@ -61,7 +63,7 @@ namespace Proto
             }
         }
 
-        private void displayMovieList()
+        private void displayMovieLists()
         {
             List<MovieList> lists = MovieListLogic.getAll();
 
@@ -70,8 +72,12 @@ namespace Proto
                 lbList.Items.Add(list.name);
             }
         }
+        private void displayMovieList(MovieList list)
+        {
+            lbList.Items.Add(list.name);
+        }
 
-        private void displayMovie(MovieList list)
+        private void displayMovies(MovieList list)
         {
             // display any movielist on lvMovie ( ListView )
 
@@ -102,7 +108,24 @@ namespace Proto
                 lvMovie.Items.Add(movie);
             }
             lvMovie.View = View.LargeIcon;
+        }
+        public void displayMovie(Movie mov)
+        {
+            // display one more movie ( from newly added )
+            ImageList ilall = new ImageList();
+            ilall.ImageSize = new Size(175, 256);
 
+            string path = defPath + "//" + mov.imageName;
+            if (System.IO.File.Exists(path))
+            {
+                //System.Console.WriteLine(path);
+                ilall.Images.Add(mov.id, Image.FromFile(path));
+            }
+            ListViewItem movie = new ListViewItem();
+            movie.Text = mov.title;
+            movie.Tag = mov.id;
+            movie.ImageKey = mov.id;
+            lvMovie.Items.Add(movie);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,70 +186,19 @@ namespace Proto
 
             MovieList res = SearchLogic.search(title, director, cast, gen, rat);
 
-            displayMovie(res);
+            displayMovies(res);
         }
 
-
-        private void search()
-        {
-            string title = txtTitle.Text.Trim();
-            string director = txtDirector.Text.Trim();
-            string cast = txtCast.Text.Trim();
-
-            List<string> gen = new List<string>();
-
-            //genre
-            if (cbSciFi0.Checked)
-            {
-                gen.Add(Genre.getString(0));
-            }
-            if (cbDrama1.Checked)
-            {
-                gen.Add(Genre.getString(1));
-            }
-            if (cbAction2.Checked)
-            {
-                gen.Add(Genre.getString(2));
-            }
-            if (cbThriller3.Checked)
-            {
-                gen.Add(Genre.getString(3));
-            }
-
-            List<string> rat = new List<string>();
-            //rating
-            if (cbG.Checked)
-            {
-                rat.Add("G");
-            }
-            if (cbPG.Checked)
-            {
-                rat.Add("PG");
-            }
-            if (cbPG13.Checked)
-            {
-                rat.Add("PG13");
-            }
-            if (cbR.Checked)
-            {
-                rat.Add("R");
-            }
-            if (cbNC17.Checked)
-            {
-                rat.Add("NC17");
-            }
-
-
-            MovieList res = SearchLogic.search(title, director, cast, gen, rat);
-
-            displayMovie(res);
-
-        }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MovieAdd add = new MovieAdd();
-            add.Show();
+            using(MovieAdd add = new MovieAdd())
+            {
+                if(add.ShowDialog() == DialogResult.OK)
+                {
+                    displayMovie(add.NewMovie);
+                }
+            }
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,13 +208,12 @@ namespace Proto
                 ListViewItem selected = lvMovie.SelectedItems[0];
                 Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
                 MovieEdit edit = new MovieEdit(movie);
-                edit.Show();
+                edit.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Need to select Movie to Edit !");
             }
-            
         }
 
         private void lvMovie_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -297,7 +268,6 @@ namespace Proto
 
         }
 
-
         private void btnPanelClose_Click(object sender, EventArgs e)
         {
             pMovieView.Visible = false;
@@ -306,7 +276,7 @@ namespace Proto
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             lvMovie.Clear();
-            displayMovie(DBImplement.proxy.getAllMovie());
+            displayMovies(DBImplement.proxy.getAllMovie());
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -316,7 +286,13 @@ namespace Proto
 
         private void listAddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new MovieListAdd().Show();
+            using(MovieListAdd add = new MovieListAdd())
+            {
+                if(add.ShowDialog() == DialogResult.OK)
+                {
+                    displayMovieList(add.NewMovieList);
+                }
+            }
         }
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -326,27 +302,44 @@ namespace Proto
 
         private void btnAddList_Click(object sender, EventArgs e)
         {
-            new MovieListAdd().Show();
+            using (MovieListAdd add = new MovieListAdd())
+            {
+                if (add.ShowDialog() == DialogResult.OK)
+                {
+                    displayMovieList(add.NewMovieList);
+                }
+            }
         }
-
 
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new SettingsWindow().Show();
+            new SettingsWindow().ShowDialog();
         }
 
         private void btnDeleteList_Click(object sender, EventArgs e)
         {
             string name = lbList.GetItemText(lbList.SelectedItem);
             MovieListLogic.deleteMovieList(name);
+            lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
             MessageBox.Show("List Deleted");
         }
 
         private void btnRenameList_Click(object sender, EventArgs e)
         {
-            string name = lbList.GetItemText(lbList.SelectedItem);
-            new MovieListRename(name).Show();
+            if(lbList.SelectedItems.Count > 0)
+            {
+                string name = lbList.GetItemText(lbList.SelectedItem);
+
+                using (MovieListRename rename = new MovieListRename(name))
+                {
+                    if (rename.ShowDialog() == DialogResult.OK)
+                    {
+                        lbList.Items.Insert(lbList.Items.IndexOf(name), rename.NewName);
+                        lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                    }
+                }
+            }
         }
 
         private void lbList_SelectedIndexChanged(object sender, EventArgs e)
@@ -355,13 +348,17 @@ namespace Proto
             {
                 string name = lbList.GetItemText(lbList.SelectedItem);
                 MovieList list = DBImplement.proxy.getMovieListByName(name);
-                displayMovie(list);
+                displayMovies(list);
+                dpAll = false;
             }
         }
 
         private void dynamicAddItems(object sender, EventArgs e)
         {
-            if(lvMovie.SelectedItems.Count > 0)
+            cmsMovieAdd.Items[0].Visible = dpAll;
+            cmsMovieAdd.Items[1].Visible = !dpAll;
+
+            if (lvMovie.SelectedItems.Count > 0)
             {
                 ListBox.ObjectCollection lists = lbList.Items;
                 ToolStripMenuItem[] items = new ToolStripMenuItem[lists.Count];
@@ -374,8 +371,8 @@ namespace Proto
                 }
                 this.addToAListToolStripMenuItem.DropDownItems.Clear();
                 this.addToAListToolStripMenuItem.DropDownItems.AddRange(items);
-
             }
+
 
         }
 
@@ -385,6 +382,14 @@ namespace Proto
             MovieListLogic.addMovie(selected.Name, lvMovie.SelectedItems[0].Tag.ToString());
         }
 
+        private void removeFromThisListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(lbList.SelectedItems.Count > 0 && lvMovie.SelectedItems.Count > 0)
+            {
+                MovieListLogic.deleteMovie(lbList.SelectedItems[0].ToString(), lvMovie.SelectedItems[0].Tag.ToString());
+            }
+
+        }
 
     }
 }

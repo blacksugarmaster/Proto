@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proto.BusinessObject
 {
-    class MovieList : List<Movie>, IBObject
+    public class MovieList : List<Movie>, IBObject
     {
         public String id {get;set;}
         public String name { get; set; }

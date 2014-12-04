@@ -17,15 +17,23 @@ namespace Proto.Forms
             InitializeComponent();
         }
 
+        private MovieList newMovieList;
+        public MovieList NewMovieList
+        {
+            get { return newMovieList; }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             // save
             if (txtName.Text.Trim().Length > 0)
             {
-                if (MovieListLogic.addMovieList(txtName.Text))
+                MovieList ml = MovieListLogic.addMovieList(txtName.Text);
+                if (ml != null)
                 {
                     MessageBox.Show("List " + txtName.Text + " Added");
+                    newMovieList = ml;
+                    this.DialogResult = DialogResult.OK;
                     Close();
                 }
                 else

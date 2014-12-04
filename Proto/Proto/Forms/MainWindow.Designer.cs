@@ -95,9 +95,7 @@
             this.lvMovie = new System.Windows.Forms.ListView();
             this.cmsMovieAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToAListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.cmsMovieDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeFromThisListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -113,7 +111,6 @@
             this.pMovieView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
             this.cmsMovieAdd.SuspendLayout();
-            this.cmsMovieDelete.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -574,9 +571,9 @@
             this.pMovieView.Controls.Add(this.lbDirector);
             this.pMovieView.Controls.Add(this.pTrailer);
             this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 105);
+            this.pMovieView.Location = new System.Drawing.Point(3, 88);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 957);
+            this.pMovieView.Size = new System.Drawing.Size(1090, 974);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
@@ -730,46 +727,30 @@
             // cmsMovieAdd
             // 
             this.cmsMovieAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToAListToolStripMenuItem});
+            this.addToAListToolStripMenuItem,
+            this.removeFromThisListToolStripMenuItem});
             this.cmsMovieAdd.Name = "cmsMovieAddDelete";
-            this.cmsMovieAdd.Size = new System.Drawing.Size(244, 88);
+            this.cmsMovieAdd.Size = new System.Drawing.Size(336, 128);
             this.cmsMovieAdd.Opened += new System.EventHandler(this.dynamicAddItems);
             // 
             // addToAListToolStripMenuItem
             // 
             this.addToAListToolStripMenuItem.Name = "addToAListToolStripMenuItem";
-            this.addToAListToolStripMenuItem.Size = new System.Drawing.Size(230, 40);
+            this.addToAListToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.addToAListToolStripMenuItem.Text = "Add to a List";
             // 
-            // btnRefresh
+            // removeFromThisListToolStripMenuItem
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(1247, 0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(400, 43);
-            this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // cmsMovieDelete
-            // 
-            this.cmsMovieDelete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.cmsMovieDelete.Name = "cmsMovieAddDelete";
-            this.cmsMovieDelete.Size = new System.Drawing.Size(313, 44);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(312, 40);
-            this.toolStripMenuItem1.Text = "Delete From the List";
+            this.removeFromThisListToolStripMenuItem.Name = "removeFromThisListToolStripMenuItem";
+            this.removeFromThisListToolStripMenuItem.Size = new System.Drawing.Size(335, 40);
+            this.removeFromThisListToolStripMenuItem.Text = "Remove From this List";
+            this.removeFromThisListToolStripMenuItem.Click += new System.EventHandler(this.removeFromThisListToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1650, 1108);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -797,7 +778,6 @@
             this.pMovieView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
             this.cmsMovieAdd.ResumeLayout(false);
-            this.cmsMovieDelete.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -818,7 +798,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbList;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem movieListToolStripMenuItem;
@@ -827,7 +806,6 @@
         private System.Windows.Forms.TextBox txtDirector;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ListView lvMovie;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.Panel pMovieView;
@@ -845,7 +823,6 @@
         private System.Windows.Forms.TextBox ptxtCast;
         private System.Windows.Forms.TextBox ptxtDirector;
         private System.Windows.Forms.PictureBox pbPoster;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.CheckBox cbThriller3;
         private System.Windows.Forms.CheckBox cbAction2;
         private System.Windows.Forms.CheckBox cbDrama1;
@@ -871,8 +848,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
         private System.Windows.Forms.ContextMenuStrip cmsMovieAdd;
         private System.Windows.Forms.ToolStripMenuItem addToAListToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip cmsMovieDelete;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ListBox lbList;
+        private System.Windows.Forms.ListView lvMovie;
+        private System.Windows.Forms.ToolStripMenuItem removeFromThisListToolStripMenuItem;
     }
 }
 

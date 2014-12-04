@@ -11,6 +11,12 @@ namespace Proto.Forms
 {
     public partial class MovieListRename : Proto.Forms.MovieListBase
     {
+        private string newName;
+        public string NewName
+        {
+            get { return newName; }
+        }
+
         string name;
         public MovieListRename(string name)
         {
@@ -21,10 +27,16 @@ namespace Proto.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MovieListLogic.renameMovieList(name,txtName.Text);
+            if(!string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MovieListLogic.renameMovieList(name, txtName.Text);
 
-            MessageBox.Show("Renamed");
-            Close();
+                newName = txtName.Text;
+                MessageBox.Show("Renamed");
+                this.DialogResult = DialogResult.OK;
+                Close();
+            }
+
         }
 
     }

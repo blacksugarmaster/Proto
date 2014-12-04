@@ -9,7 +9,7 @@ namespace Proto.BusinessLogic
 {
     class MovieLogic
     {
-        public static bool addMovie(string title, string director, string year,string age,List<string> genre,string imagename,List<string> cast, string length)
+        public static Movie addMovie(string title, string director, string year,string age,List<string> genre,string imagename,List<string> cast, string length)
         {
             Movie movie = new Movie();
 
@@ -41,7 +41,9 @@ namespace Proto.BusinessLogic
             movie.genre = genre;
             movie.cast = cast;
 
-            return movie.save();
+            movie.save();
+            MovieListLogic.addMovie("All", movie.id);
+            return movie;
         }
 
         public static bool updateMovie(string id,string title, string director, string year, string age, List<string> genre, string imagename, List<string> cast)

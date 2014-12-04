@@ -13,6 +13,12 @@ namespace Proto.Forms
 {
     public partial class MovieAdd : Proto.Forms.MovieBase
     {
+        private Movie newMovie;
+        public Movie NewMovie
+        {
+            get { return newMovie; }
+        }
+
         public MovieAdd()
         {
             InitializeComponent();
@@ -86,12 +92,15 @@ namespace Proto.Forms
                 image = txtImage.Text;
             }
 
-            MovieLogic.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast, txtLength.Text);
+            Movie movie = MovieLogic.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast, txtLength.Text);
+            if(movie != null)
+            {
+                newMovie = movie;
+                MessageBox.Show("Movie added");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
 
-
-            MessageBox.Show("Movie added");
-            // form close ( or add more later )
-            this.Close();
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)

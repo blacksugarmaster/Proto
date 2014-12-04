@@ -9,12 +9,12 @@ namespace Proto.BusinessLogic
 {
     class MovieListLogic
     {
-        public static bool addMovieList(string name)
+        public static MovieList addMovieList(string name)
         {
             MovieList newlist = new MovieList(name);
-            
 
-            return newlist.save();
+            newlist.save();
+            return newlist;
         }
 
         public static bool renameMovieList(string oldname, string newName)

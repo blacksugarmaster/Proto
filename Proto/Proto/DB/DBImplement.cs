@@ -88,7 +88,8 @@ namespace Proto.DB
                 ExecuteQuery(movieCast);
                 ExecuteQuery(movieGenre);
 
-
+                MovieList all = new MovieList("All");
+                saveMovieList(all);
                 
 
             }
