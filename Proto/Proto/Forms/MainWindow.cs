@@ -250,9 +250,9 @@ namespace Proto
                 }
                 
 
-                if(System.IO.File.Exists(movie.imageName))
+                if(System.IO.File.Exists(defPath + "//"+ movie.imageName))
                 {
-                    pbPoster.Image = Image.FromFile(movie.imageName);
+                    pbPoster.Image = Image.FromFile(defPath + "//" + movie.imageName);
                 }
                 
                 pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
