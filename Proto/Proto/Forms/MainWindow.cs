@@ -20,6 +20,7 @@ namespace Proto
         private static bool testDB = false;
 
         private MovieList allMovie = null;
+        private string defPath;
 
         public MainWindow()
         {
@@ -52,6 +53,7 @@ namespace Proto
                 DBImplement db = new DBImplement();
                 db.getConnection();
                 DBImplement.proxy = db;
+                defPath = DBImplement.proxy.getDefPath();
             }
             catch (Exception e)
             {
@@ -81,7 +83,7 @@ namespace Proto
             // add all image to the 'all' imagelist if file exists
             foreach (Movie mov in list)
             {
-                string path = mov.imageName;
+                string path = defPath + "//"+ mov.imageName;
                 if (System.IO.File.Exists(path))
                 {
                     //System.Console.WriteLine(path);

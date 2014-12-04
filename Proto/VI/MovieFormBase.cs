@@ -27,7 +27,11 @@ namespace Proto.Forms
                 if(open.CheckFileExists)
                 {
                     string filename = open.FileName;
-                    txtImage.Text = filename;
+                    txtImage.Text = open.SafeFileName;
+
+                    pbPoster.Image = Image.FromFile(filename);
+                    pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
+
                     cbImage.Checked = true;
                 }
                 

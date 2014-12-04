@@ -16,12 +16,13 @@ namespace Proto.DB
         string movieList = "CREATE TABLE MovieList(id NVARCHAR(100) PRIMARY KEY NOT NULL,name NVARCHAR(100), mid NVARCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
         string movieCast = "CREATE TABLE MovieCast(id NVARCHAR(100),actor NVARCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
         string movieGenre = "CREATE TABLE MovieGenre(id NVARCHAR(100),genre NVARCHAR(100),PRIMARY KEY (id,genre),FOREIGN KEY(id) REFERENCES Movie(id));";
-
+        string config = "CREATE TABLE Config(type NVARCHAR(100), value NVARCHAR(300), PRIMARY KEY (type,value))";
 
         string dropMovie = "DROP TABLE [Movie];";
         string dropMovieList = "DROP TABLE [MovieList];";
-        string dropMovieCast = "DROP TABLE [movieCast];";
-        string dropMovieGenre = "DROP TABLE [movieGenre];";
+        string dropMovieCast = "DROP TABLE [MovieCast];";
+        string dropMovieGenre = "DROP TABLE [MovieGenre];";
+        string dropConfig = "DROP TABLE [Config]";
 
         // set when application is loaded
         public static DBImplement proxy;
@@ -75,17 +76,17 @@ namespace Proto.DB
         {
             try
             {
-
                 ExecuteQuery(dropMovieGenre);
                 ExecuteQuery(dropMovieCast);
                 ExecuteQuery(dropMovieList);
                 ExecuteQuery(dropMovie);
+                ExecuteQuery(dropConfig);
 
+                ExecuteQuery(config);
                 ExecuteQuery(movie);
                 ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
                 ExecuteQuery(movieGenre);
-
             }
             catch(Exception e)
             {
@@ -521,6 +522,51 @@ namespace Proto.DB
 
             con.Close();
             return list;
+        }
+
+
+        public bool setDefPath(string path)
+        {
+            con.Open();
+
+            string q = "INSERT INTO Config(type,value)" +
+                        "VALUES(@type,@value)";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@type", "DefPath");
+            cmd.Parameters.AddWithValue("@value", path);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return true;
+        }
+
+        public string getDefPath()
+        {
+            con.Open();
+
+            string q = "SELECT value " +
+                        "FROM Config " +
+                        "WHERE type = 'DefPath'";
+            cmd = new SqlCeCommand(q, con);
+            SqlCeDataAdapter sqldata = new SqlCeDataAdapter(cmd);
+            DataSet data = new DataSet();
+            sqldata.Fill(data, "path");
+
+            DataTable table = new DataTable();
+            table = data.Tables["path"];
+
+
+            string path = "";
+            if(table.Rows.Count >0)
+            {
+                path = table.Rows[0][0].ToString();
+            }
+
+            
+            con.Close();
+
+            return path;
         }
     }
 }

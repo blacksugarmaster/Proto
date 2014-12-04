@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnResetDB = new System.Windows.Forms.Button();
+            this.btnDefPath = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // 
             // btnResetDB
             // 
-            this.btnResetDB.Location = new System.Drawing.Point(134, 110);
+            this.btnResetDB.Location = new System.Drawing.Point(133, 44);
             this.btnResetDB.Name = "btnResetDB";
             this.btnResetDB.Size = new System.Drawing.Size(195, 70);
             this.btnResetDB.TabIndex = 1;
@@ -67,12 +68,23 @@
             this.btnResetDB.UseVisualStyleBackColor = true;
             this.btnResetDB.Click += new System.EventHandler(this.btnResetDB_Click);
             // 
+            // btnDefPath
+            // 
+            this.btnDefPath.Location = new System.Drawing.Point(133, 157);
+            this.btnDefPath.Name = "btnDefPath";
+            this.btnDefPath.Size = new System.Drawing.Size(195, 70);
+            this.btnDefPath.TabIndex = 2;
+            this.btnDefPath.Text = "Set Image File Directory";
+            this.btnDefPath.UseVisualStyleBackColor = true;
+            this.btnDefPath.Click += new System.EventHandler(this.btnDefPath_Click);
+            // 
             // SettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(454, 369);
+            this.Controls.Add(this.btnDefPath);
             this.Controls.Add(this.btnResetDB);
             this.Controls.Add(this.panel1);
             this.Name = "SettingsWindow";
@@ -88,5 +100,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnResetDB;
+        private System.Windows.Forms.Button btnDefPath;
     }
 }

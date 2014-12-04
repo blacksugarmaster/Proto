@@ -59,9 +59,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pbPoster = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -105,9 +107,9 @@
             this.groupBox1.Controls.Add(this.cbAction2);
             this.groupBox1.Controls.Add(this.cbSciFi0);
             this.groupBox1.Controls.Add(this.cbDrama1);
-            this.groupBox1.Location = new System.Drawing.Point(60, 649);
+            this.groupBox1.Location = new System.Drawing.Point(60, 745);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 174);
+            this.groupBox1.Size = new System.Drawing.Size(517, 78);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
@@ -155,7 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 596);
+            this.label4.Location = new System.Drawing.Point(62, 695);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(253, 26);
             this.label4.TabIndex = 8;
@@ -163,7 +165,7 @@
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(356, 591);
+            this.txtYear.Location = new System.Drawing.Point(356, 690);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 31);
             this.txtYear.TabIndex = 5;
@@ -306,12 +308,13 @@
             // 
             // txtImage
             // 
-            this.txtImage.Location = new System.Drawing.Point(208, 391);
+            this.txtImage.Location = new System.Drawing.Point(477, 541);
             this.txtImage.Name = "txtImage";
             this.txtImage.ReadOnly = true;
-            this.txtImage.Size = new System.Drawing.Size(248, 123);
+            this.txtImage.Size = new System.Drawing.Size(100, 134);
             this.txtImage.TabIndex = 19;
             this.txtImage.Text = "";
+            this.txtImage.Visible = false;
             // 
             // cbImage
             // 
@@ -370,6 +373,15 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
+            // pbPoster
+            // 
+            this.pbPoster.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPoster.Location = new System.Drawing.Point(208, 391);
+            this.pbPoster.Name = "pbPoster";
+            this.pbPoster.Size = new System.Drawing.Size(248, 281);
+            this.pbPoster.TabIndex = 24;
+            this.pbPoster.TabStop = false;
+            // 
             // MovieBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -377,6 +389,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.Controls.Add(this.pbPoster);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtLength);
             this.Controls.Add(this.lbLength);
@@ -404,6 +417,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +456,6 @@
         private System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.Button btnCancel;
         protected System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pbPoster;
     }
 }

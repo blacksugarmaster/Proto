@@ -33,5 +33,15 @@ namespace Proto.Forms
         {
             Close();
         }
+
+        private void btnDefPath_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog sel = new FolderBrowserDialog();
+            if(sel.ShowDialog() == DialogResult.OK)
+            {
+                string path = sel.SelectedPath;
+                DBImplement.proxy.setDefPath(path);
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Proto.DB
         // ------- insert--------
         bool saveMovie(Movie movie);
         bool saveMovieList(MovieList movieList);
+        bool setDefPath(string path);
 
         // ------- getter ------------
         Movie getMovieById(String id);
@@ -23,6 +24,7 @@ namespace Proto.DB
         DataTable getAllMovieDT();
         List<MovieList> getAllMovieList();
         MovieList getMovieListByName(string name);
+        string getDefPath();
 
 
         // -------- update -----------
