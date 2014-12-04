@@ -33,6 +33,7 @@
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MovieList = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnDeleteList = new System.Windows.Forms.Button();
             this.btnEditList = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
@@ -85,6 +87,8 @@
             this.btnPanelClose = new System.Windows.Forms.Button();
             this.lvMovie = new System.Windows.Forms.ListView();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.lvSameGenreMovies = new System.Windows.Forms.ListView();
+            this.lbSame = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -92,6 +96,7 @@
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MovieList.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.Search.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -116,6 +121,7 @@
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.settingsToolStripMenuItem,
+            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(153, 39);
@@ -134,6 +140,11 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(240, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -155,21 +166,21 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // movieListToolStripMenuItem
@@ -185,21 +196,21 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
             this.listAddToolStripMenuItem.Text = "Add";
             this.listAddToolStripMenuItem.Click += new System.EventHandler(this.listAddToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
             // 
             // splitContainer1
@@ -232,9 +243,7 @@
             // 
             // MovieList
             // 
-            this.MovieList.Controls.Add(this.btnDeleteList);
-            this.MovieList.Controls.Add(this.btnEditList);
-            this.MovieList.Controls.Add(this.btnAddList);
+            this.MovieList.Controls.Add(this.panel1);
             this.MovieList.Controls.Add(this.lbList);
             this.MovieList.Location = new System.Drawing.Point(4, 34);
             this.MovieList.Name = "MovieList";
@@ -244,43 +253,55 @@
             this.MovieList.Text = "Movie List";
             this.MovieList.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnDeleteList);
+            this.panel1.Controls.Add(this.btnEditList);
+            this.panel1.Controls.Add(this.btnAddList);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 847);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(521, 152);
+            this.panel1.TabIndex = 4;
+            // 
             // btnDeleteList
             // 
-            this.btnDeleteList.Location = new System.Drawing.Point(340, 861);
+            this.btnDeleteList.Location = new System.Drawing.Point(352, 16);
             this.btnDeleteList.Name = "btnDeleteList";
             this.btnDeleteList.Size = new System.Drawing.Size(119, 120);
-            this.btnDeleteList.TabIndex = 3;
+            this.btnDeleteList.TabIndex = 4;
             this.btnDeleteList.Text = "delete";
             this.btnDeleteList.UseVisualStyleBackColor = true;
+            this.btnDeleteList.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
             // btnEditList
             // 
-            this.btnEditList.Location = new System.Drawing.Point(195, 861);
+            this.btnEditList.Location = new System.Drawing.Point(204, 16);
             this.btnEditList.Name = "btnEditList";
             this.btnEditList.Size = new System.Drawing.Size(119, 120);
-            this.btnEditList.TabIndex = 2;
+            this.btnEditList.TabIndex = 3;
             this.btnEditList.Text = "edit";
             this.btnEditList.UseVisualStyleBackColor = true;
             this.btnEditList.Click += new System.EventHandler(this.btnEditList_Click);
             // 
             // btnAddList
             // 
-            this.btnAddList.Location = new System.Drawing.Point(50, 861);
+            this.btnAddList.Location = new System.Drawing.Point(59, 16);
             this.btnAddList.Name = "btnAddList";
             this.btnAddList.Size = new System.Drawing.Size(119, 120);
-            this.btnAddList.TabIndex = 1;
+            this.btnAddList.TabIndex = 2;
             this.btnAddList.Text = "add";
             this.btnAddList.UseVisualStyleBackColor = true;
             this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
             // 
             // lbList
             // 
-            this.lbList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.06283F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbList.Font = new System.Drawing.Font("Arial", 19.97906F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbList.FormattingEnabled = true;
-            this.lbList.ItemHeight = 37;
+            this.lbList.ItemHeight = 60;
             this.lbList.Location = new System.Drawing.Point(19, 16);
             this.lbList.Name = "lbList";
-            this.lbList.Size = new System.Drawing.Size(475, 818);
+            this.lbList.Size = new System.Drawing.Size(493, 784);
             this.lbList.TabIndex = 0;
             // 
             // Search
@@ -325,6 +346,7 @@
             this.cbNC17.TabIndex = 4;
             this.cbNC17.Text = "NC-17";
             this.cbNC17.UseVisualStyleBackColor = true;
+            this.cbNC17.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbR
             // 
@@ -335,6 +357,7 @@
             this.cbR.TabIndex = 3;
             this.cbR.Text = "R";
             this.cbR.UseVisualStyleBackColor = true;
+            this.cbR.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbPG13
             // 
@@ -345,6 +368,7 @@
             this.cbPG13.TabIndex = 2;
             this.cbPG13.Text = "PG-13";
             this.cbPG13.UseVisualStyleBackColor = true;
+            this.cbPG13.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbPG
             // 
@@ -355,6 +379,7 @@
             this.cbPG.TabIndex = 1;
             this.cbPG.Text = "PG";
             this.cbPG.UseVisualStyleBackColor = true;
+            this.cbPG.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbG
             // 
@@ -365,6 +390,7 @@
             this.cbG.TabIndex = 0;
             this.cbG.Text = "G";
             this.cbG.UseVisualStyleBackColor = true;
+            this.cbG.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
@@ -388,6 +414,7 @@
             this.cbSciFi0.TabIndex = 19;
             this.cbSciFi0.Text = "SciFi";
             this.cbSciFi0.UseVisualStyleBackColor = true;
+            this.cbSciFi0.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbThriller3
             // 
@@ -398,6 +425,7 @@
             this.cbThriller3.TabIndex = 22;
             this.cbThriller3.Text = "Thriller";
             this.cbThriller3.UseVisualStyleBackColor = true;
+            this.cbThriller3.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbDrama1
             // 
@@ -408,6 +436,7 @@
             this.cbDrama1.TabIndex = 20;
             this.cbDrama1.Text = "Drama";
             this.cbDrama1.UseVisualStyleBackColor = true;
+            this.cbDrama1.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbAction2
             // 
@@ -418,6 +447,7 @@
             this.cbAction2.TabIndex = 21;
             this.cbAction2.Text = "Action";
             this.cbAction2.UseVisualStyleBackColor = true;
+            this.cbAction2.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSearch
             // 
@@ -436,6 +466,7 @@
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(408, 31);
             this.txtDirector.TabIndex = 17;
+            this.txtDirector.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // label6
             // 
@@ -452,6 +483,7 @@
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(408, 31);
             this.txtCast.TabIndex = 14;
+            this.txtCast.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtTitle
             // 
@@ -459,6 +491,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(408, 31);
             this.txtTitle.TabIndex = 13;
+            this.txtTitle.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // label2
             // 
@@ -481,6 +514,8 @@
             // pMovieView
             // 
             this.pMovieView.BackColor = System.Drawing.Color.White;
+            this.pMovieView.Controls.Add(this.lbSame);
+            this.pMovieView.Controls.Add(this.lvSameGenreMovies);
             this.pMovieView.Controls.Add(this.pbPoster);
             this.pMovieView.Controls.Add(this.ptxtRating);
             this.pMovieView.Controls.Add(this.ptxtYear);
@@ -503,7 +538,7 @@
             // 
             // pbPoster
             // 
-            this.pbPoster.Location = new System.Drawing.Point(53, 45);
+            this.pbPoster.Location = new System.Drawing.Point(40, 47);
             this.pbPoster.Name = "pbPoster";
             this.pbPoster.Size = new System.Drawing.Size(349, 478);
             this.pbPoster.TabIndex = 14;
@@ -511,43 +546,44 @@
             // 
             // ptxtRating
             // 
-            this.ptxtRating.Location = new System.Drawing.Point(539, 374);
+            this.ptxtRating.Location = new System.Drawing.Point(539, 442);
             this.ptxtRating.Name = "ptxtRating";
             this.ptxtRating.Size = new System.Drawing.Size(100, 31);
             this.ptxtRating.TabIndex = 13;
             // 
             // ptxtYear
             // 
-            this.ptxtYear.Location = new System.Drawing.Point(539, 335);
+            this.ptxtYear.Location = new System.Drawing.Point(539, 391);
             this.ptxtYear.Name = "ptxtYear";
             this.ptxtYear.Size = new System.Drawing.Size(100, 31);
             this.ptxtYear.TabIndex = 12;
             // 
             // ptxtGenre
             // 
-            this.ptxtGenre.Location = new System.Drawing.Point(539, 258);
+            this.ptxtGenre.Location = new System.Drawing.Point(539, 345);
             this.ptxtGenre.Name = "ptxtGenre";
-            this.ptxtGenre.Size = new System.Drawing.Size(100, 31);
+            this.ptxtGenre.Size = new System.Drawing.Size(520, 31);
             this.ptxtGenre.TabIndex = 11;
             // 
             // ptxtCast
             // 
             this.ptxtCast.Location = new System.Drawing.Point(539, 196);
+            this.ptxtCast.Multiline = true;
             this.ptxtCast.Name = "ptxtCast";
-            this.ptxtCast.Size = new System.Drawing.Size(100, 31);
+            this.ptxtCast.Size = new System.Drawing.Size(520, 31);
             this.ptxtCast.TabIndex = 10;
             // 
             // ptxtDirector
             // 
             this.ptxtDirector.Location = new System.Drawing.Point(539, 126);
             this.ptxtDirector.Name = "ptxtDirector";
-            this.ptxtDirector.Size = new System.Drawing.Size(100, 31);
+            this.ptxtDirector.Size = new System.Drawing.Size(520, 31);
             this.ptxtDirector.TabIndex = 9;
             // 
             // lbRating
             // 
             this.lbRating.AutoSize = true;
-            this.lbRating.Location = new System.Drawing.Point(430, 377);
+            this.lbRating.Location = new System.Drawing.Point(430, 445);
             this.lbRating.Name = "lbRating";
             this.lbRating.Size = new System.Drawing.Size(75, 26);
             this.lbRating.TabIndex = 8;
@@ -556,7 +592,7 @@
             // lbYear
             // 
             this.lbYear.AutoSize = true;
-            this.lbYear.Location = new System.Drawing.Point(446, 338);
+            this.lbYear.Location = new System.Drawing.Point(446, 394);
             this.lbYear.Name = "lbYear";
             this.lbYear.Size = new System.Drawing.Size(59, 26);
             this.lbYear.TabIndex = 7;
@@ -565,7 +601,7 @@
             // lbGenre
             // 
             this.lbGenre.AutoSize = true;
-            this.lbGenre.Location = new System.Drawing.Point(433, 261);
+            this.lbGenre.Location = new System.Drawing.Point(433, 348);
             this.lbGenre.Name = "lbGenre";
             this.lbGenre.Size = new System.Drawing.Size(72, 26);
             this.lbGenre.TabIndex = 6;
@@ -574,7 +610,7 @@
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Location = new System.Drawing.Point(188, 526);
+            this.lbTitle.Location = new System.Drawing.Point(178, 528);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(70, 26);
             this.lbTitle.TabIndex = 5;
@@ -600,7 +636,7 @@
             // 
             // pTrailer
             // 
-            this.pTrailer.Location = new System.Drawing.Point(711, 494);
+            this.pTrailer.Location = new System.Drawing.Point(711, 394);
             this.pTrailer.Name = "pTrailer";
             this.pTrailer.Size = new System.Drawing.Size(348, 194);
             this.pTrailer.TabIndex = 2;
@@ -634,6 +670,23 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // lvSameGenreMovies
+            // 
+            this.lvSameGenreMovies.Location = new System.Drawing.Point(40, 736);
+            this.lvSameGenreMovies.Name = "lvSameGenreMovies";
+            this.lvSameGenreMovies.Size = new System.Drawing.Size(1019, 294);
+            this.lvSameGenreMovies.TabIndex = 15;
+            this.lvSameGenreMovies.UseCompatibleStateImageBehavior = false;
+            // 
+            // lbSame
+            // 
+            this.lbSame.AutoSize = true;
+            this.lbSame.Location = new System.Drawing.Point(42, 707);
+            this.lbSame.Name = "lbSame";
+            this.lbSame.Size = new System.Drawing.Size(206, 26);
+            this.lbSame.TabIndex = 16;
+            this.lbSame.Text = "Same genre Movies";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -655,6 +708,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.MovieList.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -696,9 +750,6 @@
         private System.Windows.Forms.ListView lvMovie;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
-        private System.Windows.Forms.Button btnDeleteList;
-        private System.Windows.Forms.Button btnEditList;
-        private System.Windows.Forms.Button btnAddList;
         private System.Windows.Forms.Panel pMovieView;
         private System.Windows.Forms.Button btnPanelClose;
         private System.Windows.Forms.Panel pTrailer;
@@ -727,6 +778,13 @@
         private System.Windows.Forms.CheckBox cbNC17;
         private System.Windows.Forms.CheckBox cbR;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnDeleteList;
+        private System.Windows.Forms.Button btnEditList;
+        private System.Windows.Forms.Button btnAddList;
+        private System.Windows.Forms.ListView lvSameGenreMovies;
+        private System.Windows.Forms.Label lbSame;
     }
 }
 

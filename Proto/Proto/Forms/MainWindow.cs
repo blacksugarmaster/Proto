@@ -167,7 +167,6 @@ namespace Proto
 
         private void search()
         {
-
             string title = txtTitle.Text.Trim();
             string director = txtDirector.Text.Trim();
             string cast = txtCast.Text.Trim();
@@ -337,6 +336,12 @@ namespace Proto
         {
             new SettingsWindow().Show();
         }
+
+        private void btnDeleteList_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

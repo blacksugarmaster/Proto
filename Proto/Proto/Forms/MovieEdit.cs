@@ -37,25 +37,47 @@ namespace Proto.Forms
                 lbCast.Items.Add(c);
             }
 
+            txtLength.Text = movie.length.ToString();
+
             // parse genre
-            foreach(string g in movie.genre)
+
+            if(movie.genre.Contains(Genre.getString(0)))
             {
-                if(g.Equals("SciFi"))
-                {
-                    cbSciFi0.Checked = true;
-                }
-                if(g.Equals("Drama"))
-                {
-                    cbDrama1.Checked = true;
-                }
-                if(g.Equals("Action"))
-                {
-                    cbAction2.Checked = true;
-                }
-                if(g.Equals("Thriller"))
-                {
-                    cbThriller3.Checked = true;
-                }
+                cbSciFi0.Checked = true;
+            }
+            if(movie.genre.Contains(Genre.getString(1)))
+            {
+                cbDrama1.Checked = true;
+            }
+            if(movie.genre.Contains(Genre.getString(2)))
+            {
+                cbAction2.Checked = true;
+            }
+            if(movie.genre.Contains(Genre.getString(3)))
+            {
+                cbThriller3.Checked = true;
+            }
+
+
+            if (movie.age.Equals("G"))
+            {
+                rbG.Checked = true;
+            }
+            else if (movie.age.Equals("PG"))
+            {
+                rbPG.Checked = true;
+            }
+            else if (movie.age.Equals("PG13"))
+            {
+                rbPG13.Checked = true;
+            }
+            else if (movie.age.Equals("R"))
+            {
+                rbR.Checked = true;
+            }
+            else
+            {
+                rbNC17.Checked = true;
             }
         }
 
