@@ -9,7 +9,7 @@ namespace Proto.BusinessLogic
 {
     class MovieLogic
     {
-        public static bool addMovie(string title, string director, string year,string age,List<string> genre,string imagename,List<string> cast)
+        public static bool addMovie(string title, string director, string year,string age,List<string> genre,string imagename,List<string> cast, string length)
         {
             Movie movie = new Movie();
 
@@ -32,6 +32,10 @@ namespace Proto.BusinessLogic
             if (age.Trim().Length > 0)
             {
                 movie.age = age;
+            }
+            if (length.Trim().Length > 0)
+            {
+                movie.length = Int32.Parse(length);
             }
 
             movie.genre = genre;
@@ -69,6 +73,11 @@ namespace Proto.BusinessLogic
             movie.cast = cast;
 
             return movie.update();
+        }
+
+        public static MovieList getAll()
+        {
+            return DB.DBImplement.proxy.getAllMovie();
         }
     }
 }

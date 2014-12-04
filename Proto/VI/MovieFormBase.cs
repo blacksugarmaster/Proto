@@ -17,12 +17,6 @@ namespace Proto.Forms
             InitializeComponent();
         }
 
-
-        private void MovieManipulate_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -39,12 +33,6 @@ namespace Proto.Forms
                 
             }
 
-        }
-
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void btnAddCast_Click(object sender, EventArgs e)
@@ -80,18 +68,12 @@ namespace Proto.Forms
                  */
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if(txtImage.Text.Trim().Length > 0)
-            {
-                System.IO.File.Exists(txtImage.Text);
-            }
-            else
-            {
-                // after selected, cannot find the file
-            }
 
-            // insert or update(edit)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
+
+
     }
 }

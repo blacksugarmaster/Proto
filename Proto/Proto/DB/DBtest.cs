@@ -22,7 +22,7 @@ namespace Proto.DB
             genre.Add(Genre.getString(3));
 
             // full object
-            Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast);
+            Movie dummy = new Movie("new movie!", "GOOD", 2014, "12", genre, "someImage.jpg", cast, 152);
             dummy.save();
 
             // partial object
@@ -31,7 +31,7 @@ namespace Proto.DB
             dummy2.save();
 
             // logic test
-            MovieLogic.addMovie("BusinessLogic", "GOOD", "2015", "12", genre, "someImage.jpg", cast);
+            MovieLogic.addMovie("BusinessLogic", "GOOD", "2015", "12", genre, "someImage.jpg", cast, "20");
         }
     }
 

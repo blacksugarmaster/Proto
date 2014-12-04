@@ -22,6 +22,8 @@ namespace Proto.DB
         MovieList getAllMovie(); // just return a MovieList that contains all movie in DB
         DataTable getAllMovieDT();
         List<MovieList> getAllMovieList();
+        MovieList getMovieListByName(string name);
+
 
         // -------- update -----------
         bool updateMovie(Movie movie);

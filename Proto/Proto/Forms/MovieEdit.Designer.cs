@@ -34,23 +34,12 @@
             // 
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtTitle
-            // 
-            this.txtTitle.TabIndex = 0;
-            // 
-            // txtDirector
-            // 
-            this.txtDirector.TabIndex = 1;
-            // 
-            // txtCast
-            // 
-            this.txtCast.TabIndex = 2;
-            // 
             // MovieEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.ClientSize = new System.Drawing.Size(638, 1067);
             this.Name = "MovieEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Movie";
             this.ResumeLayout(false);
             this.PerformLayout();

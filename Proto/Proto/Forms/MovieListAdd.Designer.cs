@@ -30,15 +30,19 @@
         {
             this.SuspendLayout();
             // 
+            // btnClose
+            // 
+            // 
             // btnSave
             // 
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MovieListAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.ClientSize = new System.Drawing.Size(534, 276);
             this.Name = "MovieListAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add a List";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -46,6 +46,16 @@ namespace Proto.Forms
                 genre.Add(Genre.getString(3));
             }
 
+            if(genre.Count == 0)
+            {
+                genre.Add("");
+            }
+            if(cast.Count == 0)
+            {
+                cast.Add("");
+            }
+
+
             string age="";
             // parse rating(age)
             if(rbG.Checked)
@@ -76,12 +86,23 @@ namespace Proto.Forms
                 image = txtImage.Text;
             }
 
-            MovieLogic.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast);
+            MovieLogic.addMovie(txtTitle.Text, txtDirector.Text, txtYear.Text,age,genre,image,cast, txtLength.Text);
 
 
             MessageBox.Show("Movie added");
             // form close ( or add more later )
             this.Close();
+        }
+
+        private void txtTitle_Validating(object sender, CancelEventArgs e)
+        {
+            string err = null;
+            if(txtTitle.Text.Trim().Length <= 0)
+            {
+                err = "need title ";
+                //e.Cancel = true;
+            }
+            errorProvider1.SetError((Control)sender, err);
         }
     }
 }

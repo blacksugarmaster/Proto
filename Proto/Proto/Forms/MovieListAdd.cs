@@ -17,10 +17,11 @@ namespace Proto.Forms
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             // save
-            if(txtName.Text.Trim().Length >0)
+            if (txtName.Text.Trim().Length > 0)
             {
                 if (MovieListLogic.addMovieList(txtName.Text))
                 {
@@ -31,7 +32,7 @@ namespace Proto.Forms
                 {
                     MessageBox.Show("DB error, can't save/add new list");
                 }
-                
+
             }
             else
             {
@@ -40,9 +41,5 @@ namespace Proto.Forms
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

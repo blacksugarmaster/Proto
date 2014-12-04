@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Windows.Controls;
 using Proto.DB;
 using Proto.BusinessObject;
 using Proto.BusinessLogic;
@@ -18,13 +17,14 @@ namespace Proto
 {
     public partial class MainWindow : Form
     {
-        private bool testDB = false;
+        private static bool testDB = false;
+
+        private MovieList allMovie = null;
 
         public MainWindow()
         {
             InitializeComponent();
             connectDB();
-            //DBImplement.proxy.reset();
 
             if(testDB)
             {
@@ -33,9 +33,15 @@ namespace Proto
 
         }
 
+        private static void DBReset()
+        {
+            DBImplement.proxy.reset();
+        }
+
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            displayMovie(DBImplement.proxy.getAllMovie());
+            allMovie = MovieLogic.getAll();
+            displayMovie(allMovie);
             displayMovieList();
         }
 
@@ -55,20 +61,19 @@ namespace Proto
 
         private void displayMovieList()
         {
-            List<MovieList> lists = DBImplement.proxy.getAllMovieList();
+            List<MovieList> lists = MovieListLogic.getAll();
 
             foreach(MovieList list in lists)
             {
                 lbList.Items.Add(list.name);
             }
-            
         }
 
         private void displayMovie(MovieList list)
         {
-            // get image name for each row, check if valid
-            // add to ImageList ( ImageList . ImageSize parameter )
-            // http://www.c-sharpcorner.com/UploadFile/9f4ff8/listview-in-C-Sharp/
+            // display any movielist on lvMovie ( ListView )
+
+            lvMovie.Clear();
 
             ImageList ilall = new ImageList();
             ilall.ImageSize = new Size(175, 256);
@@ -79,13 +84,13 @@ namespace Proto
                 string path = mov.imageName;
                 if (System.IO.File.Exists(path))
                 {
-                    System.Console.WriteLine(path);
+                    //System.Console.WriteLine(path);
                     ilall.Images.Add(mov.id,Image.FromFile(path));
                 }
             }
 
             lvMovie.LargeImageList = ilall;
-            int i = 0;
+
             foreach (Movie mov in list)
             {
                 ListViewItem movie = new ListViewItem();
@@ -93,7 +98,6 @@ namespace Proto
                 movie.Tag = mov.id;
                 movie.ImageKey = mov.id;
                 lvMovie.Items.Add(movie);
-
             }
             lvMovie.View = View.LargeIcon;
 
@@ -106,6 +110,115 @@ namespace Proto
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+
+            string title = txtTitle.Text.Trim();
+            string director = txtDirector.Text.Trim();
+            string cast = txtCast.Text.Trim();
+
+            List<string> gen = new List<string>();
+
+            //genre
+            if (cbSciFi0.Checked)
+            {
+                gen.Add(Genre.getString(0));
+            }
+            if (cbDrama1.Checked)
+            {
+                gen.Add(Genre.getString(1));
+            }
+            if (cbAction2.Checked)
+            {
+                gen.Add(Genre.getString(2));
+            }
+            if (cbThriller3.Checked)
+            {
+                gen.Add(Genre.getString(3));
+            }
+
+            List<string> rat = new List<string>();
+            //rating
+            if (cbG.Checked)
+            {
+                rat.Add("G");
+            }
+            if (cbPG.Checked)
+            {
+                rat.Add("PG");
+            }
+            if (cbPG13.Checked)
+            {
+                rat.Add("PG13");
+            }
+            if (cbR.Checked)
+            {
+                rat.Add("R");
+            }
+            if (cbNC17.Checked)
+            {
+                rat.Add("NC17");
+            }
+
+
+            MovieList res = SearchLogic.search(title, director, cast, gen, rat);
+
+            displayMovie(res);
+        }
+
+
+        private void search()
+        {
+
+            string title = txtTitle.Text.Trim();
+            string director = txtDirector.Text.Trim();
+            string cast = txtCast.Text.Trim();
+
+            List<string> gen = new List<string>();
+
+            //genre
+            if (cbSciFi0.Checked)
+            {
+                gen.Add(Genre.getString(0));
+            }
+            if (cbDrama1.Checked)
+            {
+                gen.Add(Genre.getString(1));
+            }
+            if (cbAction2.Checked)
+            {
+                gen.Add(Genre.getString(2));
+            }
+            if (cbThriller3.Checked)
+            {
+                gen.Add(Genre.getString(3));
+            }
+
+            List<string> rat = new List<string>();
+            //rating
+            if (cbG.Checked)
+            {
+                rat.Add("G");
+            }
+            if (cbPG.Checked)
+            {
+                rat.Add("PG");
+            }
+            if (cbPG13.Checked)
+            {
+                rat.Add("PG13");
+            }
+            if (cbR.Checked)
+            {
+                rat.Add("R");
+            }
+            if (cbNC17.Checked)
+            {
+                rat.Add("NC17");
+            }
+
+
+            MovieList res = SearchLogic.search(title, director, cast, gen, rat);
+
+            displayMovie(res);
 
         }
 
@@ -165,13 +278,15 @@ namespace Proto
                 }
                 
 
-                pbPoster.Image = Image.FromFile(movie.imageName);
+                if(System.IO.File.Exists(movie.imageName))
+                {
+                    pbPoster.Image = Image.FromFile(movie.imageName);
+                }
+                
                 pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 pMovieView.Visible = true;
 
-                pOverlay.BackColor = Color.FromArgb(40, 88,44,55);
-                pOverlay.Visible = true;
             }
             else
             {
@@ -181,33 +296,10 @@ namespace Proto
 
         }
 
-        private Size ScaleSize(Size from, int? maxWidth, int? maxHeight)
-        {
-            if (!maxWidth.HasValue && !maxHeight.HasValue) throw new ArgumentException("At least one scale factor (toWidth or toHeight) must not be null.");
-            if (from.Height == 0 || from.Width == 0) throw new ArgumentException("Cannot scale size from zero.");
-
-            double? widthScale = null;
-            double? heightScale = null;
-
-            if (maxWidth.HasValue)
-            {
-                widthScale = maxWidth.Value / (double)from.Width;
-            }
-            if (maxHeight.HasValue)
-            {
-                heightScale = maxHeight.Value / (double)from.Height;
-            }
-
-            double scale = Math.Min((double)(widthScale ?? heightScale),
-                                     (double)(heightScale ?? widthScale));
-
-            return new Size((int)Math.Floor(from.Width * scale), (int)Math.Ceiling(from.Height * scale));
-        }
 
         private void btnPanelClose_Click(object sender, EventArgs e)
         {
             pMovieView.Visible = false;
-            pOverlay.Visible = false;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -231,7 +323,55 @@ namespace Proto
             string name = lbList.GetItemText(lbList.SelectedItem);
         }
 
-        
+        private void btnAddList_Click(object sender, EventArgs e)
+        {
+            new MovieListAdd().Show();
+        }
 
+        private void btnEditList_Click(object sender, EventArgs e)
+        {
+            string name = lbList.GetItemText(lbList.SelectedItem);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SettingsWindow().Show();
+        }
+
+
+
+
+        /*
+        private void txtDirector_TextChanged(object sender, EventArgs e)
+        {
+            ListView.ListViewItemCollection current = lvMovie.Items;
+
+            MovieList curr = new MovieList();
+
+            foreach (ListViewItem item in current)
+            {
+                Movie mov = DBImplement.proxy.getMovieById(item.Tag.ToString());
+                curr.Add(mov);
+            }
+
+            MovieList res = new MovieList();
+
+            if (txtDirector.Text.Trim().Length > 0)
+            {
+                foreach (Movie mov in curr)
+                {
+                    if (mov.director.Contains(txtTitle.Text))
+                    {
+                        res.Add(mov);
+                    }
+                }
+                displayMovie(res);
+            }
+            else
+            {
+                displayMovie(curr);
+            }
+        }
+         */
     }
 }

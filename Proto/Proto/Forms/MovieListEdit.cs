@@ -21,5 +21,6 @@ namespace Proto.Forms
             MessageBox.Show("Renamed");
             Close();
         }
+
     }
 }

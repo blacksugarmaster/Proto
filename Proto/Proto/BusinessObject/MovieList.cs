@@ -35,25 +35,18 @@ namespace Proto.BusinessObject
             }
             catch(Exception e)
             {
-
+                
             }
             return true ;
         }
 
         public bool remove(IBObject obj)
         {
-            return false;
+            return DB.DBImplement.proxy.deleteMovieList(this);
         }
 
 
         public bool update()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public IBObject clone()
         {
             throw new NotImplementedException();
         }

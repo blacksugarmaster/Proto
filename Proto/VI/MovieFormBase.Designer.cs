@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbThriller3 = new System.Windows.Forms.CheckBox();
             this.cbAction2 = new System.Windows.Forms.CheckBox();
@@ -56,8 +54,14 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtImage = new System.Windows.Forms.RichTextBox();
             this.cbImage = new System.Windows.Forms.CheckBox();
+            this.lbLength = new System.Windows.Forms.Label();
+            this.txtLength = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -94,26 +98,6 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
             this.txtTitle.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(109, 954);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(192, 69);
-            this.btnSave.TabIndex = 15;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(340, 954);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(192, 69);
-            this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
@@ -339,12 +323,63 @@
             this.cbImage.Text = "Include";
             this.cbImage.UseVisualStyleBackColor = true;
             // 
+            // lbLength
+            // 
+            this.lbLength.AutoSize = true;
+            this.lbLength.Location = new System.Drawing.Point(45, 334);
+            this.lbLength.Name = "lbLength";
+            this.lbLength.Size = new System.Drawing.Size(147, 26);
+            this.lbLength.TabIndex = 21;
+            this.lbLength.Text = "Running Time";
+            // 
+            // txtLength
+            // 
+            this.txtLength.Location = new System.Drawing.Point(208, 334);
+            this.txtLength.Name = "txtLength";
+            this.txtLength.Size = new System.Drawing.Size(248, 31);
+            this.txtLength.TabIndex = 22;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 967);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(638, 100);
+            this.panel1.TabIndex = 23;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.CausesValidation = false;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(366, 16);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(192, 69);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(67, 16);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(192, 69);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
             // MovieBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtLength);
+            this.Controls.Add(this.lbLength);
             this.Controls.Add(this.cbImage);
             this.Controls.Add(this.txtImage);
             this.Controls.Add(this.btnBrowse);
@@ -358,19 +393,17 @@
             this.Controls.Add(this.txtYear);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "MovieBase";
             this.Text = "MovieManipulate";
-            this.Load += new System.EventHandler(this.MovieManipulate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +414,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -389,7 +421,6 @@
         private System.Windows.Forms.Button btnDeleteCast;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnBrowse;
-        protected System.Windows.Forms.Button btnSave;
         protected System.Windows.Forms.TextBox txtTitle;
         protected System.Windows.Forms.CheckBox cbThriller3;
         protected System.Windows.Forms.CheckBox cbAction2;
@@ -406,5 +437,10 @@
         protected System.Windows.Forms.RichTextBox txtImage;
         protected System.Windows.Forms.CheckBox cbImage;
         protected System.Windows.Forms.ListBox lbCast;
+        private System.Windows.Forms.Label lbLength;
+        protected System.Windows.Forms.TextBox txtLength;
+        private System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.Button btnCancel;
+        protected System.Windows.Forms.Button btnSave;
     }
 }
