@@ -75,6 +75,14 @@ namespace Proto.BusinessLogic
             return movie.update();
         }
 
+        public static bool deleteMovie(string id)
+        {
+
+            Movie movie = DB.DBImplement.proxy.getMovieById(id);
+
+            return movie.remove();
+        }
+
         public static MovieList getAll()
         {
             return DB.DBImplement.proxy.getAllMovie();

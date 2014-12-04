@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +49,13 @@
             this.MovieList = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDeleteList = new System.Windows.Forms.Button();
-            this.btnEditList = new System.Windows.Forms.Button();
+            this.btnRenameList = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
             this.lbList = new System.Windows.Forms.ListBox();
+            this.cmsMovieList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addAListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Search = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbNC17 = new System.Windows.Forms.CheckBox();
@@ -71,6 +76,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pMovieView = new System.Windows.Forms.Panel();
+            this.lbSame = new System.Windows.Forms.Label();
+            this.lvSameGenreMovies = new System.Windows.Forms.ListView();
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.ptxtRating = new System.Windows.Forms.TextBox();
             this.ptxtYear = new System.Windows.Forms.TextBox();
@@ -86,9 +93,11 @@
             this.pTrailer = new System.Windows.Forms.Panel();
             this.btnPanelClose = new System.Windows.Forms.Button();
             this.lvMovie = new System.Windows.Forms.ListView();
+            this.cmsMovieAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToAListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.lvSameGenreMovies = new System.Windows.Forms.ListView();
-            this.lbSame = new System.Windows.Forms.Label();
+            this.cmsMovieDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,11 +106,14 @@
             this.tabControl1.SuspendLayout();
             this.MovieList.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.cmsMovieList.SuspendLayout();
             this.Search.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pMovieView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
+            this.cmsMovieAdd.SuspendLayout();
+            this.cmsMovieDelete.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -130,26 +142,26 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(178, 40);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(178, 40);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(240, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(175, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(178, 40);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -166,21 +178,21 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // movieListToolStripMenuItem
@@ -196,21 +208,21 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
             this.listAddToolStripMenuItem.Text = "Add";
             this.listAddToolStripMenuItem.Click += new System.EventHandler(this.listAddToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(161, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
             // 
             // splitContainer1
@@ -256,7 +268,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnDeleteList);
-            this.panel1.Controls.Add(this.btnEditList);
+            this.panel1.Controls.Add(this.btnRenameList);
             this.panel1.Controls.Add(this.btnAddList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 847);
@@ -274,15 +286,15 @@
             this.btnDeleteList.UseVisualStyleBackColor = true;
             this.btnDeleteList.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
-            // btnEditList
+            // btnRenameList
             // 
-            this.btnEditList.Location = new System.Drawing.Point(204, 16);
-            this.btnEditList.Name = "btnEditList";
-            this.btnEditList.Size = new System.Drawing.Size(119, 120);
-            this.btnEditList.TabIndex = 3;
-            this.btnEditList.Text = "edit";
-            this.btnEditList.UseVisualStyleBackColor = true;
-            this.btnEditList.Click += new System.EventHandler(this.btnEditList_Click);
+            this.btnRenameList.Location = new System.Drawing.Point(204, 16);
+            this.btnRenameList.Name = "btnRenameList";
+            this.btnRenameList.Size = new System.Drawing.Size(119, 120);
+            this.btnRenameList.TabIndex = 3;
+            this.btnRenameList.Text = "Rename";
+            this.btnRenameList.UseVisualStyleBackColor = true;
+            this.btnRenameList.Click += new System.EventHandler(this.btnRenameList_Click);
             // 
             // btnAddList
             // 
@@ -296,6 +308,7 @@
             // 
             // lbList
             // 
+            this.lbList.ContextMenuStrip = this.cmsMovieList;
             this.lbList.Font = new System.Drawing.Font("Arial", 19.97906F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbList.FormattingEnabled = true;
             this.lbList.ItemHeight = 60;
@@ -303,6 +316,37 @@
             this.lbList.Name = "lbList";
             this.lbList.Size = new System.Drawing.Size(493, 784);
             this.lbList.TabIndex = 0;
+            this.lbList.SelectedIndexChanged += new System.EventHandler(this.lbList_SelectedIndexChanged);
+            // 
+            // cmsMovieList
+            // 
+            this.cmsMovieList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAListToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem2});
+            this.cmsMovieList.Name = "cmsMovieList";
+            this.cmsMovieList.Size = new System.Drawing.Size(325, 124);
+            // 
+            // addAListToolStripMenuItem
+            // 
+            this.addAListToolStripMenuItem.Name = "addAListToolStripMenuItem";
+            this.addAListToolStripMenuItem.Size = new System.Drawing.Size(324, 40);
+            this.addAListToolStripMenuItem.Text = "Add a List";
+            this.addAListToolStripMenuItem.Click += new System.EventHandler(this.btnAddList_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(324, 40);
+            this.renameToolStripMenuItem.Text = "Rename Selected List";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.btnRenameList_Click);
+            // 
+            // deleteToolStripMenuItem2
+            // 
+            this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(324, 40);
+            this.deleteToolStripMenuItem2.Text = "Delete Selected List";
+            this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
             // Search
             // 
@@ -530,11 +574,28 @@
             this.pMovieView.Controls.Add(this.lbDirector);
             this.pMovieView.Controls.Add(this.pTrailer);
             this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 0);
+            this.pMovieView.Location = new System.Drawing.Point(3, 105);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 1062);
+            this.pMovieView.Size = new System.Drawing.Size(1090, 957);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
+            // 
+            // lbSame
+            // 
+            this.lbSame.AutoSize = true;
+            this.lbSame.Location = new System.Drawing.Point(42, 707);
+            this.lbSame.Name = "lbSame";
+            this.lbSame.Size = new System.Drawing.Size(206, 26);
+            this.lbSame.TabIndex = 16;
+            this.lbSame.Text = "Same genre Movies";
+            // 
+            // lvSameGenreMovies
+            // 
+            this.lvSameGenreMovies.Location = new System.Drawing.Point(40, 736);
+            this.lvSameGenreMovies.Name = "lvSameGenreMovies";
+            this.lvSameGenreMovies.Size = new System.Drawing.Size(1019, 294);
+            this.lvSameGenreMovies.TabIndex = 15;
+            this.lvSameGenreMovies.UseCompatibleStateImageBehavior = false;
             // 
             // pbPoster
             // 
@@ -658,12 +719,27 @@
             // 
             // lvMovie
             // 
+            this.lvMovie.ContextMenuStrip = this.cmsMovieAdd;
             this.lvMovie.Location = new System.Drawing.Point(3, 0);
             this.lvMovie.Name = "lvMovie";
             this.lvMovie.Size = new System.Drawing.Size(1090, 1062);
             this.lvMovie.TabIndex = 0;
             this.lvMovie.UseCompatibleStateImageBehavior = false;
             this.lvMovie.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDoubleClick);
+            // 
+            // cmsMovieAdd
+            // 
+            this.cmsMovieAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToAListToolStripMenuItem});
+            this.cmsMovieAdd.Name = "cmsMovieAddDelete";
+            this.cmsMovieAdd.Size = new System.Drawing.Size(244, 88);
+            this.cmsMovieAdd.Opened += new System.EventHandler(this.dynamicAddItems);
+            // 
+            // addToAListToolStripMenuItem
+            // 
+            this.addToAListToolStripMenuItem.Name = "addToAListToolStripMenuItem";
+            this.addToAListToolStripMenuItem.Size = new System.Drawing.Size(230, 40);
+            this.addToAListToolStripMenuItem.Text = "Add to a List";
             // 
             // btnRefresh
             // 
@@ -675,22 +751,18 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // lvSameGenreMovies
+            // cmsMovieDelete
             // 
-            this.lvSameGenreMovies.Location = new System.Drawing.Point(40, 736);
-            this.lvSameGenreMovies.Name = "lvSameGenreMovies";
-            this.lvSameGenreMovies.Size = new System.Drawing.Size(1019, 294);
-            this.lvSameGenreMovies.TabIndex = 15;
-            this.lvSameGenreMovies.UseCompatibleStateImageBehavior = false;
+            this.cmsMovieDelete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.cmsMovieDelete.Name = "cmsMovieAddDelete";
+            this.cmsMovieDelete.Size = new System.Drawing.Size(313, 44);
             // 
-            // lbSame
+            // toolStripMenuItem1
             // 
-            this.lbSame.AutoSize = true;
-            this.lbSame.Location = new System.Drawing.Point(42, 707);
-            this.lbSame.Name = "lbSame";
-            this.lbSame.Size = new System.Drawing.Size(206, 26);
-            this.lbSame.TabIndex = 16;
-            this.lbSame.Text = "Same genre Movies";
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(312, 40);
+            this.toolStripMenuItem1.Text = "Delete From the List";
             // 
             // MainWindow
             // 
@@ -714,6 +786,7 @@
             this.tabControl1.ResumeLayout(false);
             this.MovieList.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.cmsMovieList.ResumeLayout(false);
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -723,6 +796,8 @@
             this.pMovieView.ResumeLayout(false);
             this.pMovieView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
+            this.cmsMovieAdd.ResumeLayout(false);
+            this.cmsMovieDelete.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -786,10 +861,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDeleteList;
-        private System.Windows.Forms.Button btnEditList;
+        private System.Windows.Forms.Button btnRenameList;
         private System.Windows.Forms.Button btnAddList;
         private System.Windows.Forms.ListView lvSameGenreMovies;
         private System.Windows.Forms.Label lbSame;
+        private System.Windows.Forms.ContextMenuStrip cmsMovieList;
+        private System.Windows.Forms.ToolStripMenuItem addAListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
+        private System.Windows.Forms.ContextMenuStrip cmsMovieAdd;
+        private System.Windows.Forms.ToolStripMenuItem addToAListToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsMovieDelete;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

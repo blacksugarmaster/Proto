@@ -23,7 +23,7 @@ namespace Proto.BusinessObject
         }
         public MovieList()
         {
-            // TODO: Complete member initialization
+            
         }
 
 
@@ -40,7 +40,7 @@ namespace Proto.BusinessObject
             return true ;
         }
 
-        public bool remove(IBObject obj)
+        public bool remove()
         {
             return DB.DBImplement.proxy.deleteMovieList(this);
         }

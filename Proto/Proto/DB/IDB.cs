@@ -16,6 +16,7 @@ namespace Proto.DB
         bool saveMovie(Movie movie);
         bool saveMovieList(MovieList movieList);
         bool setDefPath(string path);
+        bool addMovieOnMovieList(Movie movie, MovieList list);
 
         // ------- getter ------------
         Movie getMovieById(String id);
@@ -29,11 +30,12 @@ namespace Proto.DB
 
         // -------- update -----------
         bool updateMovie(Movie movie);
-        bool updateMovieList(MovieList movieList);
+        bool renameMovieList(MovieList movieList);
 
         // --------- delete -----------
         bool deleteMovie(Movie movie);
         bool deleteMovieList(MovieList movieList);
+        bool deleteMovieFromMovieList(Movie movie, MovieList list);
 
     }
 }

@@ -17,16 +17,37 @@ namespace Proto.BusinessLogic
             return newlist.save();
         }
 
-        public static bool renameMovieList(MovieList list, string newName)
+        public static bool renameMovieList(string oldname, string newName)
         {
-            return false;
+            MovieList list = DB.DBImplement.proxy.getMovieListByName(oldname);
+            list.name = newName;
+            return DB.DBImplement.proxy.renameMovieList(list);
         }
 
-        public static bool editMovieList(string name)
+
+        public static bool deleteMovieList(string name)
         {
             MovieList ml = DB.DBImplement.proxy.getMovieListByName(name);
 
-            return false;
+            return ml.remove();
+        }
+
+        public static bool addMovie(string listName, string mid)
+        {
+            MovieList ml = DB.DBImplement.proxy.getMovieListByName(listName);
+            Movie movie = DB.DBImplement.proxy.getMovieById(mid);
+
+            return DB.DBImplement.proxy.addMovieOnMovieList(movie, ml);
+
+        }
+
+        public static bool deleteMovie(string listName, string mid)
+        {
+            MovieList ml = DB.DBImplement.proxy.getMovieListByName(listName);
+            Movie movie = DB.DBImplement.proxy.getMovieById(mid);
+
+            return DB.DBImplement.proxy.deleteMovieFromMovieList(movie, ml);
+
         }
 
         public static List<MovieList> getAll()

@@ -329,11 +329,7 @@ namespace Proto
             new MovieListAdd().Show();
         }
 
-        private void btnEditList_Click(object sender, EventArgs e)
-        {
-            string name = lbList.GetItemText(lbList.SelectedItem);
-            new MovieListEdit(name).Show();
-        }
+
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -342,44 +338,53 @@ namespace Proto
 
         private void btnDeleteList_Click(object sender, EventArgs e)
         {
-
+            string name = lbList.GetItemText(lbList.SelectedItem);
+            MovieListLogic.deleteMovieList(name);
+            MessageBox.Show("List Deleted");
         }
 
-
-
-
-
-        /*
-        private void txtDirector_TextChanged(object sender, EventArgs e)
+        private void btnRenameList_Click(object sender, EventArgs e)
         {
-            ListView.ListViewItemCollection current = lvMovie.Items;
+            string name = lbList.GetItemText(lbList.SelectedItem);
+            new MovieListRename(name).Show();
+        }
 
-            MovieList curr = new MovieList();
-
-            foreach (ListViewItem item in current)
+        private void lbList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lbList.SelectedItems.Count > 0)
             {
-                Movie mov = DBImplement.proxy.getMovieById(item.Tag.ToString());
-                curr.Add(mov);
-            }
-
-            MovieList res = new MovieList();
-
-            if (txtDirector.Text.Trim().Length > 0)
-            {
-                foreach (Movie mov in curr)
-                {
-                    if (mov.director.Contains(txtTitle.Text))
-                    {
-                        res.Add(mov);
-                    }
-                }
-                displayMovie(res);
-            }
-            else
-            {
-                displayMovie(curr);
+                string name = lbList.GetItemText(lbList.SelectedItem);
+                MovieList list = DBImplement.proxy.getMovieListByName(name);
+                displayMovie(list);
             }
         }
-         */
+
+        private void dynamicAddItems(object sender, EventArgs e)
+        {
+            if(lvMovie.SelectedItems.Count > 0)
+            {
+                ListBox.ObjectCollection lists = lbList.Items;
+                ToolStripMenuItem[] items = new ToolStripMenuItem[lists.Count];
+                for (int i = 0; i < lists.Count; i++)
+                {
+                    items[i] = new ToolStripMenuItem();
+                    items[i].Name = lists[i].ToString();
+                    items[i].Text = lists[i].ToString();
+                    items[i].Click += new EventHandler(AddtoListHandler);
+                }
+                this.addToAListToolStripMenuItem.DropDownItems.Clear();
+                this.addToAListToolStripMenuItem.DropDownItems.AddRange(items);
+
+            }
+
+        }
+
+        private void AddtoListHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem selected = (ToolStripMenuItem)sender;
+            MovieListLogic.addMovie(selected.Name, lvMovie.SelectedItems[0].Tag.ToString());
+        }
+
+
     }
 }

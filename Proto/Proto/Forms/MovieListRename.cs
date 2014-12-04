@@ -9,10 +9,10 @@ using Proto.BusinessLogic;
 
 namespace Proto.Forms
 {
-    public partial class MovieListEdit : Proto.Forms.MovieListBase
+    public partial class MovieListRename : Proto.Forms.MovieListBase
     {
         string name;
-        public MovieListEdit(string name)
+        public MovieListRename(string name)
         {
             InitializeComponent();
             this.name = name;
@@ -21,8 +21,7 @@ namespace Proto.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            MovieListLogic.editMovieList(txtName.Text);
+            MovieListLogic.renameMovieList(name,txtName.Text);
 
             MessageBox.Show("Renamed");
             Close();

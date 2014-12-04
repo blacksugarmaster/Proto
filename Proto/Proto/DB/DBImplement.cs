@@ -13,7 +13,7 @@ namespace Proto.DB
     class DBImplement : IDB
     {
         string movie = "CREATE TABLE Movie(id NVARCHAR(100) PRIMARY KEY NOT NULL,title NVARCHAR(100),director NVARCHAR(100),year int,age NVARCHAR(100),imagename NVARCHAR(300), length int);";
-        string movieList = "CREATE TABLE MovieList(id NVARCHAR(100) PRIMARY KEY NOT NULL,name NVARCHAR(100), mid NVARCHAR(100), FOREIGN KEY(mid) REFERENCES Movie(id));";
+        string movieList = "CREATE TABLE MovieList(id NVARCHAR(100),name NVARCHAR(100), mid NVARCHAR(100),PRIMARY KEY(id,mid))";
         string movieCast = "CREATE TABLE MovieCast(id NVARCHAR(100),actor NVARCHAR(100),PRIMARY KEY (id,actor),FOREIGN KEY(id) REFERENCES Movie(id));";
         string movieGenre = "CREATE TABLE MovieGenre(id NVARCHAR(100),genre NVARCHAR(100),PRIMARY KEY (id,genre),FOREIGN KEY(id) REFERENCES Movie(id));";
         string config = "CREATE TABLE Config(type NVARCHAR(100), value NVARCHAR(300), PRIMARY KEY (type,value))";
@@ -87,6 +87,10 @@ namespace Proto.DB
                 ExecuteQuery(movieList);
                 ExecuteQuery(movieCast);
                 ExecuteQuery(movieGenre);
+
+
+                
+
             }
             catch(Exception e)
             {
@@ -144,25 +148,15 @@ namespace Proto.DB
         {
             con.Open();
 
-            string q = "INSERT INTO MovieList(id,name)" +
-                    "VALUES(@id,@name)";
+            string q = "INSERT INTO MovieList(id,name,mid)" +
+                    "VALUES(@id,@name,@mid)";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@id", movieList.id);
             cmd.Parameters.AddWithValue("@name", movieList.name);
+            cmd.Parameters.AddWithValue("@mid", "");
             cmd.ExecuteNonQuery();
 
-            /*
-            foreach(Movie movie in movieList)
-            {
-                string q = "INSERT INTO MovieList(id,name,mid)" +
-                            "VALUES(@id,@name,@mid)";
-                cmd = new SqlCeCommand(q, con);
-                cmd.Parameters.AddWithValue("@id", movieList.id);
-                cmd.Parameters.AddWithValue("@name", movieList.name);
-                cmd.Parameters.AddWithValue("@mid", movie.id);
-                cmd.ExecuteNonQuery();
-            }
-             */
+
             con.Close();
 
             return false;
@@ -268,7 +262,12 @@ namespace Proto.DB
             {
                 foreach (DataRow r in table.Rows)
                 {
-                    list.Add(getMovieById(r[2].ToString()));
+                    string mid = r[2].ToString();
+                    if(!string.IsNullOrWhiteSpace(mid) )
+                    {
+                        list.Add(getMovieById(mid));
+                    }
+                    
                 }
             }
 
@@ -394,12 +393,6 @@ namespace Proto.DB
             return true;
         }
 
-        public bool updateMovieList(MovieList movieList)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public MovieList searchMovie(string MovieWhere, string castWhere, string genreWhere)
         {
             if(con.State != ConnectionState.Open)
@@ -451,12 +444,46 @@ namespace Proto.DB
 
         public bool deleteMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            con.Open();
+
+
+            string delcast = "DELETE FROM MovieCast " +
+                            "WHERE id = @id";
+            cmd = new SqlCeCommand(delcast, con);
+            cmd.Parameters.AddWithValue("@id", movie.id);
+            cmd.ExecuteNonQuery();
+
+            string delgenre = "DELETE FROM MovieGenre " +
+                                "WHERE id = @id;";
+            cmd = new SqlCeCommand(delgenre, con);
+            cmd.Parameters.AddWithValue("@id", movie.id);
+            cmd.ExecuteNonQuery();
+
+            string delMovie = "DELETE FROM Movie " +
+                    "WHERE id = @id;";
+            cmd = new SqlCeCommand(delMovie, con);
+            cmd.Parameters.AddWithValue("@id", movie.id);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return true;
         }
 
         public bool deleteMovieList(MovieList movieList)
         {
-            throw new NotImplementedException();
+            con.Open();
+
+
+            string delMovie = "DELETE FROM MovieList " +
+                                "WHERE id = @id;";
+            cmd = new SqlCeCommand(delMovie, con);
+            cmd.Parameters.AddWithValue("@id", movieList.id);
+            cmd.ExecuteNonQuery();
+
+
+            con.Close();
+            return true;
         }
 
 
@@ -467,7 +494,7 @@ namespace Proto.DB
                 con.Open();
             }
 
-            string q = "SELECT * " +
+            string q = "SELECT DISTINCT id " +
                         "FROM MovieList";
 
             cmd = new SqlCeCommand(q, con);
@@ -515,10 +542,14 @@ namespace Proto.DB
             {
                 foreach (DataRow r in table.Rows)
                 {
-                    list.Add(getMovieById(r[2].ToString()));
+                    string mid = r[2].ToString();
+                    if (!string.IsNullOrWhiteSpace(mid))
+                    {
+                        list.Add(getMovieById(mid));
+                    }
+
                 }
             }
-
 
             con.Close();
             return list;
@@ -567,6 +598,62 @@ namespace Proto.DB
             con.Close();
 
             return path;
+        }
+
+
+        public bool renameMovieList(MovieList movieList)
+        {
+            string id = movieList.id;
+            string newName = movieList.name;
+
+            string q = "UPDATE MovieList " +
+            "SET name = @newname " +
+                "WHERE id = @id;";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@newname", newName);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return true;
+        }
+
+
+        public bool addMovieOnMovieList(Movie movie, MovieList list)
+        {
+            con.Open();
+
+            string q = "INSERT INTO MovieList(id,name,mid)" +
+                        "VALUES(@id,@name,@mid)";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@id", list.id);
+            cmd.Parameters.AddWithValue("@name", list.name);
+            cmd.Parameters.AddWithValue("@mid", movie.id);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return true;
+        }
+
+
+        public bool deleteMovieFromMovieList(Movie movie, MovieList list)
+        {
+            con.Open();
+
+            string q = "DELETE FROM MovieList " +
+                        "WHERE id = @id AND mid = @mid";
+            cmd = new SqlCeCommand(q, con);
+            cmd.Parameters.AddWithValue("@id", list.id);
+            cmd.Parameters.AddWithValue("@mid", movie.id);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            return true;
         }
     }
 }

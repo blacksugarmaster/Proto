@@ -107,11 +107,11 @@
     <Compile Include="Forms\MovieListAdd.Designer.cs">
       <DependentUpon>MovieListAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MovieListEdit.cs">
+    <Compile Include="Forms\MovieListRename.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MovieListEdit.Designer.cs">
-      <DependentUpon>MovieListEdit.cs</DependentUpon>
+    <Compile Include="Forms\MovieListRename.Designer.cs">
+      <DependentUpon>MovieListRename.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SettingsWindow.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="Forms\MovieListAdd.resx">
       <DependentUpon>MovieListAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MovieListEdit.resx">
-      <DependentUpon>MovieListEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MovieListRename.resx">
+      <DependentUpon>MovieListRename.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsWindow.resx">
       <DependentUpon>SettingsWindow.cs</DependentUpon>

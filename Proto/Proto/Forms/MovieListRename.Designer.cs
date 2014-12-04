@@ -1,6 +1,6 @@
 ﻿namespace Proto.Forms
 {
-    partial class MovieListEdit
+    partial class MovieListRename
     {
         /// <summary>
         /// Required designer variable.
