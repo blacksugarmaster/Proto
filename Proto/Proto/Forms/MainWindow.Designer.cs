@@ -101,6 +101,9 @@
             this.cbHorror4 = new System.Windows.Forms.CheckBox();
             this.cbAnimation5 = new System.Windows.Forms.CheckBox();
             this.manageMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMax = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -116,6 +119,7 @@
             this.pMovieView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
             this.cmsMovieAdd.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -354,6 +358,7 @@
             // 
             // Search
             // 
+            this.Search.Controls.Add(this.groupBox3);
             this.Search.Controls.Add(this.groupBox2);
             this.Search.Controls.Add(this.groupBox1);
             this.Search.Controls.Add(this.btnSearch);
@@ -378,7 +383,7 @@
             this.groupBox2.Controls.Add(this.cbPG13);
             this.groupBox2.Controls.Add(this.cbPG);
             this.groupBox2.Controls.Add(this.cbG);
-            this.groupBox2.Location = new System.Drawing.Point(47, 604);
+            this.groupBox2.Location = new System.Drawing.Point(47, 515);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(408, 288);
             this.groupBox2.TabIndex = 24;
@@ -450,7 +455,7 @@
             this.groupBox1.Controls.Add(this.cbAction2);
             this.groupBox1.Location = new System.Drawing.Point(47, 327);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(408, 244);
+            this.groupBox1.Size = new System.Drawing.Size(408, 169);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
@@ -502,7 +507,7 @@
             // btnSearch
             // 
             this.btnSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSearch.Location = new System.Drawing.Point(47, 922);
+            this.btnSearch.Location = new System.Drawing.Point(47, 952);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(408, 50);
             this.btnSearch.TabIndex = 18;
@@ -583,9 +588,9 @@
             this.pMovieView.Controls.Add(this.lbDirector);
             this.pMovieView.Controls.Add(this.pTrailer);
             this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 3);
+            this.pMovieView.Location = new System.Drawing.Point(3, 161);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 1059);
+            this.pMovieView.Size = new System.Drawing.Size(1090, 901);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
@@ -803,6 +808,35 @@
             this.manageMoviesToolStripMenuItem.Size = new System.Drawing.Size(266, 40);
             this.manageMoviesToolStripMenuItem.Text = "Manage Movies";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtMax);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(47, 818);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(408, 118);
+            this.groupBox3.TabIndex = 25;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Running Time";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 26);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Maximum";
+            // 
+            // txtMax
+            // 
+            this.txtMax.Location = new System.Drawing.Point(171, 53);
+            this.txtMax.MaxLength = 4;
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(164, 31);
+            this.txtMax.TabIndex = 3;
+            this.txtMax.TextChanged += new System.EventHandler(this.btnSearch_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -835,6 +869,8 @@
             this.pMovieView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
             this.cmsMovieAdd.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -913,6 +949,9 @@
         private System.Windows.Forms.CheckBox cbAnimation5;
         private System.Windows.Forms.CheckBox cbHorror4;
         private System.Windows.Forms.ToolStripMenuItem manageMoviesToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtMax;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -656,5 +656,33 @@ namespace Proto.DB
 
             return true;
         }
+
+
+        public int getMaxLength()
+        {
+            con.Open();
+
+            string q = "SELECT MAX(length) " +
+                        "FROM Movie ";
+            cmd = new SqlCeCommand(q, con);
+            SqlCeDataAdapter sqldata = new SqlCeDataAdapter(cmd);
+            DataSet data = new DataSet();
+            sqldata.Fill(data, "length");
+
+            DataTable table = new DataTable();
+            table = data.Tables["length"];
+
+
+            string length = "";
+            if (table.Rows.Count > 0)
+            {
+                length = table.Rows[0][0].ToString();
+            }
+
+
+            con.Close();
+
+            return int.Parse(length);
+        }
     }
 }

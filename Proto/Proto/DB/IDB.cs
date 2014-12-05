@@ -26,6 +26,7 @@ namespace Proto.DB
         List<MovieList> getAllMovieList();
         MovieList getMovieListByName(string name);
         string getDefPath();
+        int getMaxLength();
 
 
         // -------- update -----------

@@ -137,6 +137,8 @@ namespace Proto
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
+
+
             string title = txtTitle.Text.Trim();
             string director = txtDirector.Text.Trim();
             string cast = txtCast.Text.Trim();
