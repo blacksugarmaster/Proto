@@ -29,13 +29,19 @@ namespace Proto.BusinessLogic
 
 
             string gen = string.Empty;
+            int i = 0;
             foreach(string g in genre)
             {
                 if(!string.IsNullOrWhiteSpace(gen))
                 {
-                    gen += " OR ";
+                    i++;
+                    gen += " OR EXISTS ( SELECT * FROM [MovieGenre] AS mg"+i.ToString()+" WHERE mg"+i.ToString() +".id = Movie.id AND "+ "genre = '" + g + "')";
                 }
-                gen += "genre = '" + g + "'";
+                else
+                {
+
+                    gen += "genre = '" + g + "'";
+                }
             }
 
 
@@ -83,7 +89,7 @@ namespace Proto.BusinessLogic
             }
             if(!string.IsNullOrWhiteSpace(gen))
             {
-                gen = " AND " +gen + " AND genre <>" + "'" + "'";
+                gen = " AND " + gen;
             }
 
             
@@ -110,13 +116,19 @@ namespace Proto.BusinessLogic
 
 
             string gen = string.Empty;
+            int i = 0;
             foreach (string g in genre)
             {
                 if (!string.IsNullOrWhiteSpace(gen))
                 {
-                    gen += " OR ";
+                    i++;
+                    gen += " AND EXISTS ( SELECT * FROM [MovieGenre] AS mg" + i.ToString() + " WHERE mg" + i.ToString() + ".id = Movie.id AND " + "genre = '" + g + "')";
                 }
-                gen += "genre ='" + g + "'";
+                else
+                {
+
+                    gen += "genre = '" + g + "'";
+                }
             }
 
 
@@ -172,7 +184,9 @@ namespace Proto.BusinessLogic
         }
         public static MovieList searchSimilarMovies(Movie movie)
         {
-            MovieList list = new MovieList();
+            MovieList curr = new MovieList();
+            MovieList res = new MovieList();
+            curr.Add(movie);
 
             MovieList sameDirector = null;
             MovieList sameGenre=null;
@@ -195,46 +209,74 @@ namespace Proto.BusinessLogic
                 sameCast = searchExact("","",movie.cast[0],gen,rat);
             }
 
+
+
             if(sameDirector!=null)
             {
                 foreach(Movie m in sameDirector)
                 {
-                    list.Add(m);
+                    if(!m.id.Equals(movie.id))
+                    {
+                        res.Add(m);
+                    }
                 }
             }
+            curr.AddRange(res);
+
+            res.Clear();
             if(sameGenre!=null)
             {
                 foreach (Movie m in sameGenre)
                 {
-                    if(!list.Contains(m))
+                    foreach(Movie inList in curr)
                     {
-                        list.Add(m);
+                        if(!m.id.Equals(inList.id))
+                        {
+                            res.Add(m);
+                            break;
+                        }
                     }
-                    
                 }
             }
+            curr.AddRange(res);
+
+
+            res.Clear();
             if(sameCast!=null)
             {
                 foreach (Movie m in sameCast)
                 {
-                    if(!list.Contains(m))
+                    foreach (Movie inList in curr)
                     {
-                        list.Add(m);
+                        if (!m.id.Equals(inList.id))
+                        {
+                            res.Add(m);
+                            break;
+                        }
                     }
                 }
             }
+            curr.AddRange(res);
 
             
-            foreach(Movie m in list)
+            foreach(Movie m in curr)
             {
                 if(m.id.Equals(movie.id))
                 {
-                    list.Remove(m);
+                    curr.Remove(m);
+                    break;
+                }
+            }
+            foreach (Movie m in curr)
+            {
+                if (m.id.Equals(movie.id))
+                {
+                    curr.Remove(m);
                     break;
                 }
             }
 
-            return list;
+            return curr;
         }
     }
 }
