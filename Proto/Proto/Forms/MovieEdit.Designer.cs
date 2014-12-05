@@ -37,7 +37,7 @@
             // MovieEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.ClientSize = new System.Drawing.Size(638, 1125);
             this.Name = "MovieEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Movie";

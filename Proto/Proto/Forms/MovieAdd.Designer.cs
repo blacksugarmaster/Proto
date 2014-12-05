@@ -37,10 +37,6 @@
             // 
             this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            // 
             // btnSave
             // 
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -52,8 +48,7 @@
             // MovieAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.ClientSize = new System.Drawing.Size(638, 1122);
             this.Name = "MovieAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Movie";

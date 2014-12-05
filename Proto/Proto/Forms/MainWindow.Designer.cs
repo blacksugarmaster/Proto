@@ -76,8 +76,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pMovieView = new System.Windows.Forms.Panel();
-            this.lbSame = new System.Windows.Forms.Label();
-            this.lvSameGenreMovies = new System.Windows.Forms.ListView();
+            this.lvsimilarMovies = new System.Windows.Forms.ListView();
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.ptxtRating = new System.Windows.Forms.TextBox();
             this.ptxtYear = new System.Windows.Forms.TextBox();
@@ -96,6 +95,12 @@
             this.cmsMovieAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToAListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFromThisListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ptxtLength = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbHorror4 = new System.Windows.Forms.CheckBox();
+            this.cbAnimation5 = new System.Windows.Forms.CheckBox();
+            this.manageMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -197,7 +202,8 @@
             this.movieListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listAddToolStripMenuItem,
             this.editToolStripMenuItem1,
-            this.deleteToolStripMenuItem1});
+            this.deleteToolStripMenuItem1,
+            this.manageMoviesToolStripMenuItem});
             this.movieListToolStripMenuItem.Name = "movieListToolStripMenuItem";
             this.movieListToolStripMenuItem.Size = new System.Drawing.Size(139, 39);
             this.movieListToolStripMenuItem.Text = "Movie List";
@@ -205,21 +211,21 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(266, 40);
             this.listAddToolStripMenuItem.Text = "Add";
             this.listAddToolStripMenuItem.Click += new System.EventHandler(this.btnAddList_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(266, 40);
             this.editToolStripMenuItem1.Text = "Rename";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.btnRenameList_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(243, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(266, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
@@ -436,6 +442,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbAnimation5);
+            this.groupBox1.Controls.Add(this.cbHorror4);
             this.groupBox1.Controls.Add(this.cbSciFi0);
             this.groupBox1.Controls.Add(this.cbThriller3);
             this.groupBox1.Controls.Add(this.cbDrama1);
@@ -461,7 +469,7 @@
             // cbThriller3
             // 
             this.cbThriller3.AutoSize = true;
-            this.cbThriller3.Location = new System.Drawing.Point(21, 198);
+            this.cbThriller3.Location = new System.Drawing.Point(21, 108);
             this.cbThriller3.Name = "cbThriller3";
             this.cbThriller3.Size = new System.Drawing.Size(103, 30);
             this.cbThriller3.TabIndex = 22;
@@ -472,7 +480,7 @@
             // cbDrama1
             // 
             this.cbDrama1.AutoSize = true;
-            this.cbDrama1.Location = new System.Drawing.Point(21, 98);
+            this.cbDrama1.Location = new System.Drawing.Point(126, 50);
             this.cbDrama1.Name = "cbDrama1";
             this.cbDrama1.Size = new System.Drawing.Size(104, 30);
             this.cbDrama1.TabIndex = 20;
@@ -483,7 +491,7 @@
             // cbAction2
             // 
             this.cbAction2.AutoSize = true;
-            this.cbAction2.Location = new System.Drawing.Point(21, 147);
+            this.cbAction2.Location = new System.Drawing.Point(259, 50);
             this.cbAction2.Name = "cbAction2";
             this.cbAction2.Size = new System.Drawing.Size(99, 30);
             this.cbAction2.TabIndex = 21;
@@ -557,8 +565,10 @@
             // pMovieView
             // 
             this.pMovieView.BackColor = System.Drawing.Color.White;
-            this.pMovieView.Controls.Add(this.lbSame);
-            this.pMovieView.Controls.Add(this.lvSameGenreMovies);
+            this.pMovieView.Controls.Add(this.label4);
+            this.pMovieView.Controls.Add(this.ptxtLength);
+            this.pMovieView.Controls.Add(this.label3);
+            this.pMovieView.Controls.Add(this.lvsimilarMovies);
             this.pMovieView.Controls.Add(this.pbPoster);
             this.pMovieView.Controls.Add(this.ptxtRating);
             this.pMovieView.Controls.Add(this.ptxtYear);
@@ -579,22 +589,13 @@
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
-            // lbSame
+            // lvsimilarMovies
             // 
-            this.lbSame.AutoSize = true;
-            this.lbSame.Location = new System.Drawing.Point(42, 707);
-            this.lbSame.Name = "lbSame";
-            this.lbSame.Size = new System.Drawing.Size(206, 26);
-            this.lbSame.TabIndex = 16;
-            this.lbSame.Text = "Same genre Movies";
-            // 
-            // lvSameGenreMovies
-            // 
-            this.lvSameGenreMovies.Location = new System.Drawing.Point(40, 736);
-            this.lvSameGenreMovies.Name = "lvSameGenreMovies";
-            this.lvSameGenreMovies.Size = new System.Drawing.Size(1019, 294);
-            this.lvSameGenreMovies.TabIndex = 15;
-            this.lvSameGenreMovies.UseCompatibleStateImageBehavior = false;
+            this.lvsimilarMovies.Location = new System.Drawing.Point(40, 635);
+            this.lvsimilarMovies.Name = "lvsimilarMovies";
+            this.lvsimilarMovies.Size = new System.Drawing.Size(1019, 395);
+            this.lvsimilarMovies.TabIndex = 15;
+            this.lvsimilarMovies.UseCompatibleStateImageBehavior = false;
             // 
             // pbPoster
             // 
@@ -606,32 +607,32 @@
             // 
             // ptxtRating
             // 
-            this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ptxtRating.Location = new System.Drawing.Point(539, 442);
+            this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtRating.Location = new System.Drawing.Point(539, 409);
             this.ptxtRating.Name = "ptxtRating";
-            this.ptxtRating.Size = new System.Drawing.Size(100, 24);
+            this.ptxtRating.Size = new System.Drawing.Size(152, 31);
             this.ptxtRating.TabIndex = 13;
             // 
             // ptxtYear
             // 
-            this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ptxtYear.Location = new System.Drawing.Point(539, 391);
+            this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtYear.Location = new System.Drawing.Point(539, 345);
             this.ptxtYear.Name = "ptxtYear";
-            this.ptxtYear.Size = new System.Drawing.Size(100, 24);
+            this.ptxtYear.Size = new System.Drawing.Size(152, 31);
             this.ptxtYear.TabIndex = 12;
             // 
             // ptxtGenre
             // 
-            this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ptxtGenre.Location = new System.Drawing.Point(539, 345);
+            this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtGenre.Location = new System.Drawing.Point(539, 288);
             this.ptxtGenre.Name = "ptxtGenre";
-            this.ptxtGenre.Size = new System.Drawing.Size(520, 24);
+            this.ptxtGenre.Size = new System.Drawing.Size(520, 31);
             this.ptxtGenre.TabIndex = 11;
             // 
             // ptxtCast
             // 
-            this.ptxtCast.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ptxtCast.Location = new System.Drawing.Point(539, 196);
+            this.ptxtCast.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtCast.Location = new System.Drawing.Point(539, 223);
             this.ptxtCast.Multiline = true;
             this.ptxtCast.Name = "ptxtCast";
             this.ptxtCast.Size = new System.Drawing.Size(520, 31);
@@ -639,16 +640,16 @@
             // 
             // ptxtDirector
             // 
-            this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ptxtDirector.Location = new System.Drawing.Point(539, 126);
+            this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtDirector.Location = new System.Drawing.Point(539, 159);
             this.ptxtDirector.Name = "ptxtDirector";
-            this.ptxtDirector.Size = new System.Drawing.Size(520, 24);
+            this.ptxtDirector.Size = new System.Drawing.Size(520, 31);
             this.ptxtDirector.TabIndex = 9;
             // 
             // lbRating
             // 
             this.lbRating.AutoSize = true;
-            this.lbRating.Location = new System.Drawing.Point(430, 445);
+            this.lbRating.Location = new System.Drawing.Point(423, 409);
             this.lbRating.Name = "lbRating";
             this.lbRating.Size = new System.Drawing.Size(75, 26);
             this.lbRating.TabIndex = 8;
@@ -657,7 +658,7 @@
             // lbYear
             // 
             this.lbYear.AutoSize = true;
-            this.lbYear.Location = new System.Drawing.Point(446, 394);
+            this.lbYear.Location = new System.Drawing.Point(436, 345);
             this.lbYear.Name = "lbYear";
             this.lbYear.Size = new System.Drawing.Size(59, 26);
             this.lbYear.TabIndex = 7;
@@ -666,7 +667,7 @@
             // lbGenre
             // 
             this.lbGenre.AutoSize = true;
-            this.lbGenre.Location = new System.Drawing.Point(433, 348);
+            this.lbGenre.Location = new System.Drawing.Point(423, 288);
             this.lbGenre.Name = "lbGenre";
             this.lbGenre.Size = new System.Drawing.Size(72, 26);
             this.lbGenre.TabIndex = 6;
@@ -684,7 +685,7 @@
             // lbCast
             // 
             this.lbCast.AutoSize = true;
-            this.lbCast.Location = new System.Drawing.Point(448, 199);
+            this.lbCast.Location = new System.Drawing.Point(438, 223);
             this.lbCast.Name = "lbCast";
             this.lbCast.Size = new System.Drawing.Size(57, 26);
             this.lbCast.TabIndex = 4;
@@ -693,7 +694,7 @@
             // lbDirector
             // 
             this.lbDirector.AutoSize = true;
-            this.lbDirector.Location = new System.Drawing.Point(417, 129);
+            this.lbDirector.Location = new System.Drawing.Point(407, 157);
             this.lbDirector.Name = "lbDirector";
             this.lbDirector.Size = new System.Drawing.Size(88, 26);
             this.lbDirector.TabIndex = 3;
@@ -701,9 +702,9 @@
             // 
             // pTrailer
             // 
-            this.pTrailer.Location = new System.Drawing.Point(711, 394);
+            this.pTrailer.Location = new System.Drawing.Point(711, 345);
             this.pTrailer.Name = "pTrailer";
-            this.pTrailer.Size = new System.Drawing.Size(348, 194);
+            this.pTrailer.Size = new System.Drawing.Size(348, 180);
             this.pTrailer.TabIndex = 2;
             // 
             // btnPanelClose
@@ -738,7 +739,7 @@
             // addToAListToolStripMenuItem
             // 
             this.addToAListToolStripMenuItem.Name = "addToAListToolStripMenuItem";
-            this.addToAListToolStripMenuItem.Size = new System.Drawing.Size(243, 40);
+            this.addToAListToolStripMenuItem.Size = new System.Drawing.Size(335, 40);
             this.addToAListToolStripMenuItem.Text = "Add to a List";
             // 
             // removeFromThisListToolStripMenuItem
@@ -747,6 +748,60 @@
             this.removeFromThisListToolStripMenuItem.Size = new System.Drawing.Size(335, 40);
             this.removeFromThisListToolStripMenuItem.Text = "Remove From this List";
             this.removeFromThisListToolStripMenuItem.Click += new System.EventHandler(this.removeFromThisListToolStripMenuItem_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(423, 483);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 26);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Running Time";
+            // 
+            // ptxtLength
+            // 
+            this.ptxtLength.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptxtLength.Location = new System.Drawing.Point(591, 483);
+            this.ptxtLength.Name = "ptxtLength";
+            this.ptxtLength.Size = new System.Drawing.Size(100, 31);
+            this.ptxtLength.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 603);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(494, 26);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Similar Movies(from same genre, director, cast .. )";
+            // 
+            // cbHorror4
+            // 
+            this.cbHorror4.AutoSize = true;
+            this.cbHorror4.Location = new System.Drawing.Point(130, 108);
+            this.cbHorror4.Name = "cbHorror4";
+            this.cbHorror4.Size = new System.Drawing.Size(99, 30);
+            this.cbHorror4.TabIndex = 23;
+            this.cbHorror4.Text = "Horror";
+            this.cbHorror4.UseVisualStyleBackColor = true;
+            this.cbHorror4.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cbAnimation5
+            // 
+            this.cbAnimation5.AutoSize = true;
+            this.cbAnimation5.Location = new System.Drawing.Point(259, 107);
+            this.cbAnimation5.Name = "cbAnimation5";
+            this.cbAnimation5.Size = new System.Drawing.Size(136, 30);
+            this.cbAnimation5.TabIndex = 24;
+            this.cbAnimation5.Text = "Animation";
+            this.cbAnimation5.UseVisualStyleBackColor = true;
+            this.cbAnimation5.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // manageMoviesToolStripMenuItem
+            // 
+            this.manageMoviesToolStripMenuItem.Name = "manageMoviesToolStripMenuItem";
+            this.manageMoviesToolStripMenuItem.Size = new System.Drawing.Size(266, 40);
+            this.manageMoviesToolStripMenuItem.Text = "Manage Movies";
             // 
             // MainWindow
             // 
@@ -842,8 +897,7 @@
         private System.Windows.Forms.Button btnDeleteList;
         private System.Windows.Forms.Button btnRenameList;
         private System.Windows.Forms.Button btnAddList;
-        private System.Windows.Forms.ListView lvSameGenreMovies;
-        private System.Windows.Forms.Label lbSame;
+        private System.Windows.Forms.ListView lvsimilarMovies;
         private System.Windows.Forms.ContextMenuStrip cmsMovieList;
         private System.Windows.Forms.ToolStripMenuItem addAListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
@@ -853,6 +907,12 @@
         private System.Windows.Forms.ListBox lbList;
         private System.Windows.Forms.ListView lvMovie;
         private System.Windows.Forms.ToolStripMenuItem removeFromThisListToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ptxtLength;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox cbAnimation5;
+        private System.Windows.Forms.CheckBox cbHorror4;
+        private System.Windows.Forms.ToolStripMenuItem manageMoviesToolStripMenuItem;
     }
 }
 

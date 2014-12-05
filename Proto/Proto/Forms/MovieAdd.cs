@@ -51,6 +51,15 @@ namespace Proto.Forms
             {
                 genre.Add(Genre.getString(3));
             }
+            if(cbHorror4.Checked)
+            {
+                genre.Add(Genre.getString(4));
+            }
+            if(cbAnimation5.Checked)
+            {
+                genre.Add(Genre.getString(5));
+            }
+
 
             if(genre.Count == 0)
             {

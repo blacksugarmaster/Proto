@@ -11,7 +11,9 @@ namespace Proto.BusinessObject
         SciFi,
         Drama,
         Action,
-        Thriller
+        Thriller,
+        Horror,
+        Animation
     }
 
     public class Genre
@@ -33,7 +35,12 @@ namespace Proto.BusinessObject
                 case 3:
                     res = "Thriller";
                     break;
-
+                case 4:
+                    res = "Horror";
+                    break;
+                case 5:
+                    res = "Animation";
+                    break;
             }
 
             return res;

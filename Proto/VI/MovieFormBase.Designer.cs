@@ -60,6 +60,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pbPoster = new System.Windows.Forms.PictureBox();
+            this.cbHorror4 = new System.Windows.Forms.CheckBox();
+            this.cbAnimation5 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,13 +106,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbAnimation5);
+            this.groupBox1.Controls.Add(this.cbHorror4);
             this.groupBox1.Controls.Add(this.cbThriller3);
             this.groupBox1.Controls.Add(this.cbAction2);
             this.groupBox1.Controls.Add(this.cbSciFi0);
             this.groupBox1.Controls.Add(this.cbDrama1);
             this.groupBox1.Location = new System.Drawing.Point(60, 745);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 78);
+            this.groupBox1.Size = new System.Drawing.Size(517, 155);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
@@ -179,7 +183,7 @@
             this.groupBox2.Controls.Add(this.rbPG13);
             this.groupBox2.Controls.Add(this.rbPG);
             this.groupBox2.Controls.Add(this.rbG);
-            this.groupBox2.Location = new System.Drawing.Point(60, 829);
+            this.groupBox2.Location = new System.Drawing.Point(60, 906);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(517, 100);
             this.groupBox2.TabIndex = 10;
@@ -315,7 +319,7 @@
             this.txtImage.Location = new System.Drawing.Point(477, 541);
             this.txtImage.Name = "txtImage";
             this.txtImage.ReadOnly = true;
-            this.txtImage.Size = new System.Drawing.Size(100, 134);
+            this.txtImage.Size = new System.Drawing.Size(100, 61);
             this.txtImage.TabIndex = 19;
             this.txtImage.Text = "";
             this.txtImage.Visible = false;
@@ -352,7 +356,7 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 967);
+            this.panel1.Location = new System.Drawing.Point(0, 1032);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 100);
             this.panel1.TabIndex = 23;
@@ -387,13 +391,33 @@
             this.pbPoster.TabIndex = 24;
             this.pbPoster.TabStop = false;
             // 
+            // cbHorror4
+            // 
+            this.cbHorror4.AutoSize = true;
+            this.cbHorror4.Location = new System.Drawing.Point(16, 94);
+            this.cbHorror4.Name = "cbHorror4";
+            this.cbHorror4.Size = new System.Drawing.Size(99, 30);
+            this.cbHorror4.TabIndex = 10;
+            this.cbHorror4.Text = "Horror";
+            this.cbHorror4.UseVisualStyleBackColor = true;
+            // 
+            // cbAnimation5
+            // 
+            this.cbAnimation5.AutoSize = true;
+            this.cbAnimation5.Location = new System.Drawing.Point(127, 93);
+            this.cbAnimation5.Name = "cbAnimation5";
+            this.cbAnimation5.Size = new System.Drawing.Size(136, 30);
+            this.cbAnimation5.TabIndex = 11;
+            this.cbAnimation5.Text = "Animation";
+            this.cbAnimation5.UseVisualStyleBackColor = true;
+            // 
             // MovieBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(638, 1067);
+            this.ClientSize = new System.Drawing.Size(638, 1132);
             this.Controls.Add(this.pbPoster);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtLength);
@@ -462,5 +486,7 @@
         protected System.Windows.Forms.Button btnCancel;
         protected System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pbPoster;
+        protected System.Windows.Forms.CheckBox cbAnimation5;
+        protected System.Windows.Forms.CheckBox cbHorror4;
     }
 }

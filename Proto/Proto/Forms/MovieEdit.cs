@@ -57,6 +57,14 @@ namespace Proto.Forms
             {
                 cbThriller3.Checked = true;
             }
+            if(movie.genre.Contains(Genre.getString(4)))
+            {
+                cbHorror4.Checked = true;
+            }
+            if(movie.genre.Contains(Genre.getString(5)))
+            {
+                cbAnimation5.Checked = true;
+            }
 
 
             if (movie.age.Equals("G"))
@@ -102,6 +110,14 @@ namespace Proto.Forms
             if (cbThriller3.Checked)
             {
                 genre.Add(Genre.getString(3));
+            }
+            if (cbHorror4.Checked)
+            {
+                genre.Add(Genre.getString(4));
+            }
+            if (cbAnimation5.Checked)
+            {
+                genre.Add(Genre.getString(5));
             }
 
             string age = "";

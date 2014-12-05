@@ -159,6 +159,14 @@ namespace Proto
             {
                 gen.Add(Genre.getString(3));
             }
+            if(cbHorror4.Checked)
+            {
+                gen.Add(Genre.getString(4));
+            }
+            if(cbAnimation5.Checked)
+            {
+                gen.Add(Genre.getString(5));
+            }
 
             List<string> rat = new List<string>();
             //rating
@@ -216,56 +224,63 @@ namespace Proto
             }
         }
 
+        private void displayMovieOnPanel(Movie movie)
+        {
+            lbTitle.Text = movie.title;
+            ptxtDirector.Text = movie.director;
+
+            // need to make a string
+            string c = "";
+            foreach (string cast in movie.cast)
+            {
+                c += cast + "  ";
+            }
+            ptxtCast.Text = c;
+
+            string g = "";
+            foreach (string genre in movie.genre)
+            {
+                g += genre + "  ";
+            }
+            ptxtGenre.Text = g;
+
+            ptxtRating.Text = movie.age;
+            if (movie.year != -1)
+            {
+                ptxtYear.Text = movie.year.ToString();
+            }
+
+            if (movie.length != -1)
+            {
+                ptxtLength.Text = movie.length.ToString();
+            }
+
+            if (System.IO.File.Exists(defPath + "//" + movie.imageName))
+            {
+                pbPoster.Image = Image.FromFile(defPath + "//" + movie.imageName);
+            }
+            else
+            {
+                pbPoster.Image = null;
+            }
+
+            pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pMovieView.Visible = true;
+        }
+
         private void lvMovie_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (lvMovie.SelectedItems.Count > 0)
             {
                 ListViewItem selected = lvMovie.SelectedItems[0];
                 Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
-
-                lbTitle.Text = movie.title;
-                ptxtDirector.Text = movie.director;
-
-                // need to make a string
-                string c = "";
-                foreach(string cast in movie.cast)
-                {
-                    c += cast + "  ";
-                }
-                ptxtCast.Text = c;
-
-                string g = "";
-                foreach(string genre in movie.genre)
-                {
-                    g += genre + "  ";
-                }
-                ptxtGenre.Text = g;
-
-
-
-                ptxtRating.Text = movie.age;
-                if (movie.year != -1)
-                {
-                    ptxtYear.Text = movie.year.ToString();
-                }
-                
-
-                if(System.IO.File.Exists(defPath + "//"+ movie.imageName))
-                {
-                    pbPoster.Image = Image.FromFile(defPath + "//" + movie.imageName);
-                }
-                
-                pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                pMovieView.Visible = true;
-
+                displayMovieOnPanel(movie);
             }
             else
             {
                 MessageBox.Show("Need to select Movie to Edit !");
             }
-            
-
         }
 
         private void btnPanelClose_Click(object sender, EventArgs e)
@@ -279,8 +294,6 @@ namespace Proto
             new About().Show();
         }
 
-
-
         private void btnAddList_Click(object sender, EventArgs e)
         {
             using (MovieListAdd add = new MovieListAdd())
@@ -291,7 +304,6 @@ namespace Proto
                 }
             }
         }
-
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
