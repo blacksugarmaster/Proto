@@ -607,6 +607,7 @@
             this.lvSimilarMovies.Size = new System.Drawing.Size(1019, 395);
             this.lvSimilarMovies.TabIndex = 15;
             this.lvSimilarMovies.UseCompatibleStateImageBehavior = false;
+            this.lvSimilarMovies.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvSimilarMovies_MouseDoubleClick);
             // 
             // pbPoster
             // 
@@ -621,6 +622,7 @@
             this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptxtRating.Location = new System.Drawing.Point(539, 409);
             this.ptxtRating.Name = "ptxtRating";
+            this.ptxtRating.ReadOnly = true;
             this.ptxtRating.Size = new System.Drawing.Size(152, 31);
             this.ptxtRating.TabIndex = 13;
             // 
@@ -629,6 +631,7 @@
             this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptxtYear.Location = new System.Drawing.Point(539, 345);
             this.ptxtYear.Name = "ptxtYear";
+            this.ptxtYear.ReadOnly = true;
             this.ptxtYear.Size = new System.Drawing.Size(152, 31);
             this.ptxtYear.TabIndex = 12;
             // 
@@ -637,6 +640,7 @@
             this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptxtGenre.Location = new System.Drawing.Point(539, 288);
             this.ptxtGenre.Name = "ptxtGenre";
+            this.ptxtGenre.ReadOnly = true;
             this.ptxtGenre.Size = new System.Drawing.Size(520, 31);
             this.ptxtGenre.TabIndex = 11;
             // 
@@ -646,6 +650,7 @@
             this.ptxtCast.Location = new System.Drawing.Point(539, 223);
             this.ptxtCast.Multiline = true;
             this.ptxtCast.Name = "ptxtCast";
+            this.ptxtCast.ReadOnly = true;
             this.ptxtCast.Size = new System.Drawing.Size(520, 31);
             this.ptxtCast.TabIndex = 10;
             // 
@@ -654,6 +659,7 @@
             this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptxtDirector.Location = new System.Drawing.Point(539, 159);
             this.ptxtDirector.Name = "ptxtDirector";
+            this.ptxtDirector.ReadOnly = true;
             this.ptxtDirector.Size = new System.Drawing.Size(520, 31);
             this.ptxtDirector.TabIndex = 9;
             // 
@@ -776,6 +782,7 @@
             this.ptxtLength.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptxtLength.Location = new System.Drawing.Point(591, 483);
             this.ptxtLength.Name = "ptxtLength";
+            this.ptxtLength.ReadOnly = true;
             this.ptxtLength.Size = new System.Drawing.Size(100, 31);
             this.ptxtLength.TabIndex = 18;
             // 

@@ -323,7 +323,7 @@ namespace Proto
             }
             else
             {
-                MessageBox.Show("Need to select Movie to Edit !");
+                MessageBox.Show("Need to select to view movie Info");
             }
         }
 
@@ -521,6 +521,21 @@ namespace Proto
         private void lbList_DragOver(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
+        }
+
+        private void lvSimilarMovies_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lvSimilarMovies.SelectedItems.Count > 0)
+            {
+                ListViewItem selected = lvSimilarMovies.SelectedItems[0];
+                Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
+                
+                displayMovieOnPanel(movie);
+            }
+            else
+            {
+                MessageBox.Show("Need to select to view movie Info");
+            }
         }
     }
 }
