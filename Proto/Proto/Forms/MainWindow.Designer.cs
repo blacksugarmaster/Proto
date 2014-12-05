@@ -76,7 +76,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pMovieView = new System.Windows.Forms.Panel();
-            this.lvsimilarMovies = new System.Windows.Forms.ListView();
+            this.lvSimilarMovies = new System.Windows.Forms.ListView();
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.ptxtRating = new System.Windows.Forms.TextBox();
             this.ptxtYear = new System.Windows.Forms.TextBox();
@@ -568,7 +568,7 @@
             this.pMovieView.Controls.Add(this.label4);
             this.pMovieView.Controls.Add(this.ptxtLength);
             this.pMovieView.Controls.Add(this.label3);
-            this.pMovieView.Controls.Add(this.lvsimilarMovies);
+            this.pMovieView.Controls.Add(this.lvSimilarMovies);
             this.pMovieView.Controls.Add(this.pbPoster);
             this.pMovieView.Controls.Add(this.ptxtRating);
             this.pMovieView.Controls.Add(this.ptxtYear);
@@ -589,13 +589,13 @@
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
-            // lvsimilarMovies
+            // lvSimilarMovies
             // 
-            this.lvsimilarMovies.Location = new System.Drawing.Point(40, 635);
-            this.lvsimilarMovies.Name = "lvsimilarMovies";
-            this.lvsimilarMovies.Size = new System.Drawing.Size(1019, 395);
-            this.lvsimilarMovies.TabIndex = 15;
-            this.lvsimilarMovies.UseCompatibleStateImageBehavior = false;
+            this.lvSimilarMovies.Location = new System.Drawing.Point(40, 635);
+            this.lvSimilarMovies.Name = "lvSimilarMovies";
+            this.lvSimilarMovies.Size = new System.Drawing.Size(1019, 395);
+            this.lvSimilarMovies.TabIndex = 15;
+            this.lvSimilarMovies.UseCompatibleStateImageBehavior = false;
             // 
             // pbPoster
             // 
@@ -897,7 +897,7 @@
         private System.Windows.Forms.Button btnDeleteList;
         private System.Windows.Forms.Button btnRenameList;
         private System.Windows.Forms.Button btnAddList;
-        private System.Windows.Forms.ListView lvsimilarMovies;
+        private System.Windows.Forms.ListView lvSimilarMovies;
         private System.Windows.Forms.ContextMenuStrip cmsMovieList;
         private System.Windows.Forms.ToolStripMenuItem addAListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;

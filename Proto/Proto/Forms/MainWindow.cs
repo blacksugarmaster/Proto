@@ -115,16 +115,17 @@ namespace Proto
             ImageList ilall = new ImageList();
             ilall.ImageSize = new Size(175, 256);
 
-            string path = defPath + "//" + mov.imageName;
+            string path = defPath + "\\" + mov.imageName;
             if (System.IO.File.Exists(path))
             {
-                //System.Console.WriteLine(path);
+                System.Console.WriteLine(path);
                 ilall.Images.Add(mov.id, Image.FromFile(path));
             }
             ListViewItem movie = new ListViewItem();
             movie.Text = mov.title;
             movie.Tag = mov.id;
             movie.ImageKey = mov.id;
+
             lvMovie.Items.Add(movie);
         }
 
@@ -250,6 +251,7 @@ namespace Proto
                 ptxtYear.Text = movie.year.ToString();
             }
 
+            ptxtLength.Text = "";
             if (movie.length != -1)
             {
                 ptxtLength.Text = movie.length.ToString();
@@ -267,6 +269,37 @@ namespace Proto
             pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pMovieView.Visible = true;
+
+
+
+            lvSimilarMovies.Clear();
+            MovieList list = SearchLogic.searchSimilarMovies(movie);
+            ImageList ilall = new ImageList();
+            ilall.ImageSize = new Size(175, 256);
+
+            // add all image to the 'all' imagelist if file exists
+            foreach (Movie mov in list)
+            {
+                string path = defPath + "//" + mov.imageName;
+                if (System.IO.File.Exists(path))
+                {
+                    //System.Console.WriteLine(path);
+                    ilall.Images.Add(mov.id, Image.FromFile(path));
+                }
+            }
+
+            lvSimilarMovies.LargeImageList = ilall;
+
+            foreach (Movie mov in list)
+            {
+                ListViewItem movieItem = new ListViewItem();
+                movieItem.Text = mov.title;
+                movieItem.Tag = mov.id;
+                movieItem.ImageKey = mov.id;
+                lvSimilarMovies.Items.Add(movieItem);
+            }
+            lvSimilarMovies.View = View.LargeIcon;
+
         }
 
         private void lvMovie_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -322,18 +355,22 @@ namespace Proto
 
         private void btnDeleteList_Click(object sender, EventArgs e)
         {
-            string name = lbList.GetItemText(lbList.SelectedItem);
+            if(lbList.SelectedItems.Count > 0)
+            {
+                string name = lbList.GetItemText(lbList.SelectedItem);
 
-            if(!name.Equals("All"))
-            {
-                MovieListLogic.deleteMovieList(name);
-                lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
-                MessageBox.Show("List Deleted");
+                if (!name.Equals("All"))
+                {
+                    MovieListLogic.deleteMovieList(name);
+                    lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                    MessageBox.Show("List Deleted");
+                }
+                else
+                {
+                    MessageBox.Show("Cannot delete Default list", "Default List", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Cannot delete Default list","Default List",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void btnRenameList_Click(object sender, EventArgs e)
