@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,10 +63,12 @@
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.cbHorror4 = new System.Windows.Forms.CheckBox();
             this.cbAnimation5 = new System.Windows.Forms.CheckBox();
+            this.ep = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,15 +84,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.916231F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(104, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 26);
+            this.label2.Size = new System.Drawing.Size(96, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Director";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.916231F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(135, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 26);
@@ -98,11 +103,13 @@
             // 
             // txtTitle
             // 
+            this.txtTitle.AccessibleName = "Title";
             this.txtTitle.Location = new System.Drawing.Point(208, 26);
             this.txtTitle.MaxLength = 99;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
             this.txtTitle.TabIndex = 0;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txt);
             // 
             // groupBox1
             // 
@@ -125,7 +132,7 @@
             this.cbThriller3.Location = new System.Drawing.Point(369, 30);
             this.cbThriller3.Name = "cbThriller3";
             this.cbThriller3.Size = new System.Drawing.Size(103, 30);
-            this.cbThriller3.TabIndex = 9;
+            this.cbThriller3.TabIndex = 10;
             this.cbThriller3.Text = "Thriller";
             this.cbThriller3.UseVisualStyleBackColor = true;
             // 
@@ -135,7 +142,7 @@
             this.cbAction2.Location = new System.Drawing.Point(246, 30);
             this.cbAction2.Name = "cbAction2";
             this.cbAction2.Size = new System.Drawing.Size(99, 30);
-            this.cbAction2.TabIndex = 8;
+            this.cbAction2.TabIndex = 9;
             this.cbAction2.Text = "Action";
             this.cbAction2.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +152,7 @@
             this.cbSciFi0.Location = new System.Drawing.Point(16, 30);
             this.cbSciFi0.Name = "cbSciFi0";
             this.cbSciFi0.Size = new System.Drawing.Size(94, 30);
-            this.cbSciFi0.TabIndex = 6;
+            this.cbSciFi0.TabIndex = 7;
             this.cbSciFi0.Text = "Sci-Fi";
             this.cbSciFi0.UseVisualStyleBackColor = true;
             // 
@@ -155,26 +162,30 @@
             this.cbDrama1.Location = new System.Drawing.Point(127, 30);
             this.cbDrama1.Name = "cbDrama1";
             this.cbDrama1.Size = new System.Drawing.Size(104, 30);
-            this.cbDrama1.TabIndex = 7;
+            this.cbDrama1.TabIndex = 8;
             this.cbDrama1.Text = "Drama";
             this.cbDrama1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 695);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.916231F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(43, 690);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(253, 26);
+            this.label4.Size = new System.Drawing.Size(154, 26);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Production Year (YYYY)";
+            this.label4.Text = "Year (YYYY)";
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(356, 690);
+            this.txtYear.AccessibleName = "Year";
+            this.txtYear.Location = new System.Drawing.Point(208, 687);
             this.txtYear.MaxLength = 4;
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 31);
-            this.txtYear.TabIndex = 5;
+            this.txtYear.Size = new System.Drawing.Size(248, 31);
+            this.txtYear.TabIndex = 6;
+            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validating_numKey);
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txtInt);
             // 
             // groupBox2
             // 
@@ -197,7 +208,7 @@
             this.rbNC17.Location = new System.Drawing.Point(398, 49);
             this.rbNC17.Name = "rbNC17";
             this.rbNC17.Size = new System.Drawing.Size(100, 30);
-            this.rbNC17.TabIndex = 14;
+            this.rbNC17.TabIndex = 17;
             this.rbNC17.TabStop = true;
             this.rbNC17.Text = "NC-17";
             this.rbNC17.UseVisualStyleBackColor = true;
@@ -209,7 +220,7 @@
             this.rbR.Location = new System.Drawing.Point(322, 49);
             this.rbR.Name = "rbR";
             this.rbR.Size = new System.Drawing.Size(53, 30);
-            this.rbR.TabIndex = 13;
+            this.rbR.TabIndex = 16;
             this.rbR.TabStop = true;
             this.rbR.Text = "R";
             this.rbR.UseVisualStyleBackColor = true;
@@ -221,7 +232,7 @@
             this.rbPG13.Location = new System.Drawing.Point(194, 48);
             this.rbPG13.Name = "rbPG13";
             this.rbPG13.Size = new System.Drawing.Size(100, 30);
-            this.rbPG13.TabIndex = 12;
+            this.rbPG13.TabIndex = 15;
             this.rbPG13.TabStop = true;
             this.rbPG13.Text = "PG-13";
             this.rbPG13.UseVisualStyleBackColor = true;
@@ -233,7 +244,7 @@
             this.rbPG.Location = new System.Drawing.Point(103, 48);
             this.rbPG.Name = "rbPG";
             this.rbPG.Size = new System.Drawing.Size(69, 30);
-            this.rbPG.TabIndex = 11;
+            this.rbPG.TabIndex = 14;
             this.rbPG.TabStop = true;
             this.rbPG.Text = "PG";
             this.rbPG.UseVisualStyleBackColor = true;
@@ -245,18 +256,20 @@
             this.rbG.Location = new System.Drawing.Point(27, 49);
             this.rbG.Name = "rbG";
             this.rbG.Size = new System.Drawing.Size(54, 30);
-            this.rbG.TabIndex = 10;
+            this.rbG.TabIndex = 13;
             this.rbG.TabStop = true;
             this.rbG.Text = "G";
             this.rbG.UseVisualStyleBackColor = true;
             // 
             // txtDirector
             // 
+            this.txtDirector.AccessibleName = "Director";
             this.txtDirector.Location = new System.Drawing.Point(208, 80);
             this.txtDirector.MaxLength = 99;
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(248, 31);
             this.txtDirector.TabIndex = 1;
+            this.txtDirector.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txt);
             // 
             // lbCast
             // 
@@ -309,7 +322,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(477, 391);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(100, 39);
-            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.TabIndex = 5;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -337,19 +350,23 @@
             // lbLength
             // 
             this.lbLength.AutoSize = true;
+            this.lbLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.916231F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLength.Location = new System.Drawing.Point(45, 334);
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(147, 26);
+            this.lbLength.Size = new System.Drawing.Size(159, 26);
             this.lbLength.TabIndex = 21;
             this.lbLength.Text = "Running Time";
             // 
             // txtLength
             // 
+            this.txtLength.AccessibleName = "Running Time";
             this.txtLength.Location = new System.Drawing.Point(208, 334);
             this.txtLength.MaxLength = 4;
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(248, 31);
-            this.txtLength.TabIndex = 22;
+            this.txtLength.TabIndex = 4;
+            this.txtLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validating_numKey);
+            this.txtLength.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txtInt);
             // 
             // panel1
             // 
@@ -368,7 +385,7 @@
             this.btnCancel.Location = new System.Drawing.Point(366, 16);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(192, 69);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -378,9 +395,10 @@
             this.btnSave.Location = new System.Drawing.Point(67, 16);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(192, 69);
-            this.btnSave.TabIndex = 16;
+            this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pbPoster
             // 
@@ -397,7 +415,7 @@
             this.cbHorror4.Location = new System.Drawing.Point(16, 94);
             this.cbHorror4.Name = "cbHorror4";
             this.cbHorror4.Size = new System.Drawing.Size(99, 30);
-            this.cbHorror4.TabIndex = 10;
+            this.cbHorror4.TabIndex = 11;
             this.cbHorror4.Text = "Horror";
             this.cbHorror4.UseVisualStyleBackColor = true;
             // 
@@ -407,9 +425,14 @@
             this.cbAnimation5.Location = new System.Drawing.Point(127, 93);
             this.cbAnimation5.Name = "cbAnimation5";
             this.cbAnimation5.Size = new System.Drawing.Size(136, 30);
-            this.cbAnimation5.TabIndex = 11;
+            this.cbAnimation5.TabIndex = 12;
             this.cbAnimation5.Text = "Animation";
             this.cbAnimation5.UseVisualStyleBackColor = true;
+            // 
+            // ep
+            // 
+            this.ep.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ep.ContainerControl = this;
             // 
             // MovieBase
             // 
@@ -447,6 +470,7 @@
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,5 +512,6 @@
         private System.Windows.Forms.PictureBox pbPoster;
         protected System.Windows.Forms.CheckBox cbAnimation5;
         protected System.Windows.Forms.CheckBox cbHorror4;
+        public System.Windows.Forms.ErrorProvider ep;
     }
 }

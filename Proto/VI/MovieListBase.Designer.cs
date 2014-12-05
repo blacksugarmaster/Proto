@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ep = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.94764F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(127, 79);
+            this.txtName.MaxLength = 25;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(395, 49);
             this.txtName.TabIndex = 0;
@@ -84,6 +88,10 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
+            // ep
+            // 
+            this.ep.ContainerControl = this;
+            // 
             // MovieListBase
             // 
             this.AcceptButton = this.btnSave;
@@ -97,6 +105,7 @@
             this.Name = "MovieListBase";
             this.Text = "MovieListBase";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +118,6 @@
         private System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.Button btnClose;
         protected System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.ErrorProvider ep;
     }
 }

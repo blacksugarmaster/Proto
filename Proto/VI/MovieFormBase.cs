@@ -34,9 +34,7 @@ namespace Proto.Forms
 
                     cbImage.Checked = true;
                 }
-                
             }
-
         }
 
         private void btnAddCast_Click(object sender, EventArgs e)
@@ -51,8 +49,8 @@ namespace Proto.Forms
                 }
                 else
                 {
+                    MessageBox.Show("This cast is already in the list");
                     // already in the list
-                    
                 }
             }
         }
@@ -78,6 +76,38 @@ namespace Proto.Forms
             Close();
         }
 
+        private void validating_txt(object sender, CancelEventArgs e)
+        {
+            string err = null;
+            if (((TextBox)sender).Text.Trim().Length <= 0 || ((TextBox)sender).Text.Trim().Length > 99)
+            {
+                err = ((TextBox)sender).AccessibleName + " input is not valid. Enter 1 ~ 99 Characters\n";
+            }
+            ep.SetError((Control)sender, err);
+        }
 
+        private void validating_txtInt(object sender, CancelEventArgs e)
+        {
+            string err = null;
+            if (((TextBox)sender).Text.Trim().Length <= 0 || ((TextBox)sender).Text.Trim().Length > 4)
+            {
+                err = ((TextBox)sender).AccessibleName + " input is not valid. Enter 1 ~ 4 numbers\n";
+            }
+            ep.SetError((Control)sender, err);
+        }
+
+        private void validating_numKey(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

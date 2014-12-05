@@ -9,7 +9,7 @@ namespace Proto.BusinessLogic
 {
     class SearchLogic
     {
-        public static MovieList search(string title, string director, string cast, List<string> genre, List<string> rating)
+        public static MovieList search(string title, string director, string cast, List<string> genre, List<string> rating, int length)
         {
             string whereString = string.Empty;
 
@@ -26,6 +26,19 @@ namespace Proto.BusinessLogic
                 }
                 whereString += "director LIKE '%" + director + "%'";
             }
+
+            if(!string.IsNullOrWhiteSpace(length.ToString()))
+            {
+                if(! (int.MaxValue == length))
+                {
+                    if (!string.IsNullOrWhiteSpace(whereString))
+                    {
+                        whereString += " AND ";
+                    }
+                    whereString += "length > 0 AND length <=" + length;
+                }
+            }
+
 
 
             string gen = string.Empty;

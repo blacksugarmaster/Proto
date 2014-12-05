@@ -627,13 +627,37 @@ namespace Proto.DB
         {
             con.Open();
 
-            string q = "INSERT INTO MovieList(id,name,mid)" +
-                        "VALUES(@id,@name,@mid)";
-            cmd = new SqlCeCommand(q, con);
+            // check duplicate in the list
+            
+            string check = "SELECT * FROM MovieList WHERE id = @id AND name = @name AND mid = @mid";
+
+            cmd = new SqlCeCommand(check, con);
             cmd.Parameters.AddWithValue("@id", list.id);
             cmd.Parameters.AddWithValue("@name", list.name);
             cmd.Parameters.AddWithValue("@mid", movie.id);
             cmd.ExecuteNonQuery();
+            SqlCeDataAdapter sqldata = new SqlCeDataAdapter(cmd);
+            DataSet data = new DataSet();
+            sqldata.Fill(data, "length");
+
+            DataTable table = new DataTable();
+            table = data.Tables["length"];
+
+            // if not exists, insert
+            if(table.Rows.Count == 0)
+            {
+
+                string q = "INSERT INTO MovieList(id,name,mid) " +
+                            "VALUES(@id,@name,@mid) ";
+
+                cmd = new SqlCeCommand(q, con);
+                cmd.Parameters.AddWithValue("@id", list.id);
+                cmd.Parameters.AddWithValue("@name", list.name);
+                cmd.Parameters.AddWithValue("@mid", movie.id);
+                cmd.ExecuteNonQuery();
+
+            }
+            
 
             con.Close();
 

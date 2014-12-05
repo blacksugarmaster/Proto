@@ -316,6 +316,7 @@
             // 
             // lbList
             // 
+            this.lbList.AllowDrop = true;
             this.lbList.ContextMenuStrip = this.cmsMovieList;
             this.lbList.Font = new System.Drawing.Font("Arial", 19.97906F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbList.FormattingEnabled = true;
@@ -325,6 +326,8 @@
             this.lbList.Size = new System.Drawing.Size(493, 784);
             this.lbList.TabIndex = 0;
             this.lbList.SelectedIndexChanged += new System.EventHandler(this.lbList_SelectedIndexChanged);
+            this.lbList.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbList_DragDrop);
+            this.lbList.DragOver += new System.Windows.Forms.DragEventHandler(this.lbList_DragOver);
             // 
             // cmsMovieList
             // 
@@ -519,6 +522,7 @@
             // txtDirector
             // 
             this.txtDirector.Location = new System.Drawing.Point(47, 174);
+            this.txtDirector.MaxLength = 99;
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(408, 31);
             this.txtDirector.TabIndex = 17;
@@ -536,6 +540,7 @@
             // txtCast
             // 
             this.txtCast.Location = new System.Drawing.Point(47, 262);
+            this.txtCast.MaxLength = 99;
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(408, 31);
             this.txtCast.TabIndex = 14;
@@ -544,6 +549,7 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(47, 72);
+            this.txtTitle.MaxLength = 99;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(408, 31);
             this.txtTitle.TabIndex = 13;
@@ -588,9 +594,9 @@
             this.pMovieView.Controls.Add(this.lbDirector);
             this.pMovieView.Controls.Add(this.pTrailer);
             this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 161);
+            this.pMovieView.Location = new System.Drawing.Point(3, 3);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 901);
+            this.pMovieView.Size = new System.Drawing.Size(1090, 1059);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
             // 
@@ -726,11 +732,13 @@
             // 
             this.lvMovie.ContextMenuStrip = this.cmsMovieAdd;
             this.lvMovie.Location = new System.Drawing.Point(3, 0);
+            this.lvMovie.MultiSelect = false;
             this.lvMovie.Name = "lvMovie";
             this.lvMovie.Size = new System.Drawing.Size(1090, 1062);
             this.lvMovie.TabIndex = 0;
             this.lvMovie.UseCompatibleStateImageBehavior = false;
             this.lvMovie.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDoubleClick);
+            this.lvMovie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDown);
             // 
             // cmsMovieAdd
             // 
@@ -836,6 +844,7 @@
             this.txtMax.Size = new System.Drawing.Size(164, 31);
             this.txtMax.TabIndex = 3;
             this.txtMax.TextChanged += new System.EventHandler(this.btnSearch_Click);
+            this.txtMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validating_numKey);
             // 
             // MainWindow
             // 

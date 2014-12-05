@@ -37,8 +37,11 @@ namespace Proto.Forms
                 lbCast.Items.Add(c);
             }
 
-            txtLength.Text = movie.length.ToString();
-
+            if(movie.length != -1)
+            {
+                txtLength.Text = movie.length.ToString();
+            }
+            
             // parse genre
 
             if(movie.genre.Contains(Genre.getString(0)))
@@ -91,6 +94,24 @@ namespace Proto.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string eTitle = ep.GetError(txtTitle);
+            string eDirector = ep.GetError(txtDirector);
+            string eLength = ep.GetError(txtLength);
+            string eYear = ep.GetError(txtYear);
+
+            string saveError = eTitle + eDirector + eLength + eYear;
+
+            if(txtTitle.CausesValidation == true ||
+                txtDirector.CausesValidation == true ||
+                txtLength.CausesValidation == true ||
+                txtYear.CausesValidation == true)
+            {
+                MessageBox.Show(saveError);
+                return;
+            }
+            else
+            {
+                
             List<string> cast = lbCast.Items.OfType<string>().ToList();
             List<string> genre = new List<string>();
 
@@ -156,6 +177,9 @@ namespace Proto.Forms
             MessageBox.Show("Movie Edited");
             // form close ( or add more later )
             this.Close();
+            }
+
+
         }
     }
 }

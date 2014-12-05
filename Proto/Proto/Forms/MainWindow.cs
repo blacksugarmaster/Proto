@@ -46,6 +46,7 @@ namespace Proto
             allMovie = MovieLogic.getAll();
             displayMovies(allMovie);
             displayMovieLists();
+            lbList.SetSelected(0, true);
         }
 
         private void connectDB()
@@ -136,13 +137,16 @@ namespace Proto
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-
-
             string title = txtTitle.Text.Trim();
             string director = txtDirector.Text.Trim();
             string cast = txtCast.Text.Trim();
 
+            int length = int.MaxValue;
+            if(txtMax.Text.Trim().Length > 0 )
+            {
+                length = int.Parse(txtMax.Text.Trim());
+            }
+           
             List<string> gen = new List<string>();
 
             //genre
@@ -193,13 +197,18 @@ namespace Proto
             {
                 rat.Add("NC17");
             }
-
-
-            MovieList res = SearchLogic.search(title, director, cast, gen, rat);
+            MovieList res = SearchLogic.search(title, director, cast, gen, rat, length);
 
             displayMovies(res);
         }
-
+        private void validating_numKey(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -440,7 +449,10 @@ namespace Proto
         private void AddtoListHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem selected = (ToolStripMenuItem)sender;
-            MovieListLogic.addMovie(selected.Name, lvMovie.SelectedItems[0].Tag.ToString());
+            if(lvMovie.SelectedItems.Count > 0)
+            {
+                MovieListLogic.addMovie(selected.Name, lvMovie.SelectedItems[0].Tag.ToString());
+            }
         }
 
         private void removeFromThisListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -451,5 +463,64 @@ namespace Proto
             }
         }
 
+        private void lvMovie_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left && e.Clicks == 1)
+            {
+                // only one left click can start draggin event.
+
+                if (lvMovie.Items.Count <= 0)
+                {
+                    return;
+                }
+
+                ListViewItem selected = lvMovie.GetItemAt(e.X, e.Y);
+                if (selected != null)
+                {
+                    string id = selected.Tag.ToString(); // it is id of the movie
+                    DragDropEffects ef = DoDragDrop(id, DragDropEffects.Copy);
+
+                    if (ef == DragDropEffects.Copy)
+                    {
+                        // can change cursor
+                        // poster image etc..
+                    }
+                }
+            }
+            else if(e.Button == MouseButtons.Left && e.Clicks == 2)
+            {
+                // it is not drag start event.
+                // if double clicked, have to display detail info
+
+                lvMovie_MouseDoubleClick(sender, e);
+            }
+        }
+
+        private void lbList_DragDrop(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                string id = (string)e.Data.GetData(DataFormats.StringFormat);
+
+                Point p = lbList.PointToClient(Cursor.Position);
+                int index = lbList.IndexFromPoint(p);
+                if (index < 0)
+                {
+                    return;
+                }
+
+                int old = lbList.SelectedIndex;
+
+                lbList.SetSelected(index,true);
+                lbList.SetSelected(old, true);
+
+                MovieListLogic.addMovie(lbList.Items[index].ToString(), id);
+            }
+        }
+
+        private void lbList_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
     }
 }

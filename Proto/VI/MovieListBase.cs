@@ -21,5 +21,15 @@ namespace Proto.Forms
         {
             Close();
         }
+        private void validating_txt(object sender, CancelEventArgs e)
+        {
+            string err = null;
+            if (((TextBox)sender).Text.Trim().Length <= 0 || ((TextBox)sender).Text.Trim().Length > 25 )
+            {
+                err = "The input is not valid. Enter 1 ~ 25 Characters";
+            }
+            ep.SetError((Control)sender, err);
+        }
+
     }
 }
