@@ -184,6 +184,11 @@ namespace Proto.DB
 
             DataTable table = new DataTable();
             table = data.Tables["movie"];
+
+            if(table.Rows.Count <= 0)
+            {
+                return null;
+            }
             DataRow r = table.Rows[0];
 
             string mid =r[0].ToString();
@@ -447,6 +452,11 @@ namespace Proto.DB
         {
             con.Open();
 
+            string dellist = "DELETE FROM MovieList " +
+                            "WHERE mid = @id";
+            cmd = new SqlCeCommand(dellist, con);
+            cmd.Parameters.AddWithValue("@id", movie.id);
+            cmd.ExecuteNonQuery();
 
             string delcast = "DELETE FROM MovieCast " +
                                 "WHERE id = @id";
@@ -465,6 +475,8 @@ namespace Proto.DB
             cmd = new SqlCeCommand(delMovie, con);
             cmd.Parameters.AddWithValue("@id", movie.id);
             cmd.ExecuteNonQuery();
+
+
 
             con.Close();
 
@@ -561,13 +573,57 @@ namespace Proto.DB
         {
             con.Open();
 
-            string q = "INSERT INTO Config(type,value)" +
-                        "VALUES(@type,@value)";
+            string q = "SELECT * FROM Config " +
+                        "WHERE type = @type";
             cmd = new SqlCeCommand(q, con);
             cmd.Parameters.AddWithValue("@type", "DefPath");
-            cmd.Parameters.AddWithValue("@value", path);
             cmd.ExecuteNonQuery();
 
+            SqlCeDataAdapter sqldata = new SqlCeDataAdapter(cmd);
+            DataSet data = new DataSet();
+            sqldata.Fill(data, "length");
+
+            DataTable table = new DataTable();
+            table = data.Tables["length"];
+
+            // if not exists, insert
+            if (table.Rows.Count == 0)
+            {
+                string q2 = "INSERT INTO Config(type,value)" +
+                            "VALUES(@type,@value)";
+                cmd = new SqlCeCommand(q2, con);
+                cmd.Parameters.AddWithValue("@type", "DefPath");
+                cmd.Parameters.AddWithValue("@value", path);
+                cmd.ExecuteNonQuery();
+            }
+            else if(table.Rows.Count == 1)
+            {
+
+
+                string q3 = "UPDATE Config " +
+                            "SET type = @type" +
+                                ",value = @value";
+                cmd = new SqlCeCommand(q3, con);
+                cmd.Parameters.AddWithValue("@type", "DefPath");
+                cmd.Parameters.AddWithValue("@value", path);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                string q4 = "DELETE FROM Config " +
+                            "WHERE type = @type";
+                cmd = new SqlCeCommand(q4, con);
+                cmd.Parameters.AddWithValue("@type", "DefPath");
+                cmd.ExecuteNonQuery();
+
+                string q2 = "INSERT INTO Config(type,value)" +
+                            "VALUES(@type,@value)";
+                cmd = new SqlCeCommand(q2, con);
+                cmd.Parameters.AddWithValue("@type", "DefPath");
+                cmd.Parameters.AddWithValue("@value", path);
+                cmd.ExecuteNonQuery();
+
+            }
             con.Close();
 
             return true;

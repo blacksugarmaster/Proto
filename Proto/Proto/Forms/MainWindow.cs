@@ -15,6 +15,7 @@ using Proto.Forms;
 
 namespace Proto
 {
+
     public partial class MainWindow : Form
     {
         private static bool testDB = false;
@@ -23,12 +24,13 @@ namespace Proto
         private string defPath;
 
         private bool dpAll = true;
+        MovieCount c = new MovieCount();
 
         public MainWindow()
         {
             InitializeComponent();
             connectDB();
-
+            //DBReset();
             if(testDB)
             {
                 DBtest.testAddMovie();
@@ -47,6 +49,7 @@ namespace Proto
             displayMovies(allMovie);
             displayMovieLists();
             lbList.SetSelected(0, true);
+            txtCount.DataBindings.Add("Text", c, "Count");
         }
 
         private void connectDB()
@@ -109,6 +112,9 @@ namespace Proto
                 lvMovie.Items.Add(movie);
             }
             lvMovie.View = View.LargeIcon;
+
+            c.Count = list.Count;
+
         }
         public void displayMovie(Movie mov)
         {
@@ -128,6 +134,7 @@ namespace Proto
             movie.ImageKey = mov.id;
 
             lvMovie.Items.Add(movie);
+            c.Count++;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -238,7 +245,8 @@ namespace Proto
 
         private void displayMovieOnPanel(Movie movie)
         {
-            lbTitle.Text = movie.title;
+            //lbTitle.Text = movie.title;
+            ptxtTitle.Text = movie.title;
             ptxtDirector.Text = movie.director;
 
             // need to make a string
@@ -265,7 +273,7 @@ namespace Proto
             ptxtLength.Text = "";
             if (movie.length != -1)
             {
-                ptxtLength.Text = movie.length.ToString();
+                ptxtLength.Text = movie.length.ToString() + " mins";
             }
 
             if (System.IO.File.Exists(defPath + "//" + movie.imageName))
@@ -286,7 +294,7 @@ namespace Proto
             lvSimilarMovies.Clear();
             MovieList list = SearchLogic.searchSimilarMovies(movie);
             ImageList ilall = new ImageList();
-            ilall.ImageSize = new Size(175, 256);
+            ilall.ImageSize = new Size(150, 230);
 
             // add all image to the 'all' imagelist if file exists
             foreach (Movie mov in list)
@@ -372,9 +380,15 @@ namespace Proto
 
                 if (!name.Equals("All"))
                 {
-                    MovieListLogic.deleteMovieList(name);
-                    lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
-                    MessageBox.Show("List Deleted");
+                    DialogResult reset = MessageBox.Show("Are you sure to delete this list ? (movies will not be erased from database)",
+                                        "Delete this list?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+                    if (reset == DialogResult.OK)
+                    {
+                        MovieListLogic.deleteMovieList(name);
+                        lbList.Items.RemoveAt(lbList.Items.IndexOf(name));
+                        MessageBox.Show("List Deleted");
+                    }
                 }
                 else
                 {
@@ -535,6 +549,52 @@ namespace Proto
             else
             {
                 MessageBox.Show("Need to select to view movie Info");
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvMovie.SelectedItems.Count > 0)
+            {
+                ListViewItem selected = lvMovie.SelectedItems[0];
+                Movie movie = DBImplement.proxy.getMovieById(selected.Tag.ToString());
+                movie.remove();
+            }
+            else
+            {
+                MessageBox.Show("Need to select Movie to delete !");
+            }
+        }
+
+        private void txtCount_TextChanged(object sender, EventArgs e)
+        {
+            txtCount.Text = c.Count + " Movies found";
+        }
+    }
+    public class MovieCount : INotifyPropertyChanged
+    {
+        private int count = 0;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int Count
+        {
+            get { return this.count; }
+            set
+            {
+                if (value != this.count)
+                {
+                    this.count = value;
+                    NotifyPropertyChanged("Count");
+                }
+            }
+        }
+
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

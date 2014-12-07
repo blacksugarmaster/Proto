@@ -57,6 +57,9 @@
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Search = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMax = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbNC17 = new System.Windows.Forms.CheckBox();
             this.cbR = new System.Windows.Forms.CheckBox();
@@ -64,6 +67,8 @@
             this.cbPG = new System.Windows.Forms.CheckBox();
             this.cbG = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAnimation5 = new System.Windows.Forms.CheckBox();
+            this.cbHorror4 = new System.Windows.Forms.CheckBox();
             this.cbSciFi0 = new System.Windows.Forms.CheckBox();
             this.cbThriller3 = new System.Windows.Forms.CheckBox();
             this.cbDrama1 = new System.Windows.Forms.CheckBox();
@@ -76,8 +81,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pMovieView = new System.Windows.Forms.Panel();
-            this.lvSimilarMovies = new System.Windows.Forms.ListView();
-            this.pbPoster = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ptxtLength = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.ptxtRating = new System.Windows.Forms.TextBox();
             this.ptxtYear = new System.Windows.Forms.TextBox();
             this.ptxtGenre = new System.Windows.Forms.TextBox();
@@ -86,24 +92,21 @@
             this.lbRating = new System.Windows.Forms.Label();
             this.lbYear = new System.Windows.Forms.Label();
             this.lbGenre = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
             this.lbCast = new System.Windows.Forms.Label();
             this.lbDirector = new System.Windows.Forms.Label();
             this.pTrailer = new System.Windows.Forms.Panel();
             this.btnPanelClose = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ptxtTitle = new System.Windows.Forms.TextBox();
+            this.pbPoster = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lvSimilarMovies = new System.Windows.Forms.ListView();
             this.lvMovie = new System.Windows.Forms.ListView();
             this.cmsMovieAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToAListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFromThisListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ptxtLength = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbHorror4 = new System.Windows.Forms.CheckBox();
-            this.cbAnimation5 = new System.Windows.Forms.CheckBox();
-            this.manageMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtMax = new System.Windows.Forms.TextBox();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -114,12 +117,15 @@
             this.panel1.SuspendLayout();
             this.cmsMovieList.SuspendLayout();
             this.Search.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pMovieView.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
+            this.panel2.SuspendLayout();
             this.cmsMovieAdd.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -200,14 +206,14 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(161, 40);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // movieListToolStripMenuItem
             // 
             this.movieListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listAddToolStripMenuItem,
             this.editToolStripMenuItem1,
-            this.deleteToolStripMenuItem1,
-            this.manageMoviesToolStripMenuItem});
+            this.deleteToolStripMenuItem1});
             this.movieListToolStripMenuItem.Name = "movieListToolStripMenuItem";
             this.movieListToolStripMenuItem.Size = new System.Drawing.Size(139, 39);
             this.movieListToolStripMenuItem.Text = "Movie List";
@@ -215,21 +221,21 @@
             // listAddToolStripMenuItem
             // 
             this.listAddToolStripMenuItem.Name = "listAddToolStripMenuItem";
-            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(266, 40);
+            this.listAddToolStripMenuItem.Size = new System.Drawing.Size(180, 40);
             this.listAddToolStripMenuItem.Text = "Add";
             this.listAddToolStripMenuItem.Click += new System.EventHandler(this.btnAddList_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(266, 40);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 40);
             this.editToolStripMenuItem1.Text = "Rename";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.btnRenameList_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(266, 40);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(180, 40);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
@@ -247,6 +253,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.pMovieView);
             this.splitContainer1.Panel2.Controls.Add(this.lvMovie);
+            this.splitContainer1.Panel2.Controls.Add(this.txtCount);
             this.splitContainer1.Size = new System.Drawing.Size(1650, 1065);
             this.splitContainer1.SplitterDistance = 550;
             this.splitContainer1.TabIndex = 1;
@@ -255,10 +262,11 @@
             // 
             this.tabControl1.Controls.Add(this.MovieList);
             this.tabControl1.Controls.Add(this.Search);
-            this.tabControl1.Location = new System.Drawing.Point(12, 13);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(535, 1040);
+            this.tabControl1.Size = new System.Drawing.Size(550, 1065);
             this.tabControl1.TabIndex = 0;
             // 
             // MovieList
@@ -268,62 +276,72 @@
             this.MovieList.Location = new System.Drawing.Point(4, 34);
             this.MovieList.Name = "MovieList";
             this.MovieList.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieList.Size = new System.Drawing.Size(527, 1002);
+            this.MovieList.Size = new System.Drawing.Size(542, 1027);
             this.MovieList.TabIndex = 0;
             this.MovieList.Text = "Movie List";
             this.MovieList.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.btnDeleteList);
             this.panel1.Controls.Add(this.btnRenameList);
             this.panel1.Controls.Add(this.btnAddList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 847);
+            this.panel1.Location = new System.Drawing.Point(3, 903);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(521, 152);
+            this.panel1.Size = new System.Drawing.Size(536, 121);
             this.panel1.TabIndex = 4;
             // 
             // btnDeleteList
             // 
-            this.btnDeleteList.Location = new System.Drawing.Point(352, 16);
+            this.btnDeleteList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteList.Location = new System.Drawing.Point(346, 16);
             this.btnDeleteList.Name = "btnDeleteList";
-            this.btnDeleteList.Size = new System.Drawing.Size(119, 120);
+            this.btnDeleteList.Size = new System.Drawing.Size(119, 100);
             this.btnDeleteList.TabIndex = 4;
-            this.btnDeleteList.Text = "delete";
+            this.btnDeleteList.Text = "delete selected list";
             this.btnDeleteList.UseVisualStyleBackColor = true;
             this.btnDeleteList.Click += new System.EventHandler(this.btnDeleteList_Click);
             // 
             // btnRenameList
             // 
-            this.btnRenameList.Location = new System.Drawing.Point(204, 16);
+            this.btnRenameList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRenameList.Location = new System.Drawing.Point(206, 16);
             this.btnRenameList.Name = "btnRenameList";
-            this.btnRenameList.Size = new System.Drawing.Size(119, 120);
+            this.btnRenameList.Size = new System.Drawing.Size(119, 100);
             this.btnRenameList.TabIndex = 3;
-            this.btnRenameList.Text = "Rename";
+            this.btnRenameList.Text = "Rename selected list";
             this.btnRenameList.UseVisualStyleBackColor = true;
             this.btnRenameList.Click += new System.EventHandler(this.btnRenameList_Click);
             // 
             // btnAddList
             // 
-            this.btnAddList.Location = new System.Drawing.Point(59, 16);
+            this.btnAddList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddList.Location = new System.Drawing.Point(74, 16);
             this.btnAddList.Name = "btnAddList";
-            this.btnAddList.Size = new System.Drawing.Size(119, 120);
+            this.btnAddList.Size = new System.Drawing.Size(112, 100);
             this.btnAddList.TabIndex = 2;
-            this.btnAddList.Text = "add";
+            this.btnAddList.Text = "Add a list";
             this.btnAddList.UseVisualStyleBackColor = true;
             this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
             // 
             // lbList
             // 
             this.lbList.AllowDrop = true;
+            this.lbList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbList.ContextMenuStrip = this.cmsMovieList;
             this.lbList.Font = new System.Drawing.Font("Arial", 19.97906F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbList.FormattingEnabled = true;
             this.lbList.ItemHeight = 60;
-            this.lbList.Location = new System.Drawing.Point(19, 16);
+            this.lbList.Location = new System.Drawing.Point(24, 22);
             this.lbList.Name = "lbList";
-            this.lbList.Size = new System.Drawing.Size(493, 784);
+            this.lbList.Size = new System.Drawing.Size(493, 844);
             this.lbList.TabIndex = 0;
             this.lbList.SelectedIndexChanged += new System.EventHandler(this.lbList_SelectedIndexChanged);
             this.lbList.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbList_DragDrop);
@@ -374,10 +392,40 @@
             this.Search.Location = new System.Drawing.Point(4, 34);
             this.Search.Name = "Search";
             this.Search.Padding = new System.Windows.Forms.Padding(3);
-            this.Search.Size = new System.Drawing.Size(527, 1002);
+            this.Search.Size = new System.Drawing.Size(542, 1027);
             this.Search.TabIndex = 1;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtMax);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(47, 818);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(408, 118);
+            this.groupBox3.TabIndex = 25;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Running Time";
+            // 
+            // txtMax
+            // 
+            this.txtMax.Location = new System.Drawing.Point(171, 53);
+            this.txtMax.MaxLength = 4;
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(164, 31);
+            this.txtMax.TabIndex = 27;
+            this.txtMax.TextChanged += new System.EventHandler(this.btnSearch_Click);
+            this.txtMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validating_numKey);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 26);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Maximum";
             // 
             // groupBox2
             // 
@@ -399,7 +447,7 @@
             this.cbNC17.Location = new System.Drawing.Point(21, 232);
             this.cbNC17.Name = "cbNC17";
             this.cbNC17.Size = new System.Drawing.Size(101, 30);
-            this.cbNC17.TabIndex = 4;
+            this.cbNC17.TabIndex = 26;
             this.cbNC17.Text = "NC-17";
             this.cbNC17.UseVisualStyleBackColor = true;
             this.cbNC17.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -410,7 +458,7 @@
             this.cbR.Location = new System.Drawing.Point(21, 187);
             this.cbR.Name = "cbR";
             this.cbR.Size = new System.Drawing.Size(54, 30);
-            this.cbR.TabIndex = 3;
+            this.cbR.TabIndex = 25;
             this.cbR.Text = "R";
             this.cbR.UseVisualStyleBackColor = true;
             this.cbR.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -421,7 +469,7 @@
             this.cbPG13.Location = new System.Drawing.Point(21, 140);
             this.cbPG13.Name = "cbPG13";
             this.cbPG13.Size = new System.Drawing.Size(101, 30);
-            this.cbPG13.TabIndex = 2;
+            this.cbPG13.TabIndex = 24;
             this.cbPG13.Text = "PG-13";
             this.cbPG13.UseVisualStyleBackColor = true;
             this.cbPG13.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -432,7 +480,7 @@
             this.cbPG.Location = new System.Drawing.Point(21, 93);
             this.cbPG.Name = "cbPG";
             this.cbPG.Size = new System.Drawing.Size(70, 30);
-            this.cbPG.TabIndex = 1;
+            this.cbPG.TabIndex = 23;
             this.cbPG.Text = "PG";
             this.cbPG.UseVisualStyleBackColor = true;
             this.cbPG.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -443,7 +491,7 @@
             this.cbG.Location = new System.Drawing.Point(21, 46);
             this.cbG.Name = "cbG";
             this.cbG.Size = new System.Drawing.Size(55, 30);
-            this.cbG.TabIndex = 0;
+            this.cbG.TabIndex = 22;
             this.cbG.Text = "G";
             this.cbG.UseVisualStyleBackColor = true;
             this.cbG.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -463,13 +511,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genre";
             // 
+            // cbAnimation5
+            // 
+            this.cbAnimation5.AutoSize = true;
+            this.cbAnimation5.Location = new System.Drawing.Point(259, 107);
+            this.cbAnimation5.Name = "cbAnimation5";
+            this.cbAnimation5.Size = new System.Drawing.Size(136, 30);
+            this.cbAnimation5.TabIndex = 21;
+            this.cbAnimation5.Text = "Animation";
+            this.cbAnimation5.UseVisualStyleBackColor = true;
+            this.cbAnimation5.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cbHorror4
+            // 
+            this.cbHorror4.AutoSize = true;
+            this.cbHorror4.Location = new System.Drawing.Point(130, 108);
+            this.cbHorror4.Name = "cbHorror4";
+            this.cbHorror4.Size = new System.Drawing.Size(99, 30);
+            this.cbHorror4.TabIndex = 20;
+            this.cbHorror4.Text = "Horror";
+            this.cbHorror4.UseVisualStyleBackColor = true;
+            this.cbHorror4.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
+            // 
             // cbSciFi0
             // 
             this.cbSciFi0.AutoSize = true;
             this.cbSciFi0.Location = new System.Drawing.Point(21, 50);
             this.cbSciFi0.Name = "cbSciFi0";
             this.cbSciFi0.Size = new System.Drawing.Size(87, 30);
-            this.cbSciFi0.TabIndex = 19;
+            this.cbSciFi0.TabIndex = 16;
             this.cbSciFi0.Text = "SciFi";
             this.cbSciFi0.UseVisualStyleBackColor = true;
             this.cbSciFi0.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -480,7 +550,7 @@
             this.cbThriller3.Location = new System.Drawing.Point(21, 108);
             this.cbThriller3.Name = "cbThriller3";
             this.cbThriller3.Size = new System.Drawing.Size(103, 30);
-            this.cbThriller3.TabIndex = 22;
+            this.cbThriller3.TabIndex = 19;
             this.cbThriller3.Text = "Thriller";
             this.cbThriller3.UseVisualStyleBackColor = true;
             this.cbThriller3.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -491,7 +561,7 @@
             this.cbDrama1.Location = new System.Drawing.Point(126, 50);
             this.cbDrama1.Name = "cbDrama1";
             this.cbDrama1.Size = new System.Drawing.Size(104, 30);
-            this.cbDrama1.TabIndex = 20;
+            this.cbDrama1.TabIndex = 17;
             this.cbDrama1.Text = "Drama";
             this.cbDrama1.UseVisualStyleBackColor = true;
             this.cbDrama1.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -502,7 +572,7 @@
             this.cbAction2.Location = new System.Drawing.Point(259, 50);
             this.cbAction2.Name = "cbAction2";
             this.cbAction2.Size = new System.Drawing.Size(99, 30);
-            this.cbAction2.TabIndex = 21;
+            this.cbAction2.TabIndex = 18;
             this.cbAction2.Text = "Action";
             this.cbAction2.UseVisualStyleBackColor = true;
             this.cbAction2.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
@@ -525,7 +595,7 @@
             this.txtDirector.MaxLength = 99;
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(408, 31);
-            this.txtDirector.TabIndex = 17;
+            this.txtDirector.TabIndex = 14;
             this.txtDirector.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // label6
@@ -543,7 +613,7 @@
             this.txtCast.MaxLength = 99;
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(408, 31);
-            this.txtCast.TabIndex = 14;
+            this.txtCast.TabIndex = 15;
             this.txtCast.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtTitle
@@ -552,7 +622,7 @@
             this.txtTitle.MaxLength = 99;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(408, 31);
-            this.txtTitle.TabIndex = 13;
+            this.txtTitle.TabIndex = 0;
             this.txtTitle.TextChanged += new System.EventHandler(this.btnSearch_Click);
             // 
             // label2
@@ -575,173 +645,294 @@
             // 
             // pMovieView
             // 
+            this.pMovieView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pMovieView.BackColor = System.Drawing.Color.White;
-            this.pMovieView.Controls.Add(this.label4);
-            this.pMovieView.Controls.Add(this.ptxtLength);
-            this.pMovieView.Controls.Add(this.label3);
-            this.pMovieView.Controls.Add(this.lvSimilarMovies);
-            this.pMovieView.Controls.Add(this.pbPoster);
-            this.pMovieView.Controls.Add(this.ptxtRating);
-            this.pMovieView.Controls.Add(this.ptxtYear);
-            this.pMovieView.Controls.Add(this.ptxtGenre);
-            this.pMovieView.Controls.Add(this.ptxtCast);
-            this.pMovieView.Controls.Add(this.ptxtDirector);
-            this.pMovieView.Controls.Add(this.lbRating);
-            this.pMovieView.Controls.Add(this.lbYear);
-            this.pMovieView.Controls.Add(this.lbGenre);
-            this.pMovieView.Controls.Add(this.lbTitle);
-            this.pMovieView.Controls.Add(this.lbCast);
-            this.pMovieView.Controls.Add(this.lbDirector);
-            this.pMovieView.Controls.Add(this.pTrailer);
-            this.pMovieView.Controls.Add(this.btnPanelClose);
-            this.pMovieView.Location = new System.Drawing.Point(3, 3);
+            this.pMovieView.Controls.Add(this.panel4);
+            this.pMovieView.Controls.Add(this.panel3);
+            this.pMovieView.Controls.Add(this.panel2);
+            this.pMovieView.Location = new System.Drawing.Point(-2, 3);
             this.pMovieView.Name = "pMovieView";
-            this.pMovieView.Size = new System.Drawing.Size(1090, 1059);
+            this.pMovieView.Size = new System.Drawing.Size(1095, 1059);
             this.pMovieView.TabIndex = 1;
             this.pMovieView.Visible = false;
+            this.pMovieView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvSimilarMovies_MouseDoubleClick);
             // 
-            // lvSimilarMovies
+            // panel4
             // 
-            this.lvSimilarMovies.Location = new System.Drawing.Point(40, 635);
-            this.lvSimilarMovies.Name = "lvSimilarMovies";
-            this.lvSimilarMovies.Size = new System.Drawing.Size(1019, 395);
-            this.lvSimilarMovies.TabIndex = 15;
-            this.lvSimilarMovies.UseCompatibleStateImageBehavior = false;
-            this.lvSimilarMovies.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvSimilarMovies_MouseDoubleClick);
+            this.panel4.Controls.Add(this.ptxtLength);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.ptxtRating);
+            this.panel4.Controls.Add(this.ptxtYear);
+            this.panel4.Controls.Add(this.ptxtGenre);
+            this.panel4.Controls.Add(this.ptxtCast);
+            this.panel4.Controls.Add(this.ptxtDirector);
+            this.panel4.Controls.Add(this.lbRating);
+            this.panel4.Controls.Add(this.lbYear);
+            this.panel4.Controls.Add(this.lbGenre);
+            this.panel4.Controls.Add(this.lbCast);
+            this.panel4.Controls.Add(this.lbDirector);
+            this.panel4.Controls.Add(this.pTrailer);
+            this.panel4.Controls.Add(this.btnPanelClose);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(401, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(694, 630);
+            this.panel4.TabIndex = 23;
             // 
-            // pbPoster
+            // ptxtLength
             // 
-            this.pbPoster.Location = new System.Drawing.Point(40, 47);
-            this.pbPoster.Name = "pbPoster";
-            this.pbPoster.Size = new System.Drawing.Size(349, 478);
-            this.pbPoster.TabIndex = 14;
-            this.pbPoster.TabStop = false;
+            this.ptxtLength.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtLength.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtLength.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtLength.Location = new System.Drawing.Point(205, 498);
+            this.ptxtLength.Name = "ptxtLength";
+            this.ptxtLength.ReadOnly = true;
+            this.ptxtLength.Size = new System.Drawing.Size(100, 24);
+            this.ptxtLength.TabIndex = 32;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 498);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 26);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Running Time";
             // 
             // ptxtRating
             // 
-            this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtRating.Location = new System.Drawing.Point(539, 409);
+            this.ptxtRating.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtRating.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtRating.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtRating.Location = new System.Drawing.Point(153, 444);
             this.ptxtRating.Name = "ptxtRating";
             this.ptxtRating.ReadOnly = true;
-            this.ptxtRating.Size = new System.Drawing.Size(152, 31);
-            this.ptxtRating.TabIndex = 13;
+            this.ptxtRating.Size = new System.Drawing.Size(152, 24);
+            this.ptxtRating.TabIndex = 30;
             // 
             // ptxtYear
             // 
-            this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtYear.Location = new System.Drawing.Point(539, 345);
+            this.ptxtYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtYear.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtYear.Location = new System.Drawing.Point(153, 391);
             this.ptxtYear.Name = "ptxtYear";
             this.ptxtYear.ReadOnly = true;
-            this.ptxtYear.Size = new System.Drawing.Size(152, 31);
-            this.ptxtYear.TabIndex = 12;
+            this.ptxtYear.Size = new System.Drawing.Size(152, 24);
+            this.ptxtYear.TabIndex = 29;
             // 
             // ptxtGenre
             // 
-            this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtGenre.Location = new System.Drawing.Point(539, 288);
+            this.ptxtGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtGenre.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtGenre.Location = new System.Drawing.Point(153, 337);
             this.ptxtGenre.Name = "ptxtGenre";
             this.ptxtGenre.ReadOnly = true;
-            this.ptxtGenre.Size = new System.Drawing.Size(520, 31);
-            this.ptxtGenre.TabIndex = 11;
+            this.ptxtGenre.Size = new System.Drawing.Size(520, 24);
+            this.ptxtGenre.TabIndex = 28;
             // 
             // ptxtCast
             // 
-            this.ptxtCast.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtCast.Location = new System.Drawing.Point(539, 223);
+            this.ptxtCast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtCast.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtCast.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtCast.Location = new System.Drawing.Point(153, 238);
             this.ptxtCast.Multiline = true;
             this.ptxtCast.Name = "ptxtCast";
             this.ptxtCast.ReadOnly = true;
-            this.ptxtCast.Size = new System.Drawing.Size(520, 31);
-            this.ptxtCast.TabIndex = 10;
+            this.ptxtCast.Size = new System.Drawing.Size(520, 93);
+            this.ptxtCast.TabIndex = 27;
             // 
             // ptxtDirector
             // 
-            this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtDirector.Location = new System.Drawing.Point(539, 159);
+            this.ptxtDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtDirector.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtDirector.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtDirector.Location = new System.Drawing.Point(153, 174);
             this.ptxtDirector.Name = "ptxtDirector";
             this.ptxtDirector.ReadOnly = true;
-            this.ptxtDirector.Size = new System.Drawing.Size(520, 31);
-            this.ptxtDirector.TabIndex = 9;
+            this.ptxtDirector.Size = new System.Drawing.Size(520, 24);
+            this.ptxtDirector.TabIndex = 26;
             // 
             // lbRating
             // 
+            this.lbRating.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbRating.AutoSize = true;
-            this.lbRating.Location = new System.Drawing.Point(423, 409);
+            this.lbRating.Location = new System.Drawing.Point(37, 442);
             this.lbRating.Name = "lbRating";
             this.lbRating.Size = new System.Drawing.Size(75, 26);
-            this.lbRating.TabIndex = 8;
+            this.lbRating.TabIndex = 25;
             this.lbRating.Text = "Rating";
             // 
             // lbYear
             // 
+            this.lbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbYear.AutoSize = true;
-            this.lbYear.Location = new System.Drawing.Point(436, 345);
+            this.lbYear.Location = new System.Drawing.Point(50, 389);
             this.lbYear.Name = "lbYear";
             this.lbYear.Size = new System.Drawing.Size(59, 26);
-            this.lbYear.TabIndex = 7;
+            this.lbYear.TabIndex = 24;
             this.lbYear.Text = "Year";
             // 
             // lbGenre
             // 
+            this.lbGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbGenre.AutoSize = true;
-            this.lbGenre.Location = new System.Drawing.Point(423, 288);
+            this.lbGenre.Location = new System.Drawing.Point(37, 335);
             this.lbGenre.Name = "lbGenre";
             this.lbGenre.Size = new System.Drawing.Size(72, 26);
-            this.lbGenre.TabIndex = 6;
+            this.lbGenre.TabIndex = 23;
             this.lbGenre.Text = "Genre";
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Location = new System.Drawing.Point(178, 528);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(70, 26);
-            this.lbTitle.TabIndex = 5;
-            this.lbTitle.Text = "label8";
             // 
             // lbCast
             // 
+            this.lbCast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCast.AutoSize = true;
-            this.lbCast.Location = new System.Drawing.Point(438, 223);
+            this.lbCast.Location = new System.Drawing.Point(52, 238);
             this.lbCast.Name = "lbCast";
             this.lbCast.Size = new System.Drawing.Size(57, 26);
-            this.lbCast.TabIndex = 4;
+            this.lbCast.TabIndex = 22;
             this.lbCast.Text = "Cast";
             // 
             // lbDirector
             // 
+            this.lbDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDirector.AutoSize = true;
-            this.lbDirector.Location = new System.Drawing.Point(407, 157);
+            this.lbDirector.Location = new System.Drawing.Point(21, 172);
             this.lbDirector.Name = "lbDirector";
             this.lbDirector.Size = new System.Drawing.Size(88, 26);
-            this.lbDirector.TabIndex = 3;
+            this.lbDirector.TabIndex = 21;
             this.lbDirector.Text = "Director";
             // 
             // pTrailer
             // 
-            this.pTrailer.Location = new System.Drawing.Point(711, 345);
+            this.pTrailer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pTrailer.Location = new System.Drawing.Point(325, 391);
             this.pTrailer.Name = "pTrailer";
             this.pTrailer.Size = new System.Drawing.Size(348, 180);
-            this.pTrailer.TabIndex = 2;
+            this.pTrailer.TabIndex = 20;
             // 
             // btnPanelClose
             // 
-            this.btnPanelClose.Location = new System.Drawing.Point(888, 45);
+            this.btnPanelClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPanelClose.Location = new System.Drawing.Point(502, 60);
             this.btnPanelClose.Name = "btnPanelClose";
             this.btnPanelClose.Size = new System.Drawing.Size(171, 51);
-            this.btnPanelClose.TabIndex = 1;
+            this.btnPanelClose.TabIndex = 19;
             this.btnPanelClose.Text = "Close";
             this.btnPanelClose.UseVisualStyleBackColor = true;
             this.btnPanelClose.Click += new System.EventHandler(this.btnPanelClose_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.ptxtTitle);
+            this.panel3.Controls.Add(this.pbPoster);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(401, 630);
+            this.panel3.TabIndex = 22;
+            // 
+            // ptxtTitle
+            // 
+            this.ptxtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptxtTitle.BackColor = System.Drawing.SystemColors.Window;
+            this.ptxtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ptxtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.17801F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptxtTitle.Location = new System.Drawing.Point(24, 523);
+            this.ptxtTitle.Multiline = true;
+            this.ptxtTitle.Name = "ptxtTitle";
+            this.ptxtTitle.ReadOnly = true;
+            this.ptxtTitle.Size = new System.Drawing.Size(349, 104);
+            this.ptxtTitle.TabIndex = 22;
+            this.ptxtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pbPoster
+            // 
+            this.pbPoster.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPoster.Location = new System.Drawing.Point(24, 45);
+            this.pbPoster.Name = "pbPoster";
+            this.pbPoster.Size = new System.Drawing.Size(349, 478);
+            this.pbPoster.TabIndex = 21;
+            this.pbPoster.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.lvSimilarMovies);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 630);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1095, 429);
+            this.panel2.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(494, 26);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Similar Movies(from same genre, director, cast .. )";
+            // 
+            // lvSimilarMovies
+            // 
+            this.lvSimilarMovies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvSimilarMovies.Location = new System.Drawing.Point(40, 56);
+            this.lvSimilarMovies.Name = "lvSimilarMovies";
+            this.lvSimilarMovies.Size = new System.Drawing.Size(1019, 341);
+            this.lvSimilarMovies.TabIndex = 20;
+            this.lvSimilarMovies.UseCompatibleStateImageBehavior = false;
+            this.lvSimilarMovies.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvSimilarMovies_MouseDoubleClick);
+            // 
             // lvMovie
             // 
             this.lvMovie.ContextMenuStrip = this.cmsMovieAdd;
-            this.lvMovie.Location = new System.Drawing.Point(3, 0);
+            this.lvMovie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvMovie.Location = new System.Drawing.Point(0, 31);
             this.lvMovie.MultiSelect = false;
             this.lvMovie.Name = "lvMovie";
-            this.lvMovie.Size = new System.Drawing.Size(1090, 1062);
-            this.lvMovie.TabIndex = 0;
+            this.lvMovie.Size = new System.Drawing.Size(1096, 1034);
+            this.lvMovie.TabIndex = 3;
             this.lvMovie.UseCompatibleStateImageBehavior = false;
             this.lvMovie.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDoubleClick);
             this.lvMovie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMovie_MouseDown);
@@ -768,90 +959,15 @@
             this.removeFromThisListToolStripMenuItem.Text = "Remove From this List";
             this.removeFromThisListToolStripMenuItem.Click += new System.EventHandler(this.removeFromThisListToolStripMenuItem_Click);
             // 
-            // label3
+            // txtCount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 483);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 26);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Running Time";
-            // 
-            // ptxtLength
-            // 
-            this.ptxtLength.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptxtLength.Location = new System.Drawing.Point(591, 483);
-            this.ptxtLength.Name = "ptxtLength";
-            this.ptxtLength.ReadOnly = true;
-            this.ptxtLength.Size = new System.Drawing.Size(100, 31);
-            this.ptxtLength.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 603);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(494, 26);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Similar Movies(from same genre, director, cast .. )";
-            // 
-            // cbHorror4
-            // 
-            this.cbHorror4.AutoSize = true;
-            this.cbHorror4.Location = new System.Drawing.Point(130, 108);
-            this.cbHorror4.Name = "cbHorror4";
-            this.cbHorror4.Size = new System.Drawing.Size(99, 30);
-            this.cbHorror4.TabIndex = 23;
-            this.cbHorror4.Text = "Horror";
-            this.cbHorror4.UseVisualStyleBackColor = true;
-            this.cbHorror4.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cbAnimation5
-            // 
-            this.cbAnimation5.AutoSize = true;
-            this.cbAnimation5.Location = new System.Drawing.Point(259, 107);
-            this.cbAnimation5.Name = "cbAnimation5";
-            this.cbAnimation5.Size = new System.Drawing.Size(136, 30);
-            this.cbAnimation5.TabIndex = 24;
-            this.cbAnimation5.Text = "Animation";
-            this.cbAnimation5.UseVisualStyleBackColor = true;
-            this.cbAnimation5.CheckedChanged += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // manageMoviesToolStripMenuItem
-            // 
-            this.manageMoviesToolStripMenuItem.Name = "manageMoviesToolStripMenuItem";
-            this.manageMoviesToolStripMenuItem.Size = new System.Drawing.Size(266, 40);
-            this.manageMoviesToolStripMenuItem.Text = "Manage Movies";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtMax);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(47, 818);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(408, 118);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Running Time";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 26);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Maximum";
-            // 
-            // txtMax
-            // 
-            this.txtMax.Location = new System.Drawing.Point(171, 53);
-            this.txtMax.MaxLength = 4;
-            this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(164, 31);
-            this.txtMax.TabIndex = 3;
-            this.txtMax.TextChanged += new System.EventHandler(this.btnSearch_Click);
-            this.txtMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validating_numKey);
+            this.txtCount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCount.Location = new System.Drawing.Point(0, 0);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.ReadOnly = true;
+            this.txtCount.Size = new System.Drawing.Size(1096, 31);
+            this.txtCount.TabIndex = 2;
+            this.txtCount.TextChanged += new System.EventHandler(this.txtCount_TextChanged);
             // 
             // MainWindow
             // 
@@ -869,6 +985,7 @@
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -877,16 +994,21 @@
             this.cmsMovieList.ResumeLayout(false);
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pMovieView.ResumeLayout(false);
-            this.pMovieView.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.cmsMovieAdd.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -918,20 +1040,6 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
         private System.Windows.Forms.Panel pMovieView;
-        private System.Windows.Forms.Button btnPanelClose;
-        private System.Windows.Forms.Panel pTrailer;
-        private System.Windows.Forms.Label lbRating;
-        private System.Windows.Forms.Label lbYear;
-        private System.Windows.Forms.Label lbGenre;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.Label lbCast;
-        private System.Windows.Forms.Label lbDirector;
-        private System.Windows.Forms.TextBox ptxtRating;
-        private System.Windows.Forms.TextBox ptxtYear;
-        private System.Windows.Forms.TextBox ptxtGenre;
-        private System.Windows.Forms.TextBox ptxtCast;
-        private System.Windows.Forms.TextBox ptxtDirector;
-        private System.Windows.Forms.PictureBox pbPoster;
         private System.Windows.Forms.CheckBox cbThriller3;
         private System.Windows.Forms.CheckBox cbAction2;
         private System.Windows.Forms.CheckBox cbDrama1;
@@ -949,7 +1057,6 @@
         private System.Windows.Forms.Button btnDeleteList;
         private System.Windows.Forms.Button btnRenameList;
         private System.Windows.Forms.Button btnAddList;
-        private System.Windows.Forms.ListView lvSimilarMovies;
         private System.Windows.Forms.ContextMenuStrip cmsMovieList;
         private System.Windows.Forms.ToolStripMenuItem addAListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
@@ -957,17 +1064,35 @@
         private System.Windows.Forms.ContextMenuStrip cmsMovieAdd;
         private System.Windows.Forms.ToolStripMenuItem addToAListToolStripMenuItem;
         private System.Windows.Forms.ListBox lbList;
-        private System.Windows.Forms.ListView lvMovie;
         private System.Windows.Forms.ToolStripMenuItem removeFromThisListToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox ptxtLength;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbAnimation5;
         private System.Windows.Forms.CheckBox cbHorror4;
-        private System.Windows.Forms.ToolStripMenuItem manageMoviesToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtMax;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView lvMovie;
+        private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox ptxtLength;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox ptxtRating;
+        private System.Windows.Forms.TextBox ptxtYear;
+        private System.Windows.Forms.TextBox ptxtGenre;
+        private System.Windows.Forms.TextBox ptxtCast;
+        private System.Windows.Forms.TextBox ptxtDirector;
+        private System.Windows.Forms.Label lbRating;
+        private System.Windows.Forms.Label lbYear;
+        private System.Windows.Forms.Label lbGenre;
+        private System.Windows.Forms.Label lbCast;
+        private System.Windows.Forms.Label lbDirector;
+        private System.Windows.Forms.Panel pTrailer;
+        private System.Windows.Forms.Button btnPanelClose;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox ptxtTitle;
+        private System.Windows.Forms.PictureBox pbPoster;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView lvSimilarMovies;
     }
 }
 

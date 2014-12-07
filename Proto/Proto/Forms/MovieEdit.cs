@@ -101,10 +101,7 @@ namespace Proto.Forms
 
             string saveError = eTitle + eDirector + eLength + eYear;
 
-            if(txtTitle.CausesValidation == true ||
-                txtDirector.CausesValidation == true ||
-                txtLength.CausesValidation == true ||
-                txtYear.CausesValidation == true)
+            if(!string.IsNullOrWhiteSpace(saveError.Trim()) )
             {
                 MessageBox.Show(saveError);
                 return;
