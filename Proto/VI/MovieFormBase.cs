@@ -105,11 +105,6 @@ namespace Proto.Forms
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtTitle_Enter(object sender, EventArgs e)
         {
             ToolTip tt = new ToolTip();
@@ -157,6 +152,11 @@ namespace Proto.Forms
             tt.InitialDelay = 0;
             tt.ShowAlways = true;
             tt.SetToolTip((PictureBox)sender, "Click Browse to include poster image");
+        }
+
+        private void MovieBase_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtTitle;
         }
     }
 }

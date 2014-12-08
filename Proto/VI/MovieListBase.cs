@@ -38,5 +38,10 @@ namespace Proto.Forms
             tt.ShowAlways = true;
             tt.SetToolTip((TextBox)sender, "Enter list name, Max 25 characters");
         }
+
+        private void MovieListBase_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtName;
+        }
     }
 }

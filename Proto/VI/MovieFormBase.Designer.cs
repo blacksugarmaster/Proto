@@ -103,7 +103,6 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel2
             // 
@@ -154,6 +153,7 @@
             this.txtLength.Size = new System.Drawing.Size(248, 31);
             this.txtLength.TabIndex = 32;
             this.txtLength.Enter += new System.EventHandler(this.txtLength_Enter);
+            this.txtLength.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txtInt);
             // 
             // lbLength
             // 
@@ -193,6 +193,7 @@
             this.btnBrowse.TabIndex = 33;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // label5
             // 
@@ -211,6 +212,7 @@
             this.btnDeleteCast.TabIndex = 39;
             this.btnDeleteCast.Text = "Delete";
             this.btnDeleteCast.UseVisualStyleBackColor = true;
+            this.btnDeleteCast.Click += new System.EventHandler(this.btnDeleteCast_Click);
             // 
             // btnAddCast
             // 
@@ -220,6 +222,7 @@
             this.btnAddCast.TabIndex = 31;
             this.btnAddCast.Text = "Add";
             this.btnAddCast.UseVisualStyleBackColor = true;
+            this.btnAddCast.Click += new System.EventHandler(this.btnAddCast_Click);
             // 
             // txtCast
             // 
@@ -248,6 +251,7 @@
             this.txtDirector.Size = new System.Drawing.Size(248, 31);
             this.txtDirector.TabIndex = 28;
             this.txtDirector.Enter += new System.EventHandler(this.txtDirector_Enter);
+            this.txtDirector.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txt);
             // 
             // groupBox1
             // 
@@ -331,8 +335,9 @@
             this.txtTitle.MaxLength = 99;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
-            this.txtTitle.TabIndex = 26;
+            this.txtTitle.TabIndex = 0;
             this.txtTitle.Enter += new System.EventHandler(this.txtTitle_Enter);
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txt);
             // 
             // label3
             // 
@@ -457,6 +462,7 @@
             this.txtYear.Size = new System.Drawing.Size(248, 31);
             this.txtYear.TabIndex = 34;
             this.txtYear.Enter += new System.EventHandler(this.txtYear_Enter);
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.validating_txtInt);
             // 
             // ep
             // 
@@ -479,6 +485,7 @@
             this.Name = "MovieBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MovieManipulate";
+            this.Load += new System.EventHandler(this.MovieBase_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

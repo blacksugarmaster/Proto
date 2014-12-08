@@ -130,6 +130,7 @@
             this.MinimizeBox = false;
             this.Name = "MovieListBase";
             this.Text = "MovieListBase";
+            this.Load += new System.EventHandler(this.MovieListBase_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.panel2.ResumeLayout(false);

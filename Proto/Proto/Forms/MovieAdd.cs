@@ -24,10 +24,6 @@ namespace Proto.Forms
             InitializeComponent();
         }
 
-        private void MovieAdd_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -39,7 +35,8 @@ namespace Proto.Forms
             string saveError = eTitle + eDirector + eLength + eYear;
 
 
-            if (!string.IsNullOrWhiteSpace(saveError.Trim()))
+            if (
+                !string.IsNullOrWhiteSpace(saveError.Trim()))
             {
                 MessageBox.Show(saveError);
                 return;

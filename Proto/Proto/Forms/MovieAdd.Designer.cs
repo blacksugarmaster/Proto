@@ -41,7 +41,6 @@
             this.Name = "MovieAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Movie";
-            this.Load += new System.EventHandler(this.MovieAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
