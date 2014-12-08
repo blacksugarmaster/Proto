@@ -30,6 +30,13 @@ namespace Proto.Forms
             }
             ep.SetError((Control)sender, err);
         }
-
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter list name, Max 25 characters");
+        }
     }
 }

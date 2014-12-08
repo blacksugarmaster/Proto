@@ -33,7 +33,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ep = new System.Windows.Forms.ErrorProvider(this.components);
             this.pbPoster = new System.Windows.Forms.PictureBox();
             this.txtLength = new System.Windows.Forms.TextBox();
             this.lbLength = new System.Windows.Forms.Label();
@@ -46,8 +45,6 @@
             this.txtCast = new System.Windows.Forms.TextBox();
             this.lbCast = new System.Windows.Forms.ListBox();
             this.txtDirector = new System.Windows.Forms.TextBox();
-            this.rbNC17 = new System.Windows.Forms.RadioButton();
-            this.rbR = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbAnimation5 = new System.Windows.Forms.CheckBox();
             this.cbHorror4 = new System.Windows.Forms.CheckBox();
@@ -60,17 +57,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbNC17 = new System.Windows.Forms.RadioButton();
+            this.rbR = new System.Windows.Forms.RadioButton();
             this.rbPG13 = new System.Windows.Forms.RadioButton();
             this.rbPG = new System.Windows.Forms.RadioButton();
             this.rbG = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
+            this.ep = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,11 +135,6 @@
             this.panel2.Size = new System.Drawing.Size(636, 1032);
             this.panel2.TabIndex = 25;
             // 
-            // ep
-            // 
-            this.ep.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.ep.ContainerControl = this;
-            // 
             // pbPoster
             // 
             this.pbPoster.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -148,6 +143,7 @@
             this.pbPoster.Size = new System.Drawing.Size(248, 281);
             this.pbPoster.TabIndex = 44;
             this.pbPoster.TabStop = false;
+            this.pbPoster.MouseHover += new System.EventHandler(this.Poster_Hover);
             // 
             // txtLength
             // 
@@ -157,6 +153,7 @@
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(248, 31);
             this.txtLength.TabIndex = 32;
+            this.txtLength.Enter += new System.EventHandler(this.txtLength_Enter);
             // 
             // lbLength
             // 
@@ -231,6 +228,7 @@
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(248, 31);
             this.txtCast.TabIndex = 29;
+            this.txtCast.Enter += new System.EventHandler(this.txtCast_Enter);
             // 
             // lbCast
             // 
@@ -249,30 +247,7 @@
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(248, 31);
             this.txtDirector.TabIndex = 28;
-            // 
-            // rbNC17
-            // 
-            this.rbNC17.AutoSize = true;
-            this.rbNC17.ForeColor = System.Drawing.Color.Blue;
-            this.rbNC17.Location = new System.Drawing.Point(398, 49);
-            this.rbNC17.Name = "rbNC17";
-            this.rbNC17.Size = new System.Drawing.Size(100, 30);
-            this.rbNC17.TabIndex = 17;
-            this.rbNC17.TabStop = true;
-            this.rbNC17.Text = "NC-17";
-            this.rbNC17.UseVisualStyleBackColor = true;
-            // 
-            // rbR
-            // 
-            this.rbR.AutoSize = true;
-            this.rbR.ForeColor = System.Drawing.Color.Red;
-            this.rbR.Location = new System.Drawing.Point(322, 49);
-            this.rbR.Name = "rbR";
-            this.rbR.Size = new System.Drawing.Size(53, 30);
-            this.rbR.TabIndex = 16;
-            this.rbR.TabStop = true;
-            this.rbR.Text = "R";
-            this.rbR.UseVisualStyleBackColor = true;
+            this.txtDirector.Enter += new System.EventHandler(this.txtDirector_Enter);
             // 
             // groupBox1
             // 
@@ -357,6 +332,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(248, 31);
             this.txtTitle.TabIndex = 26;
+            this.txtTitle.Enter += new System.EventHandler(this.txtTitle_Enter);
             // 
             // label3
             // 
@@ -401,6 +377,30 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rating";
+            // 
+            // rbNC17
+            // 
+            this.rbNC17.AutoSize = true;
+            this.rbNC17.ForeColor = System.Drawing.Color.Blue;
+            this.rbNC17.Location = new System.Drawing.Point(398, 49);
+            this.rbNC17.Name = "rbNC17";
+            this.rbNC17.Size = new System.Drawing.Size(100, 30);
+            this.rbNC17.TabIndex = 17;
+            this.rbNC17.TabStop = true;
+            this.rbNC17.Text = "NC-17";
+            this.rbNC17.UseVisualStyleBackColor = true;
+            // 
+            // rbR
+            // 
+            this.rbR.AutoSize = true;
+            this.rbR.ForeColor = System.Drawing.Color.Red;
+            this.rbR.Location = new System.Drawing.Point(322, 49);
+            this.rbR.Name = "rbR";
+            this.rbR.Size = new System.Drawing.Size(53, 30);
+            this.rbR.TabIndex = 16;
+            this.rbR.TabStop = true;
+            this.rbR.Text = "R";
+            this.rbR.UseVisualStyleBackColor = true;
             // 
             // rbPG13
             // 
@@ -456,6 +456,12 @@
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(248, 31);
             this.txtYear.TabIndex = 34;
+            this.txtYear.Enter += new System.EventHandler(this.txtYear_Enter);
+            // 
+            // ep
+            // 
+            this.ep.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ep.ContainerControl = this;
             // 
             // MovieBase
             // 
@@ -476,12 +482,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPoster)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

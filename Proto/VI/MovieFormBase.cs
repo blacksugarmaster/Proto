@@ -109,5 +109,54 @@ namespace Proto.Forms
         {
 
         }
+
+        private void txtTitle_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter Title here, Max 99 Characters");
+        }
+        private void txtDirector_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter Director here, Max 99 Characters");
+        }
+        private void txtCast_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter each cast here, and click Add, Max 99 Characters");
+        }
+        private void txtLength_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter Running time here, Max 4 digit");
+        }
+        private void txtYear_Enter(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((TextBox)sender, "Enter release year here, Max 4 digit");
+        }
+        private void Poster_Hover(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.IsBalloon = true;
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+            tt.SetToolTip((PictureBox)sender, "Click Browse to include poster image");
+        }
     }
 }
